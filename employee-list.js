@@ -12,6 +12,7 @@ $(function() {
             { title: 'Street', data: 'street' },
             { title: 'City', data: 'city' },
             { title: 'State', data: 'state' },
+            
             { title: 'Zip Code', data: 'zipCode' },
         ]
     });
