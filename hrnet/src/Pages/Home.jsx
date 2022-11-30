@@ -4,6 +4,9 @@ import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import FieldSet from '../Components/FieldSet';
 
 const Home = () => {
+  function submitNewUser() {
+    console.log('new');
+  }
   return (
     <div className='pageWrapper'>
       <h1>HRnet</h1>
@@ -12,6 +15,7 @@ const Home = () => {
       <CreateEmployeeForm></CreateEmployeeForm>
       <FieldSet></FieldSet>
       <div className='reminder'>ADD Department Select Component</div>
+      <button onClick={submitNewUser}>Save</button>
     </div>
   );
 };
