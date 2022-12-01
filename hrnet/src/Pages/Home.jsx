@@ -1,11 +1,11 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import FieldSet from '../Components/FieldSet';
-
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
+import Select from 'react-select';
 
+// MODAL
 const customStyles = {
   content: {
     top: '50%',
@@ -16,25 +16,31 @@ const customStyles = {
     transform: 'translate(-50%, -50%)',
   },
 };
-
 Modal.setAppElement('#root');
+//SELECT
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
 
 const Home = () => {
+  // MODAL
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
-
   function openModal() {
     setIsOpen(true);
   }
-
   function afterOpenModal() {
     // references are now sync'd and can be accessed.
     subtitle.style.color = '#f00';
   }
-
   function closeModal() {
     setIsOpen(false);
   }
+
+  //SELECT
+  const [selectedOption, setSelectedOption] = useState(null);
 
   return (
     <div className='pageWrapper' id='home-page'>
@@ -43,7 +49,13 @@ const Home = () => {
       <h2>Create Employee</h2>
       <CreateEmployeeForm></CreateEmployeeForm>
       <FieldSet></FieldSet>
-      <div className='reminder'>ADD Department Select Component</div>
+      <div className='select-container' id='department'>
+        <Select
+          defaultValue={selectedOption}
+          onChange={setSelectedOption}
+          options={options}
+        />
+      </div>
       <div>
         <button onClick={openModal}>Open Modal</button>
         <Modal
