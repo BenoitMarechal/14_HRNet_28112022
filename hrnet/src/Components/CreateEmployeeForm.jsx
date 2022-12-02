@@ -39,7 +39,8 @@ const CreateEmployeeForm = () => {
   // MODAL
   let subtitle;
   const [modalIsOpen, setIsOpen] = useState(false);
-  function openModal() {
+  function openModal(e) {
+    e.preventDefault();
     setIsOpen(true);
   }
   function afterOpenModal() {
