@@ -21,14 +21,13 @@ const FieldSet = () => {
           key={'top' + top.indexOf(...elt)}
         ></SingleTextInput>
       ))}
-      <div className='select-container' id='state'>
-        <Select
-          defaultValue={selectedOption}
-          onChange={setSelectedOption}
-          options={options}
-        />
-      </div>
-      {/* <div className='reminder'>ADD State Select Component</div> */}
+      <label htmlFor='state'>State</label>
+      <Select
+        id='state'
+        defaultValue={selectedOption}
+        onChange={setSelectedOption}
+        options={options}
+      />
       <label htmlFor='zip-code'>Zip Code</label>
       <input type={'number'} id='zip-code'></input>
     </fieldset>
