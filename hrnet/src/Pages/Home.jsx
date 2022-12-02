@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import FieldSet from '../Components/FieldSet';
 import Modal from 'react-modal';
@@ -42,14 +43,29 @@ const Home = () => {
   //SELECT
   const [selectedOption, setSelectedOption] = useState(null);
 
+  //START DATEPICKER
+  const [startDate, setStartDate] = useState(new Date());
+  //BIRTH DATEPICKER
+  const [birthDate, setBirthDate] = useState(new Date());
+
   return (
     <div className='pageWrapper' id='home-page'>
       <h1>HRnet</h1>
       <NavLink to='/employee-list'>View Current Employees</NavLink>
       <h2>Create Employee</h2>
       <CreateEmployeeForm></CreateEmployeeForm>
-      <div className='reminder'>ADD BIRTH DATE PICKER</div>
-      <div className='reminder'>ADD START DATE PICKER</div>
+      <label htmlFor='birth-date'>Date of Birth</label>{' '}
+      <DatePicker
+        id='birth-date'
+        selected={birthDate}
+        onChange={(date) => setBirthDate(date)}
+      />
+      <label htmlFor='start-date'>Start Date</label>
+      <DatePicker
+        id='start-date'
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+      />
       <FieldSet></FieldSet>
       <div className='select-container' id='department'>
         <Select
