@@ -48,6 +48,8 @@ const Home = () => {
       <NavLink to='/employee-list'>View Current Employees</NavLink>
       <h2>Create Employee</h2>
       <CreateEmployeeForm></CreateEmployeeForm>
+      <div className='reminder'>ADD BIRTH DATE PICKER</div>
+      <div className='reminder'>ADD START DATE PICKER</div>
       <FieldSet></FieldSet>
       <div className='select-container' id='department'>
         <Select
