@@ -1,6 +1,8 @@
 import { React, useState } from 'react';
 import SingleTextInput from './SingleTextInput';
 import DatePicker from 'react-datepicker';
+import { increment } from '../Store/counterSlice';
+import { useDispatch } from 'react-redux';
 
 //import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import FieldSet from '../Components/FieldSet';
@@ -8,13 +10,6 @@ import Modal from 'react-modal';
 import Select from 'react-select';
 //DEPT SELECT
 import { departments } from './Assets/departments';
-
-//DEPT SELECT
-const options = [
-  { value: 'chocolate', label: 'Chocolate' },
-  { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' },
-];
 
 // MODAL
 const customStyles = {
@@ -30,6 +25,7 @@ const customStyles = {
 Modal.setAppElement('#root');
 
 const CreateEmployeeForm = () => {
+  const dispatch = useDispatch();
   //BASIC DATA
   let basicData2 = ['First Name', 'Last Name'];
   //START DATEPICKER
@@ -43,6 +39,7 @@ const CreateEmployeeForm = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal(e) {
     e.preventDefault();
+    dispatch(increment());
     setIsOpen(true);
   }
 
