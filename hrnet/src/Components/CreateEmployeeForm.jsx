@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import SingleTextInput from './SingleTextInput';
 import DatePicker from 'react-datepicker';
-import { increment } from '../Store/counterSlice';
+import { increment, setDataBase } from '../Store/counterSlice';
 import { useDispatch } from 'react-redux';
 
 //import CreateEmployeeForm from '../Components/CreateEmployeeForm';
@@ -39,8 +39,12 @@ const CreateEmployeeForm = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal(e) {
     e.preventDefault();
-    dispatch(increment());
+    //dispatch(increment());
     setIsOpen(true);
+    let string = document.getElementById('first-name').value;
+    console.log(string);
+    let obj = { firstName: string };
+    dispatch(setDataBase(obj));
   }
 
   function closeModal() {
