@@ -25,3 +25,6 @@ yarn-error.log*
 # ide files
 /.idea
 
+hrnet/node_modules/.package-lock.json
+hrnet/node_modules/.package-lock.json
+hrnet/node_modules/.package-lock.json
