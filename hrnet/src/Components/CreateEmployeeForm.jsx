@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import SingleTextInput from './SingleTextInput';
 import DatePicker from 'react-datepicker';
-import { increment, setDataBase } from '../Store/counterSlice';
+import { setDataBase } from '../Store/slices/dataBaseSlice';
 import { useDispatch } from 'react-redux';
 
 //import CreateEmployeeForm from '../Components/CreateEmployeeForm';
