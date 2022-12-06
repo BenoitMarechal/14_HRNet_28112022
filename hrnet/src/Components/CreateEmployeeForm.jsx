@@ -4,7 +4,6 @@ import DatePicker from 'react-datepicker';
 import { setDataBase } from '../Store/slices/dataBaseSlice';
 import { useDispatch } from 'react-redux';
 
-//import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import FieldSet from '../Components/FieldSet';
 import Modal from 'react-modal';
 import Select from 'react-select';
