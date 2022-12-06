@@ -6,6 +6,8 @@ import DatePicker from 'react-datepicker';
 import FieldSet from '../Components/FieldSet';
 import Modal from 'react-modal';
 import Select from 'react-select';
+//DEPT SELECT
+import { departments } from './Assets/departments';
 
 //DEPT SELECT
 const options = [
@@ -37,16 +39,13 @@ const CreateEmployeeForm = () => {
   //DEPT SELECT
   const [selectedOption, setSelectedOption] = useState(null);
   // MODAL
-  let subtitle;
+
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal(e) {
     e.preventDefault();
     setIsOpen(true);
   }
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    subtitle.style.color = '#f00';
-  }
+
   function closeModal() {
     setIsOpen(false);
   }
@@ -61,18 +60,24 @@ const CreateEmployeeForm = () => {
         ></SingleTextInput>
       ))}
       {/* Date pickers */}
-      <label htmlFor='birth-date'>Date of Birth</label>{' '}
-      <DatePicker
-        id='birth-date'
-        selected={birthDate}
-        onChange={(date) => setBirthDate(date)}
-      />
-      <label htmlFor='start-date'>Start Date</label>
-      <DatePicker
-        id='start-date'
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-      />
+      <div className='single-text-input'>
+        <label htmlFor='birth-date'>Date of Birth</label>{' '}
+        <DatePicker
+          id='birth-date'
+          selected={birthDate}
+          onChange={(date) => setBirthDate(date)}
+        />
+      </div>
+
+      <div className='single-text-input'>
+        <label htmlFor='start-date'>Start Date</label>{' '}
+        <DatePicker
+          id='start-date'
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+        />
+      </div>
+
       {/* FieldSet */}
       <FieldSet></FieldSet>
       {/* Department Selector */}
@@ -81,28 +86,21 @@ const CreateEmployeeForm = () => {
         id='department'
         defaultValue={selectedOption}
         onChange={setSelectedOption}
-        options={options}
+        options={departments}
       />
       {/* submit button */}
-      <button onClick={openModal}>Open Modal</button>
+      <button onClick={openModal}>Save</button>
       {/* MODAL */}
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel='Example Modal'
+        contentLabel='Employee creation modal'
       >
-        <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Hello</h2>
-        <button onClick={closeModal}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
+        <div className='modal'>
+          <button onClick={closeModal}>X</button>
+          <div>Employee Created!</div>
+        </div>
       </Modal>
     </form>
   );
