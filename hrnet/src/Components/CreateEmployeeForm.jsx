@@ -41,7 +41,6 @@ const CreateEmployeeForm = () => {
     //dispatch(increment());
     setIsOpen(true);
     let string = document.getElementById('first-name').value;
-    console.log(string);
     let obj = { firstName: string };
     dispatch(setDataBase(obj));
   }
