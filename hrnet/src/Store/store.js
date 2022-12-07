@@ -1,6 +1,25 @@
 import { configureStore } from '@reduxjs/toolkit';
 import dataBaseReducer from './slices/dataBaseSlice';
+import storage from 'redux-persist/lib/storage';
+import { combineReducers } from 'redux';
+import { persistReducer } from 'redux-persist';
+import thunk from 'redux-thunk';
 
-export const store = configureStore({
-  reducer: { dataBaseReducer },
+const reducers = combineReducers({
+  dataBaseReducer,
 });
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({
+  reducer: persistedReducer,
+
+  middleware: [thunk],
+});
+
+export default store;
