@@ -1,38 +1,25 @@
-import { React, useState } from 'react';
-import Select from 'react-select';
-import SingleTextInput from './SingleTextInput';
+import { React } from 'react';
 //STATES SELECTOR
-import { states } from './Assets/states';
-
-let top = ['Street', 'City'];
-
-// const options = [
-//   { value: 'chocolate', label: 'Chocolate' },
-//   { value: 'strawberry', label: 'Strawberry' },
-//   { value: 'vanilla', label: 'Vanilla' },
-// ];
-
+import StreetForm from './streetForm/StreetForm';
+import CityForm from './cityForm/CityForm';
+import StateForm from './stateForm/StateForm';
+import ZipCodeForm from './zipCodeForm/ZipCodeForm';
 const FieldSet = () => {
-  //console.log(test);
-  const [selectedOption, setSelectedOption] = useState(null);
   return (
     <fieldset className='address'>
       <legend>Address</legend>
-      {top.map((...elt) => (
-        <SingleTextInput
-          {...elt}
-          key={'top' + top.indexOf(...elt)}
-        ></SingleTextInput>
-      ))}
+      <StreetForm></StreetForm>
+      <CityForm></CityForm>
       <label htmlFor='state'>State</label>
-      <Select
+      <StateForm></StateForm>
+      {/* <Select
         id='state'
         defaultValue={selectedOption}
         onChange={setSelectedOption}
         options={states}
-      />
+      /> */}
       <label htmlFor='zip-code'>Zip Code</label>
-      <input type={'number'} id='zip-code'></input>
+      <ZipCodeForm></ZipCodeForm>
     </fieldset>
   );
 };

@@ -1,14 +1,15 @@
 import { React, useState } from 'react';
-import SingleTextInput from './SingleTextInput';
-import DatePicker from 'react-datepicker';
 import { setDataBase } from '../Store/slices/dataBaseSlice';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import FieldSet from '../Components/FieldSet';
 import Modal from 'react-modal';
-import Select from 'react-select';
 //DEPT SELECT
-import { departments } from './Assets/departments';
+import FirstNameForm from './firstNameForm/FirstNameForm';
+import LastNameForm from './lastNameForm/LastNameForm';
+import DepartmentForm from './departmentForm/DepartmentForm';
+import StartDateForm from './startDateForm/StartDateForm';
+import BirthDateForm from './birthDateForm/BirthDateForm';
 
 // MODAL
 const customStyles = {
@@ -25,69 +26,25 @@ Modal.setAppElement('#root');
 
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
-  //BASIC DATA
-  let basicData2 = ['First Name', 'Last Name'];
-  //START DATEPICKER
-  const [startDate, setStartDate] = useState(new Date());
-  //BIRTH DATEPICKER
-  const [birthDate, setBirthDate] = useState(new Date());
-  //DEPT SELECT
-  const [selectedOption, setSelectedOption] = useState(null);
-  // MODAL
-
+  const form = useSelector((state) => state.formSliceReducer);
   const [modalIsOpen, setIsOpen] = useState(false);
   function openModal(e) {
     e.preventDefault();
-    //dispatch(increment());
     setIsOpen(true);
-    let string = document.getElementById('first-name').value;
-    let obj = { firstName: string };
-    dispatch(setDataBase(obj));
+    dispatch(setDataBase(form));
   }
-
   function closeModal() {
     setIsOpen(false);
   }
-
   return (
     <form action='#' id='create-employee'>
-      {/* first and last name */}
-      {basicData2.map((...elt) => (
-        <SingleTextInput
-          {...elt}
-          key={'basicData' + basicData2.indexOf(...elt)}
-        ></SingleTextInput>
-      ))}
-      {/* Date pickers */}
-      <div className='single-text-input'>
-        <label htmlFor='birth-date'>Date of Birth</label>{' '}
-        <DatePicker
-          id='birth-date'
-          selected={birthDate}
-          onChange={(date) => setBirthDate(date)}
-        />
-      </div>
-
-      <div className='single-text-input'>
-        <label htmlFor='start-date'>Start Date</label>{' '}
-        <DatePicker
-          id='start-date'
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-        />
-      </div>
-
-      {/* FieldSet */}
+      <FirstNameForm></FirstNameForm>
+      <LastNameForm></LastNameForm>
+      <BirthDateForm></BirthDateForm>
+      <StartDateForm></StartDateForm>
       <FieldSet></FieldSet>
-      {/* Department Selector */}
       <label htmlFor='department'>Department</label>
-      <Select
-        id='department'
-        defaultValue={selectedOption}
-        onChange={setSelectedOption}
-        options={departments}
-      />
-      {/* submit button */}
+      <DepartmentForm></DepartmentForm>
       <button onClick={openModal}>Save</button>
       {/* MODAL */}
       <Modal

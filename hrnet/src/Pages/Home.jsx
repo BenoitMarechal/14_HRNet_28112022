@@ -3,11 +3,13 @@ import { NavLink } from 'react-router-dom';
 import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import { resetDataBase } from '../Store/slices/dataBaseSlice';
 import { useDispatch } from 'react-redux';
+import { resetForm } from '../Store/slices/formSlice';
 
 const Home = () => {
   const dispatch = useDispatch();
   function reset() {
     dispatch(resetDataBase());
+    dispatch(resetForm());
   }
 
   return (
