@@ -1,0 +1,33 @@
+.modal-bg {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+.modal-body {
+  margin: auto;
+  width: 50%;
+  height: 30%;
+}
+.modal-body-style {
+  border: 2px solid blue;
+  background-color: yellow;
+  margin: auto;
+  width: 50%;
+  height: 30%;
+  opacity: 1;
+}
+
+.modal-background-style {
+  background-color: rgba(84, 197, 222, 0.4);
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-btn {
+  cursor: pointer;
+}
