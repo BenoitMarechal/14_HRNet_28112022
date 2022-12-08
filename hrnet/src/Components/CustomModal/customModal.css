@@ -11,6 +11,13 @@
   width: 50%;
   height: 30%;
 }
+.hidden {
+  display: none;
+}
+
+.modal-btn {
+  cursor: pointer;
+}
 .modal-body-style {
   border: 2px solid blue;
   background-color: yellow;
@@ -22,12 +29,4 @@
 
 .modal-background-style {
   background-color: rgba(84, 197, 222, 0.4);
-}
-
-.hidden {
-  display: none;
-}
-
-.modal-btn {
-  cursor: pointer;
 }

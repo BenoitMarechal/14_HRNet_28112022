@@ -2,6 +2,7 @@ import { React } from 'react';
 import { NavLink } from 'react-router-dom';
 import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import { resetDataBase } from '../Store/slices/dataBaseSlice';
+import { resetError } from '../Store/slices/errorSlice';
 import { useDispatch } from 'react-redux';
 import { resetForm } from '../Store/slices/formSlice';
 
@@ -10,6 +11,7 @@ const Home = () => {
   function reset() {
     dispatch(resetDataBase());
     dispatch(resetForm());
+    dispatch(resetError());
   }
 
   return (

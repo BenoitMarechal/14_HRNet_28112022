@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   firstName: '',
   lastName: '',
-  birthDate: new Date(),
-  startDate: new Date(),
+  birthDate: new Date().toLocaleDateString(),
+  startDate: new Date().toLocaleDateString(),
   street: '',
   city: '',
   state: '',
@@ -12,7 +12,7 @@ const initialState = {
   department: '',
 };
 
-export const formSlice = createSlice({
+export const form = createSlice({
   name: 'form',
   initialState,
   reducers: {
@@ -25,6 +25,6 @@ export const formSlice = createSlice({
   },
 });
 
-export const { setValue, resetForm } = formSlice.actions;
+export const { setValue, resetForm } = form.actions;
 
-export default formSlice.reducer;
+export default form.reducer;
