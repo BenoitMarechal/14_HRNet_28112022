@@ -21,6 +21,13 @@ const CreateEmployeeForm = () => {
   function saveForm() {
     dispatch(setDataBase(form));
   }
+  function checkForm() {
+    // dispatch(checkGlobalValidity());
+    // if (globalValidity === true) {
+    saveForm();
+    //}
+  }
+
   //////custom modal//////////////////////////////////////
   //declare open variable
   const [open, setOpen] = useState(false);
@@ -28,24 +35,23 @@ const CreateEmployeeForm = () => {
   function toggleOpen() {
     setOpen(!open);
   }
-  //declare open AND save user
+  //declare open function AND additionnal action(s)
   function openModal(e) {
     e.preventDefault();
-    // dispatch(setDataBase(form));
-    saveForm();
     toggleOpen();
-    // console.log(globalValidity);
-    //  dispatch(checkGlobalValidity());
-    // console.log(globalValidity);
-    // if (globalValidity === true) {
-    //   toggleOpen();
-    //   dispatch(setDataBase(form));
-    // }
+    //add custom action(s) below
+    checkForm();
+  }
+  //declare close function AND additionnal action(s)
+  function closeModal(e) {
+    e.preventDefault();
+    toggleOpen();
+    //add custom action(s) below
   }
   //declare modal props
   let modalProps = {
     openVariable: open,
-    closeAction: toggleOpen,
+    closeAction: closeModal,
   };
   //////END custom modal//////////////////////////////////////////
   return (
