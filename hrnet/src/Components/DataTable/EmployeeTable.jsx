@@ -1,7 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import { useSelector } from 'react-redux';
-import CustomMaterialPagination from '../CustomPagination/CustomPagination';
+//import CustomMaterialPagination from '../CustomPagination/CustomPagination';
 
 const EmployeeTable = () => {
   const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
@@ -60,7 +60,7 @@ const EmployeeTable = () => {
       columns={columns}
       data={allEmployees}
       pagination
-      paginationComponent={CustomMaterialPagination}
+      //paginationComponent={CustomMaterialPagination}
     />
   );
 };
