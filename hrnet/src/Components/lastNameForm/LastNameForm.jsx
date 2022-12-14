@@ -15,6 +15,7 @@ const LastNameForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [lastName, setLastName] = useState('');
+  // eslint-disable-next-line
   useEffect(
     () => {
       dispatch(setValue({ ...form, lastName: lastName }));

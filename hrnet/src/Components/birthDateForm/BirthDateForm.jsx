@@ -14,7 +14,7 @@ const BirthDateForm = () => {
         setValue({ ...form, birthDate: birthDate.toLocaleDateString() })
       );
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
     [birthDate]
   );
 

@@ -15,7 +15,7 @@ const CityForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
-
+  // eslint-disable-next-line
   useEffect(
     () => {
       dispatch(setValue({ ...form, city: city }));

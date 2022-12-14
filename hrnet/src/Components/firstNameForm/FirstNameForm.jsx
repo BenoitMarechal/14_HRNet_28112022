@@ -21,7 +21,7 @@ const FirstNameForm = () => {
   //declare useState variable
   const [firstName, setFirstName] = useState('');
   // assigns value to the store every time it changes
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line
   useEffect(
     () => {
       dispatch(setValue({ ...form, firstName: firstName }));

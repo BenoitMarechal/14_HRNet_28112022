@@ -15,6 +15,7 @@ const StreetForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [street, setStreet] = useState('');
+  // eslint-disable-next-line
   useEffect(
     () => {
       dispatch(setValue({ ...form, street: street }));
