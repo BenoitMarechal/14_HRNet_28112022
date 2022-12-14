@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-/hrnet/node_modules
+/hrnet/node_modules/
 /.pnp
 .pnp.js
 
@@ -26,9 +26,6 @@ yarn-error.log*
 # ide files
 /.idea
 
-hrnet/node_modules/.package-lock.json
-hrnet/node_modules/.package-lock.json
-hrnet/node_modules/.package-lock.json
 hrnet/node_modules/.bin/acorn
 hrnet/node_modules/.bin/acorn.cmd
 hrnet/node_modules/.bin/acorn.ps1
