@@ -21,9 +21,14 @@ const FirstNameForm = () => {
   //declare useState variable
   const [firstName, setFirstName] = useState('');
   // assigns value to the store every time it changes
-  useEffect(() => {
-    dispatch(setValue({ ...form, firstName: firstName }));
-  }, [firstName]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(
+    () => {
+      dispatch(setValue({ ...form, firstName: firstName }));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [firstName]
+  );
 
   return <SingleTextInput {...props}></SingleTextInput>;
 };

@@ -7,9 +7,16 @@ const BirthDateForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [birthDate, setBirthDate] = useState(new Date());
-  useEffect(() => {
-    dispatch(setValue({ ...form, birthDate: birthDate.toLocaleDateString() }));
-  }, [birthDate]);
+
+  useEffect(
+    () => {
+      dispatch(
+        setValue({ ...form, birthDate: birthDate.toLocaleDateString() })
+      );
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [birthDate]
+  );
 
   return (
     <div className='single-text-input'>
