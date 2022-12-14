@@ -8,6 +8,7 @@ const EmployeeTable = () => {
   const columns = [
     {
       name: 'First Name',
+      
       selector: (row) => row.firstName,
       sortable: true,
     },
