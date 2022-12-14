@@ -1,6 +1,6 @@
 import { React, useState } from 'react';
 import { setDataBase } from '../Store/slices/dataBaseSlice';
-import { checkGlobalValidity } from '../Store/slices/errorSlice';
+//import { checkGlobalValidity } from '../Store/slices/errorSlice';
 
 import { useDispatch, useSelector } from 'react-redux';
 import FieldSet from '../Components/FieldSet';
@@ -15,9 +15,9 @@ import FirstNameValidation from './firstNameForm/FirstNameValidation';
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
   const form = useSelector((state) => state.formReducer);
-  const globalValidity = useSelector(
-    (state) => state.errorReducer.globalValidity
-  );
+  // const globalValidity = useSelector(
+  //   (state) => state.errorReducer.globalValidity
+  // );
   function saveForm() {
     dispatch(setDataBase(form));
   }
