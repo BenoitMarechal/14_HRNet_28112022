@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import EmployeeTable from '../Components/EmployeeTable';
+import EmployeeTable from '../Components/DataTable/EmployeeTable';
 
 const EmployeeList = () => {
   return (

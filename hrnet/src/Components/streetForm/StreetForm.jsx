@@ -15,9 +15,13 @@ const StreetForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [street, setStreet] = useState('');
-  useEffect(() => {
-    dispatch(setValue({ ...form, street: street }));
-  }, [street]);
+  useEffect(
+    () => {
+      dispatch(setValue({ ...form, street: street }));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [street]
+  );
   return <SingleTextInput {...props}></SingleTextInput>;
 };
 export default StreetForm;

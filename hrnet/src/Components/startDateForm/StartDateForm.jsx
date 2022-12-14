@@ -7,9 +7,15 @@ const StartDateForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState(new Date());
-  useEffect(() => {
-    dispatch(setValue({ ...form, startDate: startDate.toLocaleDateString() }));
-  }, [startDate]);
+  useEffect(
+    () => {
+      dispatch(
+        setValue({ ...form, startDate: startDate.toLocaleDateString() })
+      );
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [startDate]
+  );
 
   return (
     <div className='single-text-input'>

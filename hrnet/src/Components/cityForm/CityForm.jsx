@@ -15,9 +15,14 @@ const CityForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [city, setCity] = useState('');
-  useEffect(() => {
-    dispatch(setValue({ ...form, city: city }));
-  }, [city]);
+
+  useEffect(
+    () => {
+      dispatch(setValue({ ...form, city: city }));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [city]
+  );
   return <SingleTextInput {...props}></SingleTextInput>;
 };
 export default CityForm;

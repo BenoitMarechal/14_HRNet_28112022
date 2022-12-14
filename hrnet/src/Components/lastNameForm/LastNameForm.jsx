@@ -15,9 +15,13 @@ const LastNameForm = () => {
   let form = {};
   const dispatch = useDispatch();
   const [lastName, setLastName] = useState('');
-  useEffect(() => {
-    dispatch(setValue({ ...form, lastName: lastName }));
-  }, [lastName]);
+  useEffect(
+    () => {
+      dispatch(setValue({ ...form, lastName: lastName }));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [lastName]
+  );
   return <SingleTextInput {...props}></SingleTextInput>;
 };
 export default LastNameForm;

@@ -8,9 +8,13 @@ const DepartmentForm = () => {
   const dispatch = useDispatch();
   let form = {};
   const [selectedOption, setSelectedOption] = useState('');
-  useEffect(() => {
-    dispatch(setValue({ ...form, department: selectedOption.label }));
-  }, [selectedOption]);
+  useEffect(
+    () => {
+      dispatch(setValue({ ...form, department: selectedOption.label }));
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [selectedOption]
+  );
   return (
     <Select
       id='department'
