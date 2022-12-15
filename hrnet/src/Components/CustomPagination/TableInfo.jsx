@@ -11,13 +11,13 @@ const TableInfo = () => {
   return (
     <div className='tableInfo'>
       <div>Showing</div>
-      <div>{pagination.begin + 1}</div>
+      <div>{pagination.begin}</div>
       <div>to</div>
-      <div>{pagination.end + 1}</div>
+      <div>{Math.min(pagination.end, allEmployees.length)}</div>
       <div>of</div>
       <div>{allEmployees.length}</div>
-      {/* <div>Entries</div> */}
       <div>{allEmployees.length === 1 ? 'entry' : 'entries'}</div>
+      {/* FILTER a dev */}
       {pagination.filter === '' ? (
         ''
       ) : (

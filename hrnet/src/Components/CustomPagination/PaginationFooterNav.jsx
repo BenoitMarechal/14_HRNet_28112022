@@ -7,8 +7,8 @@ const PaginationFooterNav = () => {
   const dispatch = useDispatch();
 
   function changePage(number) {
-    console.log(pagination.numberOfPages);
-    console.log(number);
+    // console.log(pagination.numberOfPages);
+    // console.log(number);
     let target = {};
     if (pagination.activePage + number < 1) {
       target.activePage = 1;

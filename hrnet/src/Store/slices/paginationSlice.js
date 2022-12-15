@@ -5,8 +5,8 @@ const initialState = {
   numberOfPages: 1,
   activePage: 1,
   filter: '',
-  begin: 0,
-  end: 9,
+  begin: 1,
+  end: 10,
 };
 
 export const paginationSlice = createSlice({

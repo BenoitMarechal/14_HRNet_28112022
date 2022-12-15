@@ -18,24 +18,19 @@ const PaginationHeaderNav = () => {
     //console.log(target);
     dispatch(setPagination(target));
   }
-
-  //number of rows
-  //const [numberOfRows, setNumberOfRows] = useState(10);
-
-  const [selection, setSelection] = useState({});
   function change(e) {
     e.preventDefault();
     let target = parseInt(e.target.value);
     setNumberOfRows(target);
   }
+  // const [selection, setSelection] = useState({});
+  // useEffect(() => {
+  //   setSelection(allEmployees.slice(pagination.begin, pagination.end));
+  // }, [pagination.numberOfRows]);
 
-  useEffect(() => {
-    setSelection(allEmployees.slice(pagination.begin, pagination.end));
-  }, [pagination.numberOfRows]);
-
-  useEffect(() => {
-    dispatch(setSelected(selection));
-  }, [selection]);
+  // useEffect(() => {
+  //   dispatch(setSelected(selection));
+  // }, [selection]);
 
   return (
     <nav className='tableHeader-wrapper'>

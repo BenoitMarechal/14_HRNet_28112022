@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import TableHeader from '../CustomPagination/TableHeader';
 import TableFooter from '../CustomPagination/TableFooter';
+import { setSelected } from '../../Store/slices/dataBaseSlice';
 import {
   setPagination,
   resetPagination,
@@ -14,8 +15,9 @@ const EmployeeTable = () => {
   const dispatch = useDispatch();
   //reset on Mount
   useEffect(() => {
-    dispatch(resetPagination());
+    dispatch(setPagination());
   }, []);
+  //All are selected on mount
 
   const columns = [
     {
@@ -71,22 +73,47 @@ const EmployeeTable = () => {
   const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
   const selected = useSelector((state) => state.dataBaseReducer.selected);
   const pagination = useSelector((state) => state.paginationReducer);
+  function selectAll() {
+    let target = allEmployees;
+    // console.log(target.selected);
+    dispatch(setSelected(target));
+  }
+  useEffect(() => {
+    selectAll();
+  }, []);
 
-  // function getNumberOfPages(numberOfRows, numberOfEntries) {
-  //   return Math.ceil(numberOfEntries / numberOfRows);
-  // }
+  //upadate number of pages
   useEffect(() => {
     let target = {};
+    target.activePage = 1;
     target.numberOfPages = Math.ceil(
       allEmployees.length / pagination.numberOfRows
     );
     dispatch(setPagination(target));
   }, [pagination.numberOfRows, allEmployees.length]);
 
+  //update begin and end
+  useEffect(() => {
+    // console.log('activePage');
+    // console.log(pagination.activePage);
+
+    let target = {};
+    target.begin =
+      pagination.activePage * pagination.numberOfRows -
+      pagination.numberOfRows +
+      1;
+    target.end = target.begin + pagination.numberOfRows - 1;
+    //console.log(target);
+    dispatch(setPagination(target));
+  }, [pagination.activePage, pagination.numberOfRows]);
+
   return (
     <div className='tableWrapper'>
       {allEmployees.length !== 0 ? <TableHeader></TableHeader> : ''}
-      <DataTable columns={columns} data={allEmployees} />
+      <DataTable
+        columns={columns}
+        data={allEmployees.slice(pagination.begin - 1, pagination.end)}
+      />
       {allEmployees.length !== 0 ? <TableFooter></TableFooter> : ''}
     </div>
   );
