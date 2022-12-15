@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   dataBase: [],
+  selected: [],
 };
 
 export const dataBaseSlice = createSlice({
@@ -9,15 +10,26 @@ export const dataBaseSlice = createSlice({
   initialState,
   reducers: {
     setDataBase: (state, action) => {
+      console.log(action.payload);
       state.dataBase.push(action.payload);
     },
 
-    resetDataBase: (state) => {
+    resetDataBase: () => {
       return initialState;
+    },
+
+    setSelected: (state, action) => {
+      state.selected = action.payload;
+      return state;
+    },
+
+    resetSelected: (state) => {
+      state.selected = [];
     },
   },
 });
 
-export const { setDataBase, resetDataBase } = dataBaseSlice.actions;
+export const { setDataBase, resetDataBase, setSelected, resetSelected } =
+  dataBaseSlice.actions;
 
 export default dataBaseSlice.reducer;

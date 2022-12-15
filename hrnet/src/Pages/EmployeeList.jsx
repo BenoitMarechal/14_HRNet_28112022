@@ -10,9 +10,9 @@ const EmployeeList = () => {
       <div id='employee-table_wrapper' className='dataTables_wrapper no-footer'>
         <EmployeeTable></EmployeeTable>
       </div>
-      <div>
+      {/* <div>
         <EnhancedTable></EnhancedTable>
-      </div>
+      </div> */}
       <NavLink to='/'>Home</NavLink>
     </div>
   );

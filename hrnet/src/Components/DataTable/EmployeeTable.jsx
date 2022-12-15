@@ -1,10 +1,13 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import { useSelector } from 'react-redux';
-import CustomMaterialPagination from '../CustomPagination/CustomPagination';
+import { useState } from 'react';
+import TableHeader from '../CustomPagination/TableHeader';
+//import CustomMaterialPagination from '../CustomPagination/CustomPagination';
 
 const EmployeeTable = () => {
   const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
+  const selected = useSelector((state) => state.dataBaseReducer.selected);
   const columns = [
     {
       name: 'First Name',
@@ -57,12 +60,15 @@ const EmployeeTable = () => {
     },
   ];
   return (
-    <DataTable
-      columns={columns}
-      data={allEmployees}
-      pagination
-      paginationComponent={CustomMaterialPagination}
-    />
+    <div className='tableWrapper'>
+      <TableHeader></TableHeader>
+      <DataTable
+        columns={columns}
+        data={selected}
+        //pagination
+        // paginationComponent={CustomMaterialPagination}
+      />
+    </div>
   );
 };
 

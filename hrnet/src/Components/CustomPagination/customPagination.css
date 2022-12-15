@@ -1,8 +1,34 @@
-#employee-table_wrapper {
+/* #employee-table_wrapper {
   display: flex;
   flex-direction: column-reverse;
-}
+} */
 
 #employee-table_wrapper nav {
   background-color: red !important;
+}
+#label {
+  background-color: blue;
+}
+
+.MuiTablePagination-root {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#mui-26234 {
+  margin-right: 25px;
+  font-size: 0;
+  border: 1px solid black;
+}
+
+#mui-26234::after {
+  content: 'Show:' !important;
+  color: black;
+  font-size: 0.9rem !important;
+}
+#mui-58409::after {
+  background-color: green !important;
+  content: 'entries';
+  position: absolute;
+  left: 50px;
 }
