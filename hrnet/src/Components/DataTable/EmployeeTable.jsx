@@ -3,11 +3,10 @@ import DataTable from 'react-data-table-component';
 import { useSelector } from 'react-redux';
 import { useState } from 'react';
 import TableHeader from '../CustomPagination/TableHeader';
+import TableFooter from '../CustomPagination/TableFooter';
 //import CustomMaterialPagination from '../CustomPagination/CustomPagination';
 
 const EmployeeTable = () => {
-  const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
-  const selected = useSelector((state) => state.dataBaseReducer.selected);
   const columns = [
     {
       name: 'First Name',
@@ -59,15 +58,28 @@ const EmployeeTable = () => {
       sortable: true,
     },
   ];
+  const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
+  const selected = useSelector((state) => state.dataBaseReducer.selected);
+  const pagination = useSelector((state) => state.paginationReducer);
+
+  // function getNumberOfPages(numberOfRows, numberOfEntries) {
+  //   // console.log(numberOfRows);
+  //   // console.log(numberOfEntries);
+  //   // let numberOfPages = numberOfEntries / numberOfRows;
+  //   // console.log('numberOfPages');
+  //   // console.log(numberOfPages);
+  //   // console.log('soit');
+  //   // console.log(Math.ceil(numberOfPages));
+  //   return Math.ceil(numberOfEntries / numberOfRows);
+  // }
+
+  // getNumberOfPages(pagination.numberOfRows, allEmployees.length);
+
   return (
     <div className='tableWrapper'>
-      <TableHeader></TableHeader>
-      <DataTable
-        columns={columns}
-        data={selected}
-        //pagination
-        // paginationComponent={CustomMaterialPagination}
-      />
+      {allEmployees.length !== 0 ? <TableHeader></TableHeader> : ''}
+      <DataTable columns={columns} data={allEmployees} />
+      {allEmployees.length !== 0 ? <TableFooter></TableFooter> : ''}
     </div>
   );
 };

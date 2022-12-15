@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import dataBaseReducer from './slices/dataBaseSlice';
 import formReducer from './slices/formSlice';
 import errorReducer from './slices/errorSlice';
+import paginationReducer from './slices/paginationSlice';
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
 import { persistReducer } from 'redux-persist';
@@ -11,6 +12,7 @@ const reducers = combineReducers({
   dataBaseReducer,
   formReducer,
   errorReducer,
+  paginationReducer,
 });
 
 const persistConfig = {
