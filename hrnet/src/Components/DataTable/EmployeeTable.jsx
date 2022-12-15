@@ -12,9 +12,11 @@ import {
 
 const EmployeeTable = () => {
   const dispatch = useDispatch();
+  //reset on Mount
   useEffect(() => {
     dispatch(resetPagination());
   }, []);
+
   const columns = [
     {
       name: 'First Name',
@@ -70,24 +72,15 @@ const EmployeeTable = () => {
   const selected = useSelector((state) => state.dataBaseReducer.selected);
   const pagination = useSelector((state) => state.paginationReducer);
 
-  function getNumberOfPages(numberOfRows, numberOfEntries) {
-    // console.log(numberOfRows);
-
-    // console.log(numberOfEntries);
-    // let numberOfPages = numberOfEntries / numberOfRows;
-    // console.log('numberOfPages');
-    // console.log(numberOfPages);
-    // console.log('soit');
-    // console.log(Math.ceil(numberOfPages));
-    //console.log(Math.ceil(numberOfEntries / numberOfRows));
-    return Math.ceil(numberOfEntries / numberOfRows);
-  }
+  // function getNumberOfPages(numberOfRows, numberOfEntries) {
+  //   return Math.ceil(numberOfEntries / numberOfRows);
+  // }
   useEffect(() => {
     let target = {};
-    let num = getNumberOfPages(pagination.numberOfRows, allEmployees.length);
-    target.numberOfPages = num;
+    target.numberOfPages = Math.ceil(
+      allEmployees.length / pagination.numberOfRows
+    );
     dispatch(setPagination(target));
-    console.log(num);
   }, [pagination.numberOfRows, allEmployees.length]);
 
   return (
