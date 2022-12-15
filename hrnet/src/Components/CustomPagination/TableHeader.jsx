@@ -3,33 +3,48 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { setSelected, resetSelected } from '../../Store/slices/dataBaseSlice';
+import PaginationSelect from './PaginationSelect';
 
 const TableHeader = () => {
   const dispatch = useDispatch();
   ///all employees
   const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
-  // console.log('allEmployees');
-  // console.log(allEmployees);
   //number of rows
   const [numberOfRows, setNumberOfRows] = useState(10);
-  // console.log('numberOfRows');
-  // console.log(numberOfRows);
   //make selection by slicing array
-  const [selection, setSelection] = useState(
-    allEmployees.slice(0, numberOfRows)
-  );
-  // console.log('selection');
-  // console.log(selection);
-  //apply result to selected state
+  const [selection, setSelection] = useState({});
+  function change(e) {
+    e.preventDefault();
+    let target = parseInt(e.target.value);
+    console.log(target);
+    setNumberOfRows(target);
+  }
+
   useEffect(() => {
+    console.log(numberOfRows);
+    setSelection(allEmployees.slice(0, numberOfRows));
+  }, [numberOfRows]);
+
+  useEffect(() => {
+    console.log(selection);
     dispatch(setSelected(selection));
-  }, []);
+    //setSelection(allEmployees.slice(0, numberOfRows));
+  }, [selection]);
 
-  const selected = useSelector((state) => state.dataBaseReducer.selected);
-  // console.log('selected');
-  // console.log(selected);
-
-  return <div>View {numberOfRows} entries</div>;
+  return (
+    <div>
+      <div>View</div>
+      {/* <PaginationSelect></PaginationSelect> */}
+      <select name='rows-select' id='rows-select' onChange={change}>
+        <option value='1'>1</option>
+        <option value='5'>5</option>
+        <option value='10'>10</option>
+        <option value='25'>25</option>
+        <option value='50'>50</option>
+      </select>
+      <div>{numberOfRows === 1 ? 'entry' : 'entries'}</div>
+    </div>
+  );
 };
 
 export default TableHeader;
