@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import DataTable from 'react-data-table-component';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import TableHeader from '../CustomPagination/TableHeader';
 import TableFooter from '../CustomPagination/TableFooter';
 //import CustomMaterialPagination from '../CustomPagination/CustomPagination';
 
 const EmployeeTable = () => {
+  const dispatch = useDispatch();
   const columns = [
     {
       name: 'First Name',
@@ -62,18 +63,21 @@ const EmployeeTable = () => {
   const selected = useSelector((state) => state.dataBaseReducer.selected);
   const pagination = useSelector((state) => state.paginationReducer);
 
-  // function getNumberOfPages(numberOfRows, numberOfEntries) {
-  //   // console.log(numberOfRows);
-  //   // console.log(numberOfEntries);
-  //   // let numberOfPages = numberOfEntries / numberOfRows;
-  //   // console.log('numberOfPages');
-  //   // console.log(numberOfPages);
-  //   // console.log('soit');
-  //   // console.log(Math.ceil(numberOfPages));
-  //   return Math.ceil(numberOfEntries / numberOfRows);
-  // }
+  function getNumberOfPages(numberOfRows, numberOfEntries) {
+    // console.log(numberOfRows);
 
-  // getNumberOfPages(pagination.numberOfRows, allEmployees.length);
+    // console.log(numberOfEntries);
+    // let numberOfPages = numberOfEntries / numberOfRows;
+    // console.log('numberOfPages');
+    // console.log(numberOfPages);
+    // console.log('soit');
+    // console.log(Math.ceil(numberOfPages));
+    console.log(Math.ceil(numberOfEntries / numberOfRows));
+    return Math.ceil(numberOfEntries / numberOfRows);
+  }
+  // useEffect(() => {});
+
+  getNumberOfPages(pagination.numberOfRows, allEmployees.length);
 
   return (
     <div className='tableWrapper'>
