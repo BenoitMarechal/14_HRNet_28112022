@@ -4,10 +4,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import TableHeader from '../CustomPagination/TableHeader';
 import TableFooter from '../CustomPagination/TableFooter';
+import {
+  setPagination,
+  resetPagination,
+} from '../../Store/slices/paginationSlice';
 //import CustomMaterialPagination from '../CustomPagination/CustomPagination';
 
 const EmployeeTable = () => {
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(resetPagination());
+  }, []);
   const columns = [
     {
       name: 'First Name',
@@ -72,12 +79,16 @@ const EmployeeTable = () => {
     // console.log(numberOfPages);
     // console.log('soit');
     // console.log(Math.ceil(numberOfPages));
-    console.log(Math.ceil(numberOfEntries / numberOfRows));
+    //console.log(Math.ceil(numberOfEntries / numberOfRows));
     return Math.ceil(numberOfEntries / numberOfRows);
   }
-  // useEffect(() => {});
-
-  getNumberOfPages(pagination.numberOfRows, allEmployees.length);
+  useEffect(() => {
+    let target = {};
+    let num = getNumberOfPages(pagination.numberOfRows, allEmployees.length);
+    target.numberOfPages = num;
+    dispatch(setPagination(target));
+    console.log(num);
+  }, [pagination.numberOfRows, allEmployees.length]);
 
   return (
     <div className='tableWrapper'>

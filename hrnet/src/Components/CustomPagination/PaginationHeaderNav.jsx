@@ -15,7 +15,7 @@ const PaginationHeaderNav = () => {
   function setNumberOfRows(number) {
     let target = {};
     target.numberOfRows = number;
-    console.log(target);
+    //console.log(target);
     dispatch(setPagination(target));
   }
 

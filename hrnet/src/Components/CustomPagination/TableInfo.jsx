@@ -13,7 +13,7 @@ const TableInfo = () => {
       <div>Showing</div>
       <div>{pagination.begin + 1}</div>
       <div>to</div>
-      <div>{pagination.end}</div>
+      <div>{pagination.end + 1}</div>
       <div>of</div>
       <div>{allEmployees.length}</div>
       {/* <div>Entries</div> */}
