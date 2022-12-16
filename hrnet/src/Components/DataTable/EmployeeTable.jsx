@@ -16,7 +16,8 @@ const EmployeeTable = () => {
   //reset on Mount
   useEffect(() => {
     dispatch(resetPagination());
-    document.getElementById('table-search').value = '';
+    //utiliser useRef
+    // document.getElementById('table-search').value = '';
   }, []);
   //All are selected on mount
 

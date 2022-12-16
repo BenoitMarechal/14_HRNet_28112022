@@ -7,8 +7,9 @@ const PaginationFooterNav = () => {
   const pagination = useSelector((state) => state.paginationReducer);
   const selected = useSelector((state) => state.dataBaseReducer.selected);
   const dispatch = useDispatch();
-  const [pages, setPages] = useState();
-  const [pageButtons, setPageButtons] = useState();
+  const [pages, setPages] = useState([]);
+  const [pageButtons, setPageButtons] = useState([]);
+
   useEffect(() => {
     let target = [];
     for (let i = 1; i < pagination.numberOfPages + 1; i++) {
@@ -18,24 +19,25 @@ const PaginationFooterNav = () => {
   }, [pagination, selected]);
 
   useEffect(() => {
+    console.log('filling dummy');
     console.log(pages);
     let dummy = [];
     let max = selected.length;
     console.log(pagination.activePage);
-    pages &&
-      pages.map((value) => {
-        if (
-          value === 1 ||
-          value === max ||
-          Math.abs(value - pagination.activePage) < 2 ||
-          (pagination.activePage < 5 && value < 6) ||
-          (max - value < 3 && pagination.activePage > max - 5)
-        )
-          dummy.push(value);
-      });
+    // pages &&
+    pages.map((value) => {
+      if (
+        value === 1 ||
+        value === max ||
+        Math.abs(value - pagination.activePage) < 2 ||
+        (pagination.activePage < 5 && value < 6) ||
+        (max - value < 3 && pagination.activePage > max - 5)
+      )
+        dummy.push(value);
+    });
     console.log(dummy);
     setPageButtons(dummy);
-  }, [pagination, selected]);
+  }, [pagination, selected, pages]);
 
   function prevNext(number) {
     let target = {};
@@ -65,20 +67,22 @@ const PaginationFooterNav = () => {
         PREV
       </div>
       {/* //////////////////////////////////////////////////// */}
-      {pageButtons
-        ? pageButtons.map((number) => {
-            return (
-              <button
-                key={number}
-                onClick={() => {
-                  setPage(number);
-                }}
-              >
-                {number.toString()}
-              </button>
-            );
-          })
-        : ''}
+      {pageButtons !== [] ? (
+        pageButtons.map((number) => {
+          return (
+            <button
+              key={number}
+              onClick={() => {
+                setPage(number);
+              }}
+            >
+              {number.toString()}
+            </button>
+          );
+        })
+      ) : (
+        <div>pas de pages</div>
+      )}
       {/* //////////////////////////////////////////////////// */}
 
       <div
