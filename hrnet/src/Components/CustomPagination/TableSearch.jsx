@@ -12,7 +12,6 @@ const TableSearch = () => {
     let matches = [];
     let selection = allEmployees.map((employee) => {
       for (const [key, value] of Object.entries(employee)) {
-        // if (value.search(filter) === 0) {
         if (
           value !== undefined &&
           value.toString().toLowerCase().includes(filter)
@@ -26,8 +25,6 @@ const TableSearch = () => {
         }
       }
     });
-    // console.log('selection');
-    // console.log(selection);
     console.log('matches');
     console.log(matches);
     dispatch(setSelected(matches));
@@ -35,7 +32,7 @@ const TableSearch = () => {
 
   return (
     <div className='table-search'>
-      <label htmlFor='table-search'>Filter</label>
+      <label htmlFor='table-search'>Search:</label>
       <input type='search' id='table-search' onChange={search} />
     </div>
   );
