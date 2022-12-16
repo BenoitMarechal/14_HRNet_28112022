@@ -1,33 +1,36 @@
 import React from 'react';
-import SingleTextInput from '../SingleTextInput';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSelected } from '../../Store/slices/dataBaseSlice';
 
 const TableSearch = () => {
   const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
+  const dispatch = useDispatch();
 
   function search(e) {
     e.preventDefault();
-    let filter = e.target.value;
-    let selection = {};
-
-    let matches = allEmployees.map((employee) => {
-      console.log(employee);
-      console.log(Object.entries(employee));
+    let filter = e.target.value.toLowerCase();
+    let matches = [];
+    let selection = allEmployees.map((employee) => {
       for (const [key, value] of Object.entries(employee)) {
-        // console.log('value');
-        // console.log(value);
-        // console.log('match');
-        // console.log(value.search(filter));
-
-        console.log(`${key}: ${value}`);
-        console.log(value.search(filter));
-        if (value.search(filter) === 0) {
-          return employee;
+        // if (value.search(filter) === 0) {
+        if (
+          value !== undefined &&
+          value.toString().toLowerCase().includes(filter)
+        ) {
+          console.log('match');
+          console.log(employee);
+          console.log(matches.includes(employee));
+          if (matches.includes(employee) === false) {
+            matches.push(employee);
+          }
         }
       }
     });
-    console.log('selection');
+    // console.log('selection');
+    // console.log(selection);
+    console.log('matches');
     console.log(matches);
+    dispatch(setSelected(matches));
   }
 
   return (

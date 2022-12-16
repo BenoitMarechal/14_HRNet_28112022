@@ -15,7 +15,8 @@ const EmployeeTable = () => {
   const dispatch = useDispatch();
   //reset on Mount
   useEffect(() => {
-    dispatch(setPagination());
+    dispatch(resetPagination());
+    document.getElementById('table-search').value = '';
   }, []);
   //All are selected on mount
 
@@ -75,7 +76,6 @@ const EmployeeTable = () => {
   const pagination = useSelector((state) => state.paginationReducer);
   function selectAll() {
     let target = allEmployees;
-    // console.log(target.selected);
     dispatch(setSelected(target));
   }
   useEffect(() => {
@@ -86,11 +86,9 @@ const EmployeeTable = () => {
   useEffect(() => {
     let target = {};
     target.activePage = 1;
-    target.numberOfPages = Math.ceil(
-      allEmployees.length / pagination.numberOfRows
-    );
+    target.numberOfPages = Math.ceil(selected.length / pagination.numberOfRows);
     dispatch(setPagination(target));
-  }, [pagination.numberOfRows, allEmployees.length]);
+  }, [pagination.numberOfRows, selected.length]);
 
   //update begin and end
   useEffect(() => {
@@ -112,7 +110,7 @@ const EmployeeTable = () => {
       {allEmployees.length !== 0 ? <TableHeader></TableHeader> : ''}
       <DataTable
         columns={columns}
-        data={allEmployees.slice(pagination.begin - 1, pagination.end)}
+        data={selected.slice(pagination.begin - 1, pagination.end)}
       />
       {allEmployees.length !== 0 ? <TableFooter></TableFooter> : ''}
     </div>

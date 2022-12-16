@@ -13,12 +13,12 @@ const TableInfo = () => {
       <div>Showing</div>
       <div>{pagination.begin}</div>
       <div>to</div>
-      <div>{Math.min(pagination.end, allEmployees.length)}</div>
+      <div>{Math.min(pagination.end, selected.length)}</div>
       <div>of</div>
-      <div>{allEmployees.length}</div>
+      <div>{selected.length}</div>
       <div>{allEmployees.length === 1 ? 'entry' : 'entries'}</div>
       {/* FILTER a dev */}
-      {pagination.filter === '' ? (
+      {allEmployees.length === selected.length ? (
         ''
       ) : (
         <div>' '(filtered from {allEmployees.length} total entries)</div>
