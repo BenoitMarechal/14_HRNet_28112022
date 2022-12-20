@@ -21,8 +21,7 @@ const PaginationFooterNav = () => {
   }, [pagination, selected]);
 
   useEffect(() => {
-    //
-    // let max = selected.length;
+    ////set "everyPages" array with a negative value when button must not be generated ('...')
     let max = pagination.numberOfPages;
     console.log('max');
     console.log(max);
@@ -42,16 +41,19 @@ const PaginationFooterNav = () => {
   }, [pagination, selected, pages]);
 
   useEffect(() => {
+    //remove consecutive negative values
     console.log(pagination.numberOfPages);
     console.log('everyPage');
     console.log(everyPage);
     let result = [];
     for (let i = 0; i < everyPage.length; i++) {
-      result.push(everyPage[i]);
+      if (everyPage[i] > 0 || (everyPage[i] < 0 && everyPage[i - 1] > 0)) {
+        result.push(everyPage[i]);
+      }
     }
     console.log('result');
     console.log(result);
-    setPageButtons(everyPage);
+    setPageButtons(result);
   }, [everyPage]);
 
   function prevNext(number) {
@@ -85,15 +87,15 @@ const PaginationFooterNav = () => {
       {pageButtons !== []
         ? pageButtons.map((number) => {
             return number < 0 ? (
-              <div className='class' key={pageButtons.indexOf(number)}>
+              <div className='class' key={pageButtons.indexOf(number) + 1}>
                 {' '}
                 ...
-                {pageButtons.indexOf(number) + 1}
+                {/* {pageButtons.indexOf(number) + 1} */}
               </div>
             ) : (
               <button
                 className={number === pagination.activePage ? 'bold' : ''}
-                key={pageButtons.indexOf(number)}
+                key={pageButtons.indexOf(number) + 1}
                 onClick={() => {
                   setPage(number);
                 }}
