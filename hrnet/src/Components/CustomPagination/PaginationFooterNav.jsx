@@ -8,9 +8,11 @@ const PaginationFooterNav = () => {
   const selected = useSelector((state) => state.dataBaseReducer.selected);
   const dispatch = useDispatch();
   const [pages, setPages] = useState([]);
+  const [everyPage, setEveryPage] = useState([]);
   const [pageButtons, setPageButtons] = useState([]);
 
   useEffect(() => {
+    //set "Pages" array with an integer for every page
     let target = [];
     for (let i = 1; i < pagination.numberOfPages + 1; i++) {
       target.push(i);
@@ -19,25 +21,38 @@ const PaginationFooterNav = () => {
   }, [pagination, selected]);
 
   useEffect(() => {
-    console.log('filling dummy');
-    console.log(pages);
-    let dummy = [];
-    let max = selected.length;
-    console.log(pagination.activePage);
-    // pages &&
-    pages.map((value) => {
+    //
+    // let max = selected.length;
+    let max = pagination.numberOfPages;
+    console.log('max');
+    console.log(max);
+    let result = pages.map((value) => {
       if (
         value === 1 ||
         value === max ||
         Math.abs(value - pagination.activePage) < 2 ||
         (pagination.activePage < 5 && value < 6) ||
-        (max - value < 3 && pagination.activePage > max - 5)
+        (max - value < 5 && pagination.activePage > max - 4)
       )
-        dummy.push(value);
+        return value;
+      else return -1 * value;
     });
-    console.log(dummy);
-    setPageButtons(dummy);
+
+    setEveryPage(result);
   }, [pagination, selected, pages]);
+
+  useEffect(() => {
+    console.log(pagination.numberOfPages);
+    console.log('everyPage');
+    console.log(everyPage);
+    let result = [];
+    for (let i = 0; i < everyPage.length; i++) {
+      result.push(everyPage[i]);
+    }
+    console.log('result');
+    console.log(result);
+    setPageButtons(everyPage);
+  }, [everyPage]);
 
   function prevNext(number) {
     let target = {};
@@ -67,22 +82,27 @@ const PaginationFooterNav = () => {
         PREV
       </div>
       {/* //////////////////////////////////////////////////// */}
-      {pageButtons !== [] ? (
-        pageButtons.map((number) => {
-          return (
-            <button
-              key={number}
-              onClick={() => {
-                setPage(number);
-              }}
-            >
-              {number.toString()}
-            </button>
-          );
-        })
-      ) : (
-        <div>pas de pages</div>
-      )}
+      {pageButtons !== []
+        ? pageButtons.map((number) => {
+            return number < 0 ? (
+              <div className='class' key={pageButtons.indexOf(number)}>
+                {' '}
+                ...
+                {pageButtons.indexOf(number) + 1}
+              </div>
+            ) : (
+              <button
+                className={number === pagination.activePage ? 'bold' : ''}
+                key={pageButtons.indexOf(number)}
+                onClick={() => {
+                  setPage(number);
+                }}
+              >
+                {number.toString()}
+              </button>
+            );
+          })
+        : ''}
       {/* //////////////////////////////////////////////////// */}
 
       <div
