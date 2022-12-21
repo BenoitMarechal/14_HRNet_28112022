@@ -8,7 +8,6 @@ const DepartmentForm = () => {
   const dispatch = useDispatch();
   let form = {};
   const [selectedOption, setSelectedOption] = useState('');
-  // eslint-disable-next-line
   useEffect(
     () => {
       dispatch(setValue({ ...form, department: selectedOption.label }));

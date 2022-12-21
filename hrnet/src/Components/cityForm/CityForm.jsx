@@ -1,28 +1,23 @@
-import { React, useState, useEffect } from 'react';
-import SingleTextInput from '../SingleTextInput';
+import { React, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setValue } from '../../Store/slices/formSlice';
 
 const CityForm = () => {
-  function change() {
-    let target = document.getElementById('city').value;
-    setCity(target);
-  }
-  let props = {
-    name: 'City',
-    action: change,
-  };
-  let form = {};
+  //declare dispatch
   const dispatch = useDispatch();
-  const [city, setCity] = useState('');
-  // eslint-disable-next-line
-  useEffect(
-    () => {
-      dispatch(setValue({ ...form, city: city }));
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [city]
+  //dummy object for redux action
+  let form = {};
+  //useRef
+  const ref = useRef(null);
+  function change() {
+    dispatch(setValue({ ...form, city: ref.current.value }));
+  }
+
+  return (
+    <div className='single-text-input'>
+      <label htmlFor={'city'}>City</label>
+      <input type='text' id='city' onChange={change} ref={ref} />
+    </div>
   );
-  return <SingleTextInput {...props}></SingleTextInput>;
 };
 export default CityForm;

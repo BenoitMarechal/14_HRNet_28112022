@@ -1,28 +1,23 @@
-import { React, useState, useEffect } from 'react';
-import SingleTextInput from '../SingleTextInput';
+import { React, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setValue } from '../../Store/slices/formSlice';
 
 const LastNameForm = () => {
-  function change() {
-    let target = document.getElementById('last-name').value;
-    setLastName(target);
-  }
-  let props = {
-    name: 'Last Name',
-    action: change,
-  };
-  let form = {};
+  //declare dispatch
   const dispatch = useDispatch();
-  const [lastName, setLastName] = useState('');
-  // eslint-disable-next-line
-  useEffect(
-    () => {
-      dispatch(setValue({ ...form, lastName: lastName }));
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [lastName]
+  //dummy object for redux action
+  let form = {};
+  //useRef
+  const ref = useRef(null);
+  function change() {
+    dispatch(setValue({ ...form, lastName: ref.current.value }));
+  }
+
+  return (
+    <div className='single-text-input'>
+      <label htmlFor={'last-name'}>Last Name</label>
+      <input type='text' id='last-name' onChange={change} ref={ref} />
+    </div>
   );
-  return <SingleTextInput {...props}></SingleTextInput>;
 };
 export default LastNameForm;

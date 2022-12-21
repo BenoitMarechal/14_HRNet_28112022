@@ -5,6 +5,7 @@ import { setValue } from '../../Store/slices/formSlice';
 
 const BirthDateForm = () => {
   let form = {};
+
   const dispatch = useDispatch();
   const [birthDate, setBirthDate] = useState(new Date());
 

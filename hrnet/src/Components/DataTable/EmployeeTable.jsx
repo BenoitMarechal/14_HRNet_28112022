@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { useSelector, useDispatch } from 'react-redux';
-import { useState } from 'react';
 import TableHeader from '../CustomPagination/TableHeader';
 import TableFooter from '../CustomPagination/TableFooter';
 import { setSelected } from '../../Store/slices/dataBaseSlice';
@@ -16,10 +15,8 @@ const EmployeeTable = () => {
   //reset on Mount
   useEffect(() => {
     dispatch(resetPagination());
-    //utiliser useRef
-    //document.getElementById('table-search').value = '';
+    // eslint-disable-next-line
   }, []);
-  //All are selected on mount
 
   const columns = [
     {
@@ -81,6 +78,7 @@ const EmployeeTable = () => {
   }
   useEffect(() => {
     selectAll();
+    // eslint-disable-next-line
   }, []);
 
   //upadate number of pages
@@ -89,6 +87,7 @@ const EmployeeTable = () => {
     target.activePage = 1;
     target.numberOfPages = Math.ceil(selected.length / pagination.numberOfRows);
     dispatch(setPagination(target));
+    // eslint-disable-next-line
   }, [pagination.numberOfRows, selected.length]);
 
   //update begin and end
@@ -104,6 +103,7 @@ const EmployeeTable = () => {
     target.end = target.begin + pagination.numberOfRows - 1;
     //console.log(target);
     dispatch(setPagination(target));
+    // eslint-disable-next-line
   }, [pagination.activePage, pagination.numberOfRows]);
 
   return (
