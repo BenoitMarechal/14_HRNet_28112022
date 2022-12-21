@@ -7,7 +7,6 @@ const TableHeader = () => {
   return (
     <div className='tableHeader-wrapper'>
       <PaginationHeaderNav></PaginationHeaderNav>
-      {/* developper pagination search */}
       <TableSearch></TableSearch>
     </div>
   );
