@@ -11,6 +11,7 @@ import StartDateForm from './startDateForm/StartDateForm';
 import BirthDateForm from './birthDateForm/BirthDateForm';
 import CustomModal from './CustomModal/CustomModal';
 import FirstNameValidation from './firstNameForm/FirstNameValidation';
+import { checkFormValidity } from '../service/formValidation';
 
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
@@ -22,8 +23,10 @@ const CreateEmployeeForm = () => {
     dispatch(setDataBase(form));
   }
   function checkForm() {
+    checkFormValidity();
     // dispatch(checkGlobalValidity());
     // if (globalValidity === true) {
+
     saveForm();
     //}
   }
