@@ -1,1 +1,9 @@
+.errorMessage {
+  color: red;
+  font-weight: 900;
+  font-size: 0.8rem;
+}
 
+.pageWrapper {
+  z-index: 0;
+}

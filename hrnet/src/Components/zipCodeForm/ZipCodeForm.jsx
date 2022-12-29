@@ -11,7 +11,14 @@ const ZipCodeForm = () => {
     dispatch(setValue({ ...form, zipCode: ref.current.value }));
   }
   return (
-    <input type={'number'} ref={ref} id='zip-code' onChange={change}></input>
+    <input
+      type={'number'}
+      ref={ref}
+      id='zip-code'
+      onChange={change}
+      min={0}
+      max={99999}
+    ></input>
   );
 };
 

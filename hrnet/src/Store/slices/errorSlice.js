@@ -10,7 +10,7 @@ const initialState = {
   stateError: true,
   zipCodeError: true,
   departmentError: true,
-  globalValidity: true,
+  globalValidity: false,
 };
 
 export const errorSlice = createSlice({
@@ -26,15 +26,15 @@ export const errorSlice = createSlice({
     checkGlobalValidity: (state) => {
       state.globalValidity = false;
       if (
-        state.firstNameError === false &&
-        state.lastNameError === false &&
-        state.birthDateError === false &&
-        state.startDateError === false &&
-        state.streetError === false &&
-        state.cityError === false &&
-        state.stateError === false &&
-        state.zipCodeError === false &&
-        state.departmentError === false
+        state.firstNameError === '' &&
+        state.lastNameError === '' &&
+        state.birthDateError === '' &&
+        state.startDateError === '' &&
+        state.streetError === '' &&
+        state.cityError === '' &&
+        state.stateError === '' &&
+        state.zipCodeError === '' &&
+        state.departmentError === ''
       ) {
         state.globalValidity = true;
         return state;

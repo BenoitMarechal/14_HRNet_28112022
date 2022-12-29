@@ -81,22 +81,28 @@ export function checkFormValidity() {
   //World's oldest personn birthdate: 1903, Jan 2nd;
   const oldest = new Date('1903,01,02');
   let age = getAge(birthDateInputValue);
-  console.log(age);
+  //console.log(age);
   // employee can't be older than oldest person on earth
+  console.log(birthDateInputValue);
+  console.log(oldest);
+  console.log(birthDateInputValue < oldest);
   if (birthDateInputValue < oldest) {
+    console.log('hhh');
     result.birthDateError =
       'Birth date seems pretty old... Please check birthdate';
   }
   //employee can't be younger than 18 years old
-  if (age < 18) {
+  else if (age < 18) {
     result.birthDateError =
       'Employee must be at least 18 years old, please check birthdate';
   } else {
     result.birthDateError = '';
   }
   //startDate is only worth checking once birthdate is correct
+  result.startDateError = '';
   if (result.birthDateError === '') {
     let startAge = getAge(birthDateInputValue, startDateInputValue);
+    // console.log(startAge);
     //employee must have joined when at least 18 years old
     if (startAge < 18) {
       result.startDateError =
@@ -106,7 +112,7 @@ export function checkFormValidity() {
     else {
       result.birthDateError = '';
     }
-  } else result.startDateError = 'Please check birthdate and/or start date';
+  } else result.startDateError = 'Please check start date and/or birthDate';
 
   //street
   if (stringCheck(streetInputValue) === true) {
@@ -126,13 +132,14 @@ export function checkFormValidity() {
 
   result.stateError = selectCheck(stateInputValue);
   //zip code
-  if (zipCodeInputValue.length !== 5) {
-    result.zipCodeError = 'Zip code must contain 5 digits';
-  } else {
+  if (zipCodeInputValue.length === 5 && zipCodeInputValue > 0) {
     result.zipCodeError = '';
+  } else {
+    result.zipCodeError = 'Zip code must contain 5 digits';
   }
 
   result.departmentError = selectCheck(departmentInputValue);
 
-  //console.log(result);
+  // console.log(result);
+  return result;
 }

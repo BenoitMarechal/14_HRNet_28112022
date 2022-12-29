@@ -10,6 +10,7 @@ const initialState = {
   state: '',
   zipCode: '',
   department: '',
+  firstTry: true,
 };
 
 export const form = createSlice({
