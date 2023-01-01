@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import EmployeeTable from '../Components/DataTable/EmployeeTable';
-import EnhancedTable from '../Components/DataTable/EnhancedTable';
 
 const EmployeeList = () => {
   return (
@@ -10,9 +9,6 @@ const EmployeeList = () => {
       <div id='employee-table_wrapper' className='dataTables_wrapper no-footer'>
         <EmployeeTable></EmployeeTable>
       </div>
-      {/* <div>
-        <EnhancedTable></EnhancedTable>
-      </div> */}
       <NavLink to='/'>Home</NavLink>
     </div>
   );
