@@ -10,15 +10,15 @@ export const modalSlice = createSlice({
   reducers: {
     close: (state) => {
       state.open = false;
-      return { state };
+      return state;
     },
     open: (state) => {
       state.open = true;
-      return { state };
+      return state;
     },
     toggleOpen: (state) => {
       state.open = !state.open;
-      return { state };
+      return state;
     },
   },
 });

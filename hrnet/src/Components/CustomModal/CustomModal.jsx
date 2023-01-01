@@ -1,42 +1,67 @@
 import React from 'react';
 import { useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleOpen } from '../../Store/slices/modalSlice';
 import './customModal.css';
 
 const CustomModal = (props) => {
+  ///modal
+  let modalReducer = useSelector((state) => state.modalReducer);
+  const dispatch = useDispatch();
+  const globalValidity = useSelector(
+    (state) => state.errorReducer.globalValidity
+  );
+  function toggleModal() {
+    dispatch(toggleOpen());
+  }
   let modalRef = useRef(null);
-  console.log(modalRef.current);
+
+  function closeModal(e) {
+    e.preventDefault();
+    dispatch(toggleOpen());
+    //add custom action(s) below
+  }
 
   function handleKeyDown(e) {
-    console.log(e.key);
+    // console.log(e.key);
     if (e.key === 'Escape') {
-      console.log('yep');
+      // console.log('yep');
     }
   }
+
+  ///customize
+  let formReducer = useSelector((state) => state.formReducer);
+  //console.log(formReducer);
+
+  let modalProps = {
+    modalId: 'homePage-modal',
+    success: globalValidity,
+  };
 
   return (
     <div
       className={
-        props.openVariable ? 'modal-bg modal-background-style' : 'hidden'
+        modalReducer.open ? 'modal-bg modal-background-style' : 'hidden'
       }
-      id={props.modalId}
+      id={modalProps.modalId}
       ref={modalRef}
       tabIndex='0'
       onKeyDown={handleKeyDown}
     >
       <div className='modal-body modal-body-style'>
-        {props.success ? (
+        {modalProps.success ? (
           <h2>
-            Welcome, {props.firstName} {props.lastName}
+            Welcome Welcome, {formReducer.firstName} {formReducer.lastName}
           </h2>
         ) : (
           <h2>Something is missing, or incorrect...</h2>
         )}
         <p>
-          {props.success
+          {modalProps.success
             ? 'new employee created successfully'
             : 'Please make sure the form is filled in correctly'}{' '}
         </p>
-        <button className='modal-btn' onClick={props.closeAction}>
+        <button className='modal-btn' onClick={closeModal}>
           Close <span>&#10005;</span>
         </button>
       </div>

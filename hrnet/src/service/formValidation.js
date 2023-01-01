@@ -83,11 +83,11 @@ export function checkFormValidity() {
   let age = getAge(birthDateInputValue);
   //console.log(age);
   // employee can't be older than oldest person on earth
-  console.log(birthDateInputValue);
-  console.log(oldest);
-  console.log(birthDateInputValue < oldest);
+  // console.log(birthDateInputValue);
+  // console.log(oldest);
+  // console.log(birthDateInputValue < oldest);
   if (birthDateInputValue < oldest) {
-    console.log('hhh');
+    //console.log('hhh');
     result.birthDateError =
       'Birth date seems pretty old... Please check birthdate';
   }

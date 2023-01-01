@@ -16,10 +16,10 @@ import CustomModal from './CustomModal/CustomModal';
 //import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
 import { setValue } from '../Store/slices/formSlice';
+import { toggleOpen } from '../Store/slices/modalSlice';
 //import { emptyForm } from '../service/emptyForm';
 
 const CreateEmployeeForm = () => {
-  // let formRef = useRef(null);
   const dispatch = useDispatch();
   const form = useSelector((state) => state.formReducer);
   const [formKey, setFormKey] = useState(0);
@@ -28,7 +28,6 @@ const CreateEmployeeForm = () => {
   function setFirstTry(arg) {
     let target = {};
     target.firstTry = arg;
-    console.log(target);
     dispatch(setValue(target));
   }
   //////////////////////////////////////////////////////////
@@ -45,9 +44,9 @@ const CreateEmployeeForm = () => {
   }
 
   //declare open function AND additionnal action(s)
-  function openModal(e) {
+  function handleSubmit(e) {
     e.preventDefault();
-    toggleOpen();
+    dispatch(toggleOpen());
     //add custom action(s) below
     //saveForm();
     if (globalValidity === true) {
@@ -65,41 +64,9 @@ const CreateEmployeeForm = () => {
     dispatch(setDataBase(form));
   }
 
-  // function saveForm() {
-  //   if (globalValidity === true) {
-  //     dispatch(setDataBase(form));
-  //     setFormKey(formKey + 1);
-  //   } else {
-  //     console.log('nope');
-  //     setFirstTry(false);
-  //   }
-  //   //dispatch(resetForm());
-  //   // dispatch(resetError());
-  // }
-
-  //////custom modal//////////////////////////////////////
-  //declare open variable
-  const [open, setOpen] = useState(false);
-  //declare open/close function
-  function toggleOpen() {
-    setOpen(!open);
-  }
-
   //declare close function AND additionnal action(s)
-  function closeModal(e) {
-    e.preventDefault();
-    toggleOpen();
-    //add custom action(s) below
-  }
+
   //declare modal props
-  let modalProps = {
-    openVariable: open,
-    modalId: 'homePage-modal',
-    closeAction: closeModal,
-    success: globalValidity,
-    firstName: form.firstName,
-    lastName: form.lastName,
-  };
 
   return (
     <form
@@ -149,12 +116,12 @@ const CreateEmployeeForm = () => {
       )}
 
       <button
-        onClick={openModal}
+        onClick={handleSubmit}
         disabled={!globalValidity && firstTry === false}
       >
         Save
       </button>
-      <CustomModal {...modalProps}></CustomModal>
+      <CustomModal></CustomModal>
     </form>
   );
 };
