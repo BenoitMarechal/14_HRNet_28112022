@@ -28,29 +28,17 @@ function selectCheck(select) {
 }
 
 function localeToDate(localeDateString) {
-  //console.log(localeDateString);
-  // console.log(localeDateString.slice(6, 10));
   let day = localeDateString.slice(0, 2);
   let month = localeDateString.slice(3, 5);
   let year = localeDateString.slice(6, 10);
   let date = new Date(year, month - 1, day);
-  console.log(date);
   return date;
 }
-
-// function getAge2(dateString, refDate) {
-//   // console.log(dateString);
-//   if (refDate === undefined) {
-//     refDate = moment.locale();
-//   }
-//   //console.log(refDate);
-// }
 
 function getAge(dateString, refDate) {
   if (refDate === undefined) {
     refDate = new Date();
   }
-  // console.log(refDate);
   var birthDate = new Date(dateString);
   var age = refDate.getFullYear() - birthDate.getFullYear();
   var m = refDate.getMonth() - birthDate.getMonth();
