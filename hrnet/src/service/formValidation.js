@@ -27,10 +27,30 @@ function selectCheck(select) {
   }
 }
 
+function localeToDate(localeDateString) {
+  //console.log(localeDateString);
+  // console.log(localeDateString.slice(6, 10));
+  let day = localeDateString.slice(0, 2);
+  let month = localeDateString.slice(3, 5);
+  let year = localeDateString.slice(6, 10);
+  let date = new Date(year, month - 1, day);
+  console.log(date);
+  return date;
+}
+
+// function getAge2(dateString, refDate) {
+//   // console.log(dateString);
+//   if (refDate === undefined) {
+//     refDate = moment.locale();
+//   }
+//   //console.log(refDate);
+// }
+
 function getAge(dateString, refDate) {
   if (refDate === undefined) {
     refDate = new Date();
   }
+  // console.log(refDate);
   var birthDate = new Date(dateString);
   var age = refDate.getFullYear() - birthDate.getFullYear();
   var m = refDate.getMonth() - birthDate.getMonth();
@@ -47,10 +67,11 @@ export function checkFormValidity() {
   let result = {};
   let firstNameInputValue = document.getElementById('first-name').value;
   let lastNameInputValue = document.getElementById('last-name').value;
-  let birthDateInputValue = new Date(
+  let birthDateInputValue = localeToDate(
     document.getElementById('birth-date').value
   );
-  let startDateInputValue = new Date(
+
+  let startDateInputValue = localeToDate(
     document.getElementById('start-date').value
   );
   let streetInputValue = document.getElementById('street').value;
@@ -80,8 +101,8 @@ export function checkFormValidity() {
   //birth date
   //World's oldest personn birthdate: 1903, Jan 2nd;
   const oldest = new Date('1903,01,02');
+  //console.log(oldest);
   let age = getAge(birthDateInputValue);
-  //console.log(age);
   // employee can't be older than oldest person on earth
   // console.log(birthDateInputValue);
   // console.log(oldest);
@@ -102,8 +123,6 @@ export function checkFormValidity() {
   result.startDateError = '';
   if (result.birthDateError === '') {
     let startAge = getAge(birthDateInputValue, startDateInputValue);
-    // console.log(startAge);
-    //employee must have joined when at least 18 years old
     if (startAge < 18) {
       result.startDateError =
         'Employee must be have been at least 18 years old when joining the company, please check birthdate and/or start date';

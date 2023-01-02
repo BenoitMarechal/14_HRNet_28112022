@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import moment from 'moment';
+let youngest = moment().subtract(18, 'years').calendar();
 
 const initialState = {
   firstName: '',
   lastName: '',
-  birthDate: new Date().toLocaleDateString(),
+  birthDate: new Date(youngest).toLocaleDateString(),
   startDate: new Date().toLocaleDateString(),
   street: '',
   city: '',

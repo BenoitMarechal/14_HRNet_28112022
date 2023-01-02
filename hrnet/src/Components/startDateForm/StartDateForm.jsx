@@ -11,9 +11,11 @@ const StartDateForm = () => {
   // eslint-disable-next-line
   useEffect(
     () => {
-      dispatch(
-        setValue({ ...form, startDate: startDate.toLocaleDateString() })
-      );
+      if (startDate) {
+        dispatch(
+          setValue({ ...form, startDate: startDate.toLocaleDateString() })
+        );
+      }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [startDate]
@@ -26,6 +28,7 @@ const StartDateForm = () => {
         id='start-date'
         selected={startDate}
         onChange={(date) => setStartDate(date)}
+        dateFormat='dd/MM/yyyy'
       />
     </div>
   );

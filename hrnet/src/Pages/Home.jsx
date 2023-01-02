@@ -7,6 +7,7 @@ import { resetPagination } from '../Store/slices/paginationSlice';
 import { useDispatch } from 'react-redux';
 import { resetForm } from '../Store/slices/formSlice';
 import { fillForm } from '../service/fillForm';
+import FormFiller from '../service/FormFiller';
 // import { Button } from '@mui/material';
 const Home = () => {
   const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const Home = () => {
       <h1>HRnet</h1>
       <NavLink to='/employee-list'>View Current Employees</NavLink>
       <h2>Create Employee</h2>
-      <button onClick={fillForm}>Fill</button>
+      <FormFiller></FormFiller>
       <CreateEmployeeForm></CreateEmployeeForm>
       <button onClick={reset}>RESET DATA BASE (dev only)</button>
     </div>
