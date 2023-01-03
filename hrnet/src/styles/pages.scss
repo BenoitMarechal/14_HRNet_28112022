@@ -1,28 +1,28 @@
 @import './variables';
 
+body {
+  background-color: red;
+}
+
 #root {
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
+  overflow-y: scroll;
   background-color: $color-primary;
 }
 
-a,
-a:visited {
-  color: $color-secondary;
-  text-decoration: none;
-  border: 1px solid $color-tertiary;
-  background-color: $color-tertiary;
-}
-
 .pageWrapper {
-  height: 100%;
+  //height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  // position: fixed;
+  // top: 0;
+  // bottom: 0;
 }
 
 .container-large {
@@ -40,6 +40,14 @@ fieldset {
   border: 1px solid blue !important;
   justify-content: space-between;
 }
+
 fieldset {
   border: none;
+}
+a,
+a:visited {
+  color: $color-secondary;
+  text-decoration: none;
+  border: 1px solid $color-tertiary;
+  background-color: $color-tertiary;
 }

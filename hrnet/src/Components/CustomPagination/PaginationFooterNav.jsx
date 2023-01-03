@@ -70,7 +70,7 @@ const PaginationFooterNav = () => {
   return (
     <div className='table-footer-nav'>
       <div
-        className='button'
+        className='button bold'
         onClick={() => {
           prevNext(-1);
         }}
@@ -81,14 +81,16 @@ const PaginationFooterNav = () => {
       {pageButtons !== []
         ? pageButtons.map((number) => {
             return number < 0 ? (
-              <div className='class' key={pageButtons.indexOf(number) + 1}>
+              <div className='dots bold' key={pageButtons.indexOf(number) + 1}>
                 {' '}
                 ...
                 {/* {pageButtons.indexOf(number) + 1} */}
               </div>
             ) : (
               <button
-                className={number === pagination.activePage ? 'bold' : ''}
+                className={
+                  number === pagination.activePage ? 'bold button' : 'button'
+                }
                 key={pageButtons.indexOf(number) + 1}
                 onClick={() => {
                   setPage(number);
@@ -102,7 +104,7 @@ const PaginationFooterNav = () => {
       {/* //////////////////////////////////////////////////// */}
 
       <div
-        className='button'
+        className='button bold'
         onClick={() => {
           prevNext(1);
         }}

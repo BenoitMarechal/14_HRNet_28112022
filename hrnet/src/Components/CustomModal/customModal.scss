@@ -1,36 +1,31 @@
 @import '../../styles/variables';
 
-.modal-bg {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  z-index: 10;
-}
+// .modal-bg {
+//   position: fixed;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   right: 0;
+//   //display: flex;
+//   z-index: 10;
+// }
 .modal-body {
-  margin: auto;
-  width: 50%;
-  height: 30%;
-  z-index: 11;
+  padding: 10%;
 }
-.hidden {
-  display: none;
-}
+// .hidden {
+//   display: none;
+// }
 
-.modal-btn {
-  cursor: pointer;
-}
+// .modal-btn {
+//   cursor: pointer;
+// }
 .modal-body-style {
-  // border: 2px solid blue;
   background-color: $color-tertiary;
-  margin: auto;
-  width: 50%;
-  height: 30%;
-  opacity: 1;
+  border-radius: 50px;
+  // margin: auto;
+  // opacity: 1;
 }
 
-.modal-background-style {
-  background-color: rgba(84, 197, 222, 0.4);
-}
+// .modal-background-style {
+//   background-color: rgba(84, 197, 222, 0.4);
+// }

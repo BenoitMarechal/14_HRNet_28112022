@@ -16,7 +16,7 @@ import CustomModal from './CustomModal/CustomModal';
 //import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
 import { setValue } from '../Store/slices/formSlice';
-import { toggleOpen } from '../Store/slices/modalSlice';
+// import { toggleOpen } from '../Store/slices/modalSlice';
 //import { emptyForm } from '../service/emptyForm';
 
 const CreateEmployeeForm = () => {
@@ -32,7 +32,6 @@ const CreateEmployeeForm = () => {
   }
   //////////////////////////////////////////////////////////
   const errorReducer = useSelector((state) => state.errorReducer);
-  const modalOpen = useSelector((state) => state.modalReducer.open);
   const globalValidity = useSelector(
     (state) => state.errorReducer.globalValidity
   );
@@ -45,9 +44,25 @@ const CreateEmployeeForm = () => {
   }
 
   //declare open function AND additionnal action(s)
+
+  function emptyForm() {
+    setFormKey(formKey + 1);
+  }
+
+  function recordForm() {
+    dispatch(setDataBase(form));
+  }
+
+  //declare openning parameter
+  const [modalOpen, setModalOpen] = useState(false);
+  //declare modal toggle function
+  function toggleModal() {
+    setModalOpen(!modalOpen);
+  }
+  //declare modal openning function
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch(toggleOpen());
+    toggleModal();
     //add custom action(s) below
     //saveForm();
     if (globalValidity === true) {
@@ -58,23 +73,35 @@ const CreateEmployeeForm = () => {
       setFirstTry(false);
     }
   }
-  function emptyForm() {
-    setFormKey(formKey + 1);
-  }
-  useEffect(() => {
-    if (modalOpen === false && globalValidity === true) {
-      //console.log('yay');
+
+  //declare modal closing function
+  function closeFunction() {
+    toggleModal();
+    if (globalValidity === true) {
       emptyForm();
     }
-  }, [modalOpen]);
-
-  function recordForm() {
-    dispatch(setDataBase(form));
   }
 
-  //declare close function AND additionnal action(s)
-
   //declare modal props
+  let modalProps = {
+    open: modalOpen,
+    closeFunction: closeFunction,
+    //toggleFunction: toggleModal,
+    message: globalValidity ? (
+      <div>
+        <h2>
+          Welcome, {form.firstName} {form.lastName}
+        </h2>
+        <p>New employee created successfully</p>
+      </div>
+    ) : (
+      <div>
+        <h2>Something is missing, or incorrect...</h2>
+        <p>Please make sure the form is filled in correctly</p>
+      </div>
+    ),
+    backGroundColor: 'rgba(84, 197, 222, 0.4)',
+  };
 
   return (
     <form
@@ -83,7 +110,6 @@ const CreateEmployeeForm = () => {
       onClick={checkForm}
       onFocus={checkForm}
       onChange={checkForm}
-      //ref={formRef}
       key={formKey}
       tabIndex={0}
     >
@@ -145,7 +171,7 @@ const CreateEmployeeForm = () => {
         </button>
       </div>
 
-      <CustomModal></CustomModal>
+      <CustomModal {...modalProps}></CustomModal>
     </form>
   );
 };

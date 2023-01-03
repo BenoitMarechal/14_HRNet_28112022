@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { setSelected } from '../../Store/slices/dataBaseSlice';
 import { setPagination } from '../../Store/slices/paginationSlice';
-import './customPagination.css';
+import './customPagination.scss';
 
 const PaginationHeaderNav = () => {
   const dispatch = useDispatch();

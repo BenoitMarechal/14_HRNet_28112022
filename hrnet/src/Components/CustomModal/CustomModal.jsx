@@ -5,65 +5,49 @@ import { toggleOpen } from '../../Store/slices/modalSlice';
 import './customModal.scss';
 import FocusTrap from 'focus-trap-react';
 
-const CustomModal = () => {
-  ///modal
-  let modalReducer = useSelector((state) => state.modalReducer);
-  const dispatch = useDispatch();
-  const globalValidity = useSelector(
-    (state) => state.errorReducer.globalValidity
-  );
-  let modalRef = useRef(null);
-  function toggleModal() {
-    dispatch(toggleOpen());
-  }
+const CustomModal = (props) => {
+  let modalBgStyle = {
+    position: 'fixed',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
+    display: props.open ? 'flex' : 'none',
+    background: props.backGroundColor,
+  };
+
+  let modalBodyStyle = {
+    margin: 'auto',
+  };
 
   function handleClose(e) {
     e.preventDefault();
-    toggleModal();
+    props.closeFunction();
   }
 
   function handleKeyDown(e) {
     e.preventDefault();
-    if (modalReducer.open === true) {
+    if (props.open === true) {
       if (e.key === 'Escape' || e.key === 'Enter') {
-        toggleModal();
+        props.closeFunction();
       }
     }
   }
-  ///customize
-  let formReducer = useSelector((state) => state.formReducer);
-
-  let modalProps = {
-    modalId: 'homePage-modal',
-    success: globalValidity,
-  };
-
   return (
-    <FocusTrap active={modalReducer.open}>
+    <FocusTrap active={props.open}>
       <div
-        className={
-          modalReducer.open === true
-            ? 'modal-bg modal-background-style'
-            : 'hidden'
-        }
-        id={modalProps.modalId}
-        ref={modalRef}
+        className=' modal-background-style'
+        // className={
+        //   props.open === true ? 'modal-bg modal-background-style' : 'hidden'
+        // }
         tabIndex='0'
         onKeyDown={handleKeyDown}
+        // style={props.open ? { display: 'flex' } : { display: 'none' } modalBgStyle  }
+        style={modalBgStyle}
       >
-        <div className='modal-body modal-body-style'>
-          {modalProps.success ? (
-            <h2>
-              Welcome, {formReducer.firstName} {formReducer.lastName}
-            </h2>
-          ) : (
-            <h2>Something is missing, or incorrect...</h2>
-          )}
-          <p>
-            {modalProps.success
-              ? 'new employee created successfully'
-              : 'Please make sure the form is filled in correctly'}{' '}
-          </p>
+        <div className='modal-body modal-body-style' style={modalBodyStyle}>
+          {props.message}
           <button className='modal-btn' onClick={handleClose}>
             Close <span>&#10005;</span>
           </button>
