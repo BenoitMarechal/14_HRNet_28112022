@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleOpen } from '../../Store/slices/modalSlice';
-import './customModal.css';
+import './customModal.scss';
 import FocusTrap from 'focus-trap-react';
 
 const CustomModal = () => {
@@ -12,26 +12,24 @@ const CustomModal = () => {
   const globalValidity = useSelector(
     (state) => state.errorReducer.globalValidity
   );
-  // function toggleModal() {
-  //   dispatch(toggleOpen());
-  // }
-
   let modalRef = useRef(null);
-
-  function closeModal(e) {
-    e.preventDefault();
+  function toggleModal() {
     dispatch(toggleOpen());
   }
 
+  function handleClose(e) {
+    e.preventDefault();
+    toggleModal();
+  }
+
   function handleKeyDown(e) {
+    e.preventDefault();
     if (modalReducer.open === true) {
-      if (e.key === 'Escape') {
-        console.log('yep');
-        dispatch(toggleOpen());
+      if (e.key === 'Escape' || e.key === 'Enter') {
+        toggleModal();
       }
     }
   }
-
   ///customize
   let formReducer = useSelector((state) => state.formReducer);
 
@@ -56,7 +54,7 @@ const CustomModal = () => {
         <div className='modal-body modal-body-style'>
           {modalProps.success ? (
             <h2>
-              Welcome Welcome, {formReducer.firstName} {formReducer.lastName}
+              Welcome, {formReducer.firstName} {formReducer.lastName}
             </h2>
           ) : (
             <h2>Something is missing, or incorrect...</h2>
@@ -66,7 +64,7 @@ const CustomModal = () => {
               ? 'new employee created successfully'
               : 'Please make sure the form is filled in correctly'}{' '}
           </p>
-          <button className='modal-btn' onClick={closeModal}>
+          <button className='modal-btn' onClick={handleClose}>
             Close <span>&#10005;</span>
           </button>
         </div>

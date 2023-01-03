@@ -29,9 +29,11 @@ const Home = () => {
       <h1>HRnet</h1>
       <NavLink to='/employee-list'>View Current Employees</NavLink>
       <h2>Create Employee</h2>
+      {/* DEV FEATURE */}
       <FormFiller></FormFiller>
       <CreateEmployeeForm></CreateEmployeeForm>
-      <button onClick={reset}>RESET DATA BASE (dev only)</button>
+      {/* DEV FEATURE */}
+      {/* <button onClick={reset}>RESET DATA BASE (dev only)</button> */}
     </div>
   );
 };

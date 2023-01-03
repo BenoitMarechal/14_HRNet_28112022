@@ -1,11 +1,16 @@
 @import './styles/variables.scss';
+@import './styles/pages.scss';
+@import './Components/CustomModal/customModal.scss';
 
 .errorMessage {
-  color: red;
+  color: $color-tertiary;
   font-weight: 900;
   font-size: 0.8rem;
 }
 
 .pageWrapper {
   z-index: 0;
+}
+#root {
+  color: $color-secondary;
 }

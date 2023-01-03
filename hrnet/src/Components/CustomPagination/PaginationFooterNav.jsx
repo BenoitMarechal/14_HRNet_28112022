@@ -23,8 +23,6 @@ const PaginationFooterNav = () => {
   useEffect(() => {
     ////set "everyPages" array with a negative value when button must not be generated ('...')
     let max = pagination.numberOfPages;
-    console.log('max');
-    console.log(max);
     let result = pages.map((value) => {
       if (
         value === 1 ||
@@ -42,17 +40,13 @@ const PaginationFooterNav = () => {
 
   useEffect(() => {
     //remove consecutive negative values
-    console.log(pagination.numberOfPages);
-    console.log('everyPage');
-    console.log(everyPage);
     let result = [];
     for (let i = 0; i < everyPage.length; i++) {
       if (everyPage[i] > 0 || (everyPage[i] < 0 && everyPage[i - 1] > 0)) {
         result.push(everyPage[i]);
       }
     }
-    console.log('result');
-    console.log(result);
+
     setPageButtons(result);
   }, [everyPage]);
 

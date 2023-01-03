@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .modal-bg {
   position: fixed;
   top: 0;
@@ -21,8 +23,8 @@
   cursor: pointer;
 }
 .modal-body-style {
-  border: 2px solid blue;
-  background-color: yellow;
+  // border: 2px solid blue;
+  background-color: $color-tertiary;
   margin: auto;
   width: 50%;
   height: 30%;

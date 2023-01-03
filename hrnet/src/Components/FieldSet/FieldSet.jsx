@@ -1,10 +1,10 @@
 import { React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //STATES SELECTOR
-import StreetForm from './streetForm/StreetForm';
-import CityForm from './cityForm/CityForm';
-import StateForm from './stateForm/StateForm';
-import ZipCodeForm from './zipCodeForm/ZipCodeForm';
+import StreetForm from '../streetForm/StreetForm';
+import CityForm from '../cityForm/CityForm';
+import StateForm from '../stateForm/StateForm';
+import ZipCodeForm from '../zipCodeForm/ZipCodeForm';
 const FieldSet = () => {
   //const dispatch = useDispatch();
   const firstTry = useSelector((state) => state.formReducer.firstTry);
