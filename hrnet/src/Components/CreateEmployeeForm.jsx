@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import FieldSet from '../Components/FieldSet/FieldSet';
 import FirstNameForm from './firstNameForm/FirstNameForm';
 import LastNameForm from './lastNameForm/LastNameForm';
-import DepartmentForm from './departmentForm/DepartmentForm';
+import DepartmentForm from './DepartmentForm/DepartmentForm';
 import StartDateForm from './startDateForm/StartDateForm';
 import BirthDateForm from './birthDateForm/BirthDateForm';
 import CustomModal from './CustomModal/CustomModal';
