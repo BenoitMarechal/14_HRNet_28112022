@@ -1,0 +1,40 @@
+@import '../../Components/CustomModal/customModal.scss';
+@import '../../Components/CustomPagination/customPagination.scss';
+@import './variables.scss';
+@import './pages.scss';
+
+button,
+.button {
+  cursor: pointer;
+}
+.errorMessage {
+  // color: $color-tertiary;
+  font-weight: 900;
+  font-size: 0.8rem;
+}
+
+// .pageWrapper {
+//   z-index: 0;
+// }
+// #root {
+//   color: $color-secondary;
+// }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.reminder {
+  font-weight: bold;
+  // background-color: red;
+}

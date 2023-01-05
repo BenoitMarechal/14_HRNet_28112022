@@ -1,28 +1,56 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { states } from '../Assets/states';
-import Select from 'react-select';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setValue } from '../../Store/slices/formSlice';
 
 const StateForm = () => {
+  let firstTry = useSelector((state) => state.formReducer.firstTry);
+  let error = useSelector((state) => state.errorReducer.stateError);
   const dispatch = useDispatch();
   let form = {};
-  const [selectedOption, setSelectedOption] = useState('');
-  // eslint-disable-next-line
-  useEffect(
-    () => {
-      dispatch(setValue({ ...form, state: selectedOption.label }));
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [selectedOption]
-  );
+  const [visited, setVisited] = useState(false);
+  function handleChange(e) {
+    setVisited(true);
+    form.state = e.target.value;
+    dispatch(setValue(form));
+  }
   return (
-    <Select
-      id='state'
-      defaultValue={selectedOption}
-      onChange={setSelectedOption}
-      options={states}
-    />
+    <div>
+      <div className='form-control w-full max-w-xs'>
+        <label className='label'>
+          <span className='label-text'>State</span>
+        </label>
+        <select
+          id='state'
+          onChange={handleChange}
+          defaultValue={'State'}
+          className={
+            visited
+              ? 'select select-bordered'
+              : 'select select-bordered font-thin '
+          }
+        >
+          <option value={'State'} disabled>
+            State
+          </option>
+
+          {states.map((state) => {
+            return (
+              <option key={states.indexOf(state)} value={state.label}>
+                {state.label}
+              </option>
+            );
+          })}
+        </select>
+        <label className='label'>
+          {firstTry === false && error !== '' ? (
+            <span className='label-text-alt errorMessage'>{error}</span>
+          ) : (
+            ''
+          )}
+        </label>
+      </div>
+    </div>
   );
 };
 

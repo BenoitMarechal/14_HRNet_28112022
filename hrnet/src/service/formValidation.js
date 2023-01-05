@@ -64,13 +64,9 @@ export function checkFormValidity() {
   );
   let streetInputValue = document.getElementById('street').value;
   let cityInputValue = document.getElementById('city').value;
-  let stateInputValue =
-    document.getElementById('state').lastChild.firstChild.firstChild
-      .textContent;
+  let stateInputValue = document.getElementById('state').value;
   let zipCodeInputValue = document.getElementById('zip-code').value;
-  let departmentInputValue =
-    document.getElementById('department').lastChild.firstChild.firstChild
-      .textContent;
+  let departmentInputValue = document.getElementById('department').value;
 
   //first name
   if (stringCheck(firstNameInputValue) === true) {
@@ -84,7 +80,7 @@ export function checkFormValidity() {
     result.lastNameError = '';
   } else {
     result.lastNameError =
-      'Fields must contain at least two letters, start with a capital letter and have no special characters';
+      'Field must contain at least two letters, start with a capital letter and have no special characters';
   }
   //birth date
   //World's oldest personn birthdate: 1903, Jan 2nd;
@@ -137,7 +133,13 @@ export function checkFormValidity() {
       'Field must contain at least two letters, start with a capital letter and have no special characters';
   }
 
-  result.stateError = selectCheck(stateInputValue);
+  //state
+  if (stateInputValue === 'State') {
+    result.stateError = 'Input is empty!';
+  } else {
+    result.stateError = '';
+  }
+
   //zip code
   if (zipCodeInputValue.length === 5 && zipCodeInputValue > 0) {
     result.zipCodeError = '';
@@ -145,7 +147,14 @@ export function checkFormValidity() {
     result.zipCodeError = 'Zip code must contain 5 digits';
   }
 
-  result.departmentError = selectCheck(departmentInputValue);
+  //Department
+  if (departmentInputValue === 'Department') {
+    result.departmentError = 'Input is empty!';
+  } else {
+    result.departmentError = '';
+  }
+
+  // result.departmentError = selectCheck(departmentInputValue);
 
   // console.log(result);
   return result;

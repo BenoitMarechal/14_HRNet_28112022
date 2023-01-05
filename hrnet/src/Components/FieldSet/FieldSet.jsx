@@ -2,7 +2,7 @@ import { React } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 //STATES SELECTOR
 import StreetForm from '../streetForm/StreetForm';
-import CityForm from '../cityForm/CityForm';
+import CityForm from '../CityForm/CityForm';
 import StateForm from '../stateForm/StateForm';
 import ZipCodeForm from '../zipCodeForm/ZipCodeForm';
 const FieldSet = () => {
@@ -17,33 +17,33 @@ const FieldSet = () => {
   // }
   return (
     <fieldset className='address'>
-      <legend>Address</legend>
+      {/* <legend>Address</legend> */}
       <StreetForm></StreetForm>
-      {firstTry === false && errorReducer.streetError !== '' ? (
+      {/* {firstTry === false && errorReducer.streetError !== '' ? (
         <div className='errorMessage'> {errorReducer.streetError}</div>
       ) : (
         ''
-      )}
+      )} */}
       <CityForm></CityForm>
-      {firstTry === false && errorReducer.cityError !== '' ? (
+      {/* {firstTry === false && errorReducer.cityError !== '' ? (
         <div className='errorMessage'> {errorReducer.cityError}</div>
       ) : (
         ''
-      )}
-      <label htmlFor='state'>State</label>
+      )} */}
+      {/* <label htmlFor='state'>State</label> */}
       <StateForm></StateForm>
-      {firstTry === false && errorReducer.stateError !== '' ? (
+      {/* {firstTry === false && errorReducer.stateError !== '' ? (
         <div className='errorMessage'> {errorReducer.stateError}</div>
       ) : (
         ''
-      )}
-      <label htmlFor='zip-code'>Zip Code</label>
+      )} */}
+      {/* <label htmlFor='zip-code'>Zip Code</label> */}
       <ZipCodeForm></ZipCodeForm>
-      {firstTry === false && errorReducer.zipCodeError !== '' ? (
+      {/* {firstTry === false && errorReducer.zipCodeError !== '' ? (
         <div className='errorMessage'> {errorReducer.zipCodeError}</div>
       ) : (
         ''
-      )}
+      )} */}
     </fieldset>
   );
 };

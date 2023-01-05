@@ -6,9 +6,8 @@ import { resetError } from '../Store/slices/errorSlice';
 import { resetPagination } from '../Store/slices/paginationSlice';
 import { useDispatch } from 'react-redux';
 import { resetForm } from '../Store/slices/formSlice';
-import { fillForm } from '../service/fillForm';
 import FormFiller from '../service/FormFiller';
-// import { Button } from '@mui/material';
+
 const Home = () => {
   const dispatch = useDispatch();
   function reset() {
@@ -33,7 +32,9 @@ const Home = () => {
       <FormFiller></FormFiller>
       <CreateEmployeeForm></CreateEmployeeForm>
       {/* DEV FEATURE */}
-      {/* <button onClick={reset}>RESET DATA BASE (dev only)</button> */}
+      <button className='btn btn-primary' onClick={reset}>
+        RESET DATA BASE (dev only)
+      </button>
     </div>
   );
 };

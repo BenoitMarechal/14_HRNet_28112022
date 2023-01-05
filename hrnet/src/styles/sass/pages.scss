@@ -1,8 +1,8 @@
 @import './variables';
 
-body {
-  background-color: red;
-}
+// body {
+//   background-color: red;
+// }
 
 #root {
   position: fixed;
@@ -11,7 +11,7 @@ body {
   left: 0;
   right: 0;
   overflow-y: scroll;
-  background-color: $color-primary;
+  //background-color: $color-primary;
 }
 
 .pageWrapper {
@@ -46,8 +46,8 @@ fieldset {
 }
 a,
 a:visited {
-  color: $color-secondary;
+  // color: $color-secondary;
   text-decoration: none;
-  border: 1px solid $color-tertiary;
-  background-color: $color-tertiary;
+  // border: 1px solid $color-tertiary;
+  // background-color: $color-tertiary;
 }

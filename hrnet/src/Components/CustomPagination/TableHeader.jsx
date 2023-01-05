@@ -1,6 +1,6 @@
 import React from 'react';
 import PaginationHeaderNav from './PaginationHeaderNav';
-import './customPagination.scss';
+
 import TableSearch from './TableSearch';
 
 const TableHeader = () => {

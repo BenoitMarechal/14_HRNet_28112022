@@ -1,27 +1,59 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
 import { departments } from '../Assets/departments';
-import Select from 'react-select';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setValue } from '../../Store/slices/formSlice';
 
 const DepartmentForm = () => {
+  let firstTry = useSelector((state) => state.formReducer.firstTry);
+  let error = useSelector((state) => state.errorReducer.departmentError);
   const dispatch = useDispatch();
   let form = {};
-  const [selectedOption, setSelectedOption] = useState('');
-  useEffect(
-    () => {
-      dispatch(setValue({ ...form, department: selectedOption.label }));
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [selectedOption]
-  );
+  const [visited, setVisited] = useState(false);
+  function handleChange(e) {
+    setVisited(true);
+    form.department = e.target.value;
+    dispatch(setValue(form));
+  }
   return (
-    <Select
-      id='department'
-      defaultValue={selectedOption}
-      onChange={setSelectedOption}
-      options={departments}
-    />
+    <div>
+      <div className='form-control w-full max-w-xs'>
+        <label className='label'>
+          <span className='label-text'>Department</span>
+        </label>
+        <select
+          id='department'
+          onChange={handleChange}
+          defaultValue={'Department'}
+          className={
+            visited
+              ? 'select select-bordered'
+              : 'select select-bordered font-thin '
+          }
+        >
+          <option value={'Department'} disabled>
+            Department
+          </option>
+
+          {departments.map((department) => {
+            return (
+              <option
+                key={departments.indexOf(department)}
+                value={department.label}
+              >
+                {department.label}
+              </option>
+            );
+          })}
+        </select>
+        <label className='label'>
+          {firstTry === false && error !== '' ? (
+            <span className='label-text-alt errorMessage'>{error}</span>
+          ) : (
+            ''
+          )}
+        </label>
+      </div>
+    </div>
   );
 };
 

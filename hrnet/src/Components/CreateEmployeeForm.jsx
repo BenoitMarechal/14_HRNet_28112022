@@ -9,13 +9,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import FieldSet from '../Components/FieldSet/FieldSet';
 import FirstNameForm from './firstNameForm/FirstNameForm';
 import LastNameForm from './lastNameForm/LastNameForm';
-import DepartmentForm from './departmentForm/DepartmentForm';
+import DepartmentForm from './DepartmentForm/DepartmentForm';
 import StartDateForm from './startDateForm/StartDateForm';
 import BirthDateForm from './birthDateForm/BirthDateForm';
 import CustomModal from './CustomModal/CustomModal';
 //import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
-import { setValue } from '../Store/slices/formSlice';
+import { setValue, resetForm } from '../Store/slices/formSlice';
 // import { toggleOpen } from '../Store/slices/modalSlice';
 //import { emptyForm } from '../service/emptyForm';
 
@@ -78,7 +78,7 @@ const CreateEmployeeForm = () => {
   function closeFunction() {
     toggleModal();
     if (globalValidity === true) {
-      emptyForm();
+      emptyForm(); //empties the HTMLform
     }
   }
 
@@ -117,31 +117,31 @@ const CreateEmployeeForm = () => {
         <div className='container-small'>
           <FirstNameForm></FirstNameForm>
 
-          {firstTry === false && errorReducer.firstNameError !== '' ? (
+          {/* {firstTry === false && errorReducer.firstNameError !== '' ? (
             <div className='errorMessage'> {errorReducer.firstNameError}</div>
           ) : (
             ''
-          )}
+          )} */}
 
           <LastNameForm></LastNameForm>
-          {firstTry === false && errorReducer.laststNameError !== '' ? (
+          {/* {firstTry === false && errorReducer.laststNameError !== '' ? (
             <div className='errorMessage'> {errorReducer.lastNameError}</div>
           ) : (
             ''
-          )}
+          )} */}
 
           <BirthDateForm></BirthDateForm>
-          {firstTry === false && errorReducer.birthDateError !== '' ? (
+          {/* {firstTry === false && errorReducer.birthDateError !== '' ? (
             <div className='errorMessage'> {errorReducer.birthDateError}</div>
           ) : (
             ''
-          )}
+          )} */}
           <StartDateForm></StartDateForm>
-          {firstTry === false && errorReducer.startDateError !== '' ? (
+          {/* {firstTry === false && errorReducer.startDateError !== '' ? (
             <div className='errorMessage'> {errorReducer.startDateError}</div>
           ) : (
             ''
-          )}
+          )} */}
         </div>
         {/* <div className='container-small'> */}
         <FieldSet></FieldSet>
@@ -149,16 +149,16 @@ const CreateEmployeeForm = () => {
       </div>
 
       <div className='container-large'>
-        <label htmlFor='department'>Department</label>
+        {/* <label htmlFor='department'>Department</label> */}
 
         <DepartmentForm></DepartmentForm>
 
         {/* INITIAL */}
-        {firstTry === false && errorReducer.departmentError !== '' ? (
+        {/* {firstTry === false && errorReducer.departmentError !== '' ? (
           <div className='errorMessage'> {errorReducer.departmentError}</div>
         ) : (
           ''
-        )}
+        )} */}
         {/* INITIAL */}
       </div>
 
@@ -166,6 +166,7 @@ const CreateEmployeeForm = () => {
         <button
           onClick={handleSubmit}
           disabled={!globalValidity && firstTry === false}
+          className='btn btn-neutral w-72'
         >
           Save
         </button>
