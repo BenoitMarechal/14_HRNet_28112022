@@ -16,6 +16,10 @@ import CustomModal from './CustomModal/CustomModal';
 //import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
 import { setValue, resetForm } from '../Store/slices/formSlice';
+import StreetForm from './streetForm/StreetForm';
+import CityForm from './CityForm/CityForm';
+import StateForm from './stateForm/StateForm';
+import ZipcodeForm from './zipCodeForm/ZipCodeForm';
 // import { toggleOpen } from '../Store/slices/modalSlice';
 //import { emptyForm } from '../service/emptyForm';
 
@@ -86,7 +90,6 @@ const CreateEmployeeForm = () => {
   let modalProps = {
     open: modalOpen,
     closeFunction: closeFunction,
-    //toggleFunction: toggleModal,
     message: globalValidity ? (
       <div>
         <h2>
@@ -104,76 +107,46 @@ const CreateEmployeeForm = () => {
   };
 
   return (
-    <form
-      action='#'
-      id='create-employee'
-      onClick={checkForm}
-      onFocus={checkForm}
-      onChange={checkForm}
-      key={formKey}
-      tabIndex={0}
-    >
-      <div className='container-large'>
-        <div className='container-small'>
+    <div className='parent flex w-3/5 flex-col items-center'>
+      <form
+        action='#'
+        id='create-employee'
+        onClick={checkForm}
+        onFocus={checkForm}
+        onChange={checkForm}
+        key={formKey}
+        tabIndex={0}
+        className={'border container flex flex-col '}
+      >
+        <div className='container justify-center flex'>
           <FirstNameForm></FirstNameForm>
-
-          {/* {firstTry === false && errorReducer.firstNameError !== '' ? (
-            <div className='errorMessage'> {errorReducer.firstNameError}</div>
-          ) : (
-            ''
-          )} */}
-
-          <LastNameForm></LastNameForm>
-          {/* {firstTry === false && errorReducer.laststNameError !== '' ? (
-            <div className='errorMessage'> {errorReducer.lastNameError}</div>
-          ) : (
-            ''
-          )} */}
-
-          <BirthDateForm></BirthDateForm>
-          {/* {firstTry === false && errorReducer.birthDateError !== '' ? (
-            <div className='errorMessage'> {errorReducer.birthDateError}</div>
-          ) : (
-            ''
-          )} */}
-          <StartDateForm></StartDateForm>
-          {/* {firstTry === false && errorReducer.startDateError !== '' ? (
-            <div className='errorMessage'> {errorReducer.startDateError}</div>
-          ) : (
-            ''
-          )} */}
+          <StreetForm></StreetForm>
         </div>
-        {/* <div className='container-small'> */}
-        <FieldSet></FieldSet>
-        {/* </div> */}
-      </div>
-
-      <div className='container-large'>
-        {/* <label htmlFor='department'>Department</label> */}
-
-        <DepartmentForm></DepartmentForm>
-
-        {/* INITIAL */}
-        {/* {firstTry === false && errorReducer.departmentError !== '' ? (
-          <div className='errorMessage'> {errorReducer.departmentError}</div>
-        ) : (
-          ''
-        )} */}
-        {/* INITIAL */}
-      </div>
-
-      <div className='container-large'>
-        <button
-          onClick={handleSubmit}
-          disabled={!globalValidity && firstTry === false}
-          className='btn btn-neutral w-72'
-        >
-          Save
-        </button>
-      </div>
-
+        <div className='container justify-center flex'>
+          <LastNameForm></LastNameForm>
+          <CityForm></CityForm>
+        </div>
+        <div className='container  justify-center flex'>
+          <BirthDateForm></BirthDateForm>
+          <StateForm></StateForm>
+        </div>
+        <div className='container justify-center flex'>
+          <StartDateForm></StartDateForm>
+          <ZipcodeForm></ZipcodeForm>
+        </div>
+        <div className='container flex justify-center'>
+          <DepartmentForm></DepartmentForm>
+        </div>
+      </form>
+      <button
+        onClick={handleSubmit}
+        disabled={!globalValidity && firstTry === false}
+        className='btn w-72'
+      >
+        Save
+      </button>
       <CustomModal {...modalProps}></CustomModal>
-    </form>
+    </div>
   );
 };
 

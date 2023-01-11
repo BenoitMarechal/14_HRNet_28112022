@@ -34,15 +34,18 @@ const Home = () => {
   });
 
   return (
-    <div className='pageWrapper' id='home-page'>
+    <div id='home-page' className='flex flex-col items-center'>
       <NavBar {...props}></NavBar>
       <h1>HRnet</h1>
-      <NavLink to='/employee-list'>View Current Employees</NavLink>
+      <NavLink className='btn btn-neutral w-72' to='/employee-list'>
+        View Current Employees
+      </NavLink>
       <h2>Create Employee</h2>
       {/* DEV FEATURE */}
       {devMode ? <FormFiller></FormFiller> : ''}
 
       <CreateEmployeeForm></CreateEmployeeForm>
+
       {/* DEV FEATURE */}
       {devMode ? (
         <button className='btn btn-secondary' onClick={reset}>

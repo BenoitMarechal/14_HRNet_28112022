@@ -15,41 +15,39 @@ const StateForm = () => {
     dispatch(setValue(form));
   }
   return (
-    <div>
-      <div className='form-control w-full max-w-xs'>
-        <label className='label'>
-          <span className='label-text'>State</span>
-        </label>
-        <select
-          id='state'
-          onChange={handleChange}
-          defaultValue={'State'}
-          className={
-            visited
-              ? 'select select-bordered'
-              : 'select select-bordered font-thin '
-          }
-        >
-          <option value={'State'} disabled>
-            State
-          </option>
+    <div className='form-control w-full max-w-xs'>
+      <label className='label'>
+        <span className='label-text'>State</span>
+      </label>
+      <select
+        id='state'
+        onChange={handleChange}
+        defaultValue={'State'}
+        className={
+          visited
+            ? 'select select-bordered'
+            : 'select select-bordered font-thin '
+        }
+      >
+        <option value={'State'} disabled>
+          State
+        </option>
 
-          {states.map((state) => {
-            return (
-              <option key={states.indexOf(state)} value={state.label}>
-                {state.label}
-              </option>
-            );
-          })}
-        </select>
-        <label className='label'>
-          {firstTry === false && error !== '' ? (
-            <span className='label-text-alt errorMessage'>{error}</span>
-          ) : (
-            ''
-          )}
-        </label>
-      </div>
+        {states.map((state) => {
+          return (
+            <option key={states.indexOf(state)} value={state.label}>
+              {state.label}
+            </option>
+          );
+        })}
+      </select>
+      <label className='label'>
+        {firstTry === false && error !== '' ? (
+          <span className='label-text-alt errorMessage'>{error}</span>
+        ) : (
+          ''
+        )}
+      </label>
     </div>
   );
 };

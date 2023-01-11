@@ -38,7 +38,7 @@ const BirthDateForm = () => {
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='errorMessage'>{error}</span>
+          <span className='errorMessage label-text-alt'>{error}</span>
         ) : (
           ''
         )}

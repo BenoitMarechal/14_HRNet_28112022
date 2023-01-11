@@ -30,7 +30,7 @@ const CityForm = () => {
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='errorMessage'>{error}</span>
+          <span className='label-text-alt errorMessage'>{error}</span>
         ) : (
           ''
         )}

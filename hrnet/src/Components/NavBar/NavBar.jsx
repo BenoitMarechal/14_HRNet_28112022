@@ -15,7 +15,7 @@ const NavBar = (props) => {
       className=' h-16 w-full hover-container'
     >
       {hover ? (
-        <div className='flex  h-16 items-center justify-end  w-full   '>
+        <div className='flex  bg-accent h-16 items-center justify-end  w-full   '>
           <div className='form-control w-52 border border-black  '>
             <label className='cursor-pointer label'>
               <span className='label-text'>Dev Mode</span>

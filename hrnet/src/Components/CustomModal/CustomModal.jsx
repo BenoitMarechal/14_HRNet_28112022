@@ -2,7 +2,7 @@ import React from 'react';
 // import { useRef } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { toggleOpen } from '../../Store/slices/modalSlice';
-// import './customModal.scss';
+import './customModal.scss';
 import FocusTrap from 'focus-trap-react';
 
 const CustomModal = (props) => {

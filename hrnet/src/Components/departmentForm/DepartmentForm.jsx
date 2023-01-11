@@ -15,44 +15,42 @@ const DepartmentForm = () => {
     dispatch(setValue(form));
   }
   return (
-    <div>
-      <div className='form-control w-full max-w-xs'>
-        <label className='label'>
-          <span className='label-text'>Department</span>
-        </label>
-        <select
-          id='department'
-          onChange={handleChange}
-          defaultValue={'Department'}
-          className={
-            visited
-              ? 'select select-bordered'
-              : 'select select-bordered font-thin '
-          }
-        >
-          <option value={'Department'} disabled>
-            Department
-          </option>
+    <div className='form-control w-full  container flex felx-col items-center'>
+      <label className='label'>
+        <span className='label-text'>Department</span>
+      </label>
+      <select
+        id='department'
+        onChange={handleChange}
+        defaultValue={'Department'}
+        className={
+          visited
+            ? 'select select-bordered  '
+            : 'select select-bordered  w-96 font-thin '
+        }
+      >
+        <option value={'Department'} disabled>
+          Department
+        </option>
 
-          {departments.map((department) => {
-            return (
-              <option
-                key={departments.indexOf(department)}
-                value={department.label}
-              >
-                {department.label}
-              </option>
-            );
-          })}
-        </select>
-        <label className='label'>
-          {firstTry === false && error !== '' ? (
-            <span className='label-text-alt errorMessage'>{error}</span>
-          ) : (
-            ''
-          )}
-        </label>
-      </div>
+        {departments.map((department) => {
+          return (
+            <option
+              key={departments.indexOf(department)}
+              value={department.label}
+            >
+              {department.label}
+            </option>
+          );
+        })}
+      </select>
+      <label className='label'>
+        {firstTry === false && error !== '' ? (
+          <span className='label-text-alt errorMessage'>{error}</span>
+        ) : (
+          ''
+        )}
+      </label>
     </div>
   );
 };
