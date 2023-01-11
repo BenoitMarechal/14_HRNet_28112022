@@ -9,13 +9,10 @@ const NavBar = (props) => {
     setHover(false);
   }
   return (
-    <nav
-      onMouseOver={mouseOver}
-      onMouseOut={mouseOut}
-      className=' h-16 w-full hover-container'
-    >
+    <nav onMouseOver={mouseOver} onMouseOut={mouseOut} className='w-full'>
+      <div className='h-4 w-full hover-container w-100'></div>
       {hover ? (
-        <div className='flex  bg-accent h-16 items-center justify-end  w-full   '>
+        <div className='flex  bg-accent h-16 items-center justify-end  w-100   '>
           <div className='form-control w-52 border border-black  '>
             <label className='cursor-pointer label'>
               <span className='label-text'>Dev Mode</span>

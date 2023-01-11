@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import { setDataBase } from '../Store/slices/dataBaseSlice';
 import {
   checkGlobalValidity,
@@ -6,7 +6,6 @@ import {
   resetError,
 } from '../Store/slices/errorSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import FieldSet from '../Components/FieldSet/FieldSet';
 import FirstNameForm from './firstNameForm/FirstNameForm';
 import LastNameForm from './lastNameForm/LastNameForm';
 import DepartmentForm from './DepartmentForm/DepartmentForm';
@@ -81,6 +80,7 @@ const CreateEmployeeForm = () => {
   //declare modal closing function
   function closeFunction() {
     toggleModal();
+    checkForm();
     if (globalValidity === true) {
       emptyForm(); //empties the HTMLform
     }
@@ -107,7 +107,7 @@ const CreateEmployeeForm = () => {
   };
 
   return (
-    <div className='parent flex w-3/5 flex-col items-center'>
+    <div className='parent  '>
       <form
         action='#'
         id='create-employee'
@@ -116,35 +116,33 @@ const CreateEmployeeForm = () => {
         onChange={checkForm}
         key={formKey}
         tabIndex={0}
-        className={'border container flex flex-col '}
+        className={
+          ' grid grid-cols-2  px-12  w-full gap-x-12 border border-4 border-current bg-primary rounded-b-xl'
+        }
       >
-        <div className='container justify-center flex'>
-          <FirstNameForm></FirstNameForm>
-          <StreetForm></StreetForm>
-        </div>
-        <div className='container justify-center flex'>
-          <LastNameForm></LastNameForm>
-          <CityForm></CityForm>
-        </div>
-        <div className='container  justify-center flex'>
-          <BirthDateForm></BirthDateForm>
-          <StateForm></StateForm>
-        </div>
-        <div className='container justify-center flex'>
-          <StartDateForm></StartDateForm>
-          <ZipcodeForm></ZipcodeForm>
-        </div>
-        <div className='container flex justify-center'>
+        <FirstNameForm></FirstNameForm>
+        <StreetForm></StreetForm>
+        <LastNameForm></LastNameForm>
+        <CityForm></CityForm>
+        <BirthDateForm></BirthDateForm>
+        <StateForm></StateForm>
+        <StartDateForm></StartDateForm>
+
+        <ZipcodeForm></ZipcodeForm>
+        <div className='col-span-2'>
           <DepartmentForm></DepartmentForm>
         </div>
+        <div className='col-span-2 flex justify-center'>
+          <button
+            onClick={handleSubmit}
+            disabled={!globalValidity && firstTry === false}
+            className='btn btn-neutral col-span-2 px-6 my-4 '
+          >
+            Save
+          </button>
+        </div>
       </form>
-      <button
-        onClick={handleSubmit}
-        disabled={!globalValidity && firstTry === false}
-        className='btn w-72'
-      >
-        Save
-      </button>
+
       <CustomModal {...modalProps}></CustomModal>
     </div>
   );

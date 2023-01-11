@@ -34,26 +34,40 @@ const Home = () => {
   });
 
   return (
-    <div id='home-page' className='flex flex-col items-center'>
+    <div
+      id='home-page'
+      className='flex flex-col items-center bg-primary h-full w-full'
+    >
       <NavBar {...props}></NavBar>
       <h1>HRnet</h1>
       <NavLink className='btn btn-neutral w-72' to='/employee-list'>
         View Current Employees
       </NavLink>
-      <h2>Create Employee</h2>
-      {/* DEV FEATURE */}
-      {devMode ? <FormFiller></FormFiller> : ''}
-
-      <CreateEmployeeForm></CreateEmployeeForm>
-
-      {/* DEV FEATURE */}
-      {devMode ? (
-        <button className='btn btn-secondary' onClick={reset}>
-          RESET DATA BASE (dev only)
-        </button>
-      ) : (
-        ''
-      )}
+      <div
+        className='container border border-8 border-current bg-secondary rounded-3xl w-1/3 flex flex-col items-center  p-4 m-4'
+        id='homepage-content'
+      >
+        <div
+          className='container   flex flex-col items-center'
+          id='homepage-content'
+        >
+          <h2 className=' mx-8  mb-0 w-full rounded-t-xl text-center  border border-4 border-b-0 border-current bg-primary'>
+            Create Employee
+          </h2>
+          <CreateEmployeeForm></CreateEmployeeForm>
+        </div>
+      </div>
+      {/* DEV FEATURES */}
+      <div className='dev-features'>
+        {devMode ? <FormFiller></FormFiller> : ''}
+        {devMode ? (
+          <button className='btn btn-secondary mx-2' onClick={reset}>
+            RESET DATA BASE (dev only)
+          </button>
+        ) : (
+          ''
+        )}
+      </div>
     </div>
   );
 };

@@ -5,8 +5,8 @@ import store from './Store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
-import './styles/sass/mainSass.scss';
 import './input.css';
+import './styles/sass/mainSass.scss';
 
 let persistor = persistStore(store);
 const root = ReactDOM.createRoot(document.getElementById('root'));

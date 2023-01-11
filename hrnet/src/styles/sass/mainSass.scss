@@ -2,9 +2,12 @@
 @import '../../Components/CustomPagination/customPagination.scss';
 @import './variables.scss';
 @import './pages.scss';
-
-body {
-  background-color: pink;
+@import './typo.scss';
+.hover-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 // button,
