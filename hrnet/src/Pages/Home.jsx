@@ -16,8 +16,9 @@ const Home = () => {
     let next = !devMode;
     setDevMode(next);
   }
-  let props = {
+  let navBarProps = {
     function: toggleDevMode,
+    onOffParam: devMode,
   };
   const dispatch = useDispatch();
   function reset() {
@@ -38,7 +39,18 @@ const Home = () => {
       id='home-page'
       className='flex flex-col items-center bg-primary h-full w-full'
     >
-      <NavBar {...props}></NavBar>
+      <NavBar {...navBarProps}></NavBar>
+      {/* DEV FEATURES */}
+      <div className='dev-features mb-8'>
+        {devMode ? <FormFiller></FormFiller> : ''}
+        {devMode ? (
+          <button className='btn btn-secondary mx-2' onClick={reset}>
+            RESET DATA BASE (dev only)
+          </button>
+        ) : (
+          ''
+        )}
+      </div>
       <h1>HRnet</h1>
       <NavLink className='btn btn-neutral w-72' to='/employee-list'>
         View Current Employees
@@ -56,17 +68,6 @@ const Home = () => {
           </h2>
           <CreateEmployeeForm></CreateEmployeeForm>
         </div>
-      </div>
-      {/* DEV FEATURES */}
-      <div className='dev-features'>
-        {devMode ? <FormFiller></FormFiller> : ''}
-        {devMode ? (
-          <button className='btn btn-secondary mx-2' onClick={reset}>
-            RESET DATA BASE (dev only)
-          </button>
-        ) : (
-          ''
-        )}
       </div>
     </div>
   );

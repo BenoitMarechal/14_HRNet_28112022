@@ -25,7 +25,7 @@ const DepartmentForm = () => {
         defaultValue={'Department'}
         className={
           visited
-            ? 'select select-bordered  '
+            ? 'select select-bordered w-96 '
             : 'select select-bordered  w-96 font-thin '
         }
       >

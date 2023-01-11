@@ -16,10 +16,14 @@ const NavBar = (props) => {
           <div className='form-control w-52 border border-black  '>
             <label className='cursor-pointer label'>
               <span className='label-text'>Dev Mode</span>
+              <span className='label-text font-bold'>
+                {props.onOffParam ? 'On' : 'Off'}
+              </span>
               <input
                 type='checkbox'
                 className='toggle toggle-accent'
                 onChange={props.function}
+                checked={props.onOffParam}
               />
             </label>
           </div>
