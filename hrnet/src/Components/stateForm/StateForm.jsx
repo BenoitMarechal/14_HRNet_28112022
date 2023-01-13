@@ -15,9 +15,9 @@ const StateForm = () => {
     dispatch(setValue(form));
   }
   return (
-    <div className='form-control w-full max-w-xs'>
+    <div className='form-control text-secondary w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text'>State</span>
+        <span className='label-text text-secondary'>State</span>
       </label>
       <select
         id='state'
@@ -25,8 +25,8 @@ const StateForm = () => {
         defaultValue={'State'}
         className={
           visited
-            ? 'select select-bordered'
-            : 'select select-bordered font-thin '
+            ? 'select select-bordered border border-secondary border-2'
+            : 'select select-bordered font-thin border border-secondary border-2 '
         }
       >
         <option value={'State'} disabled>
@@ -43,7 +43,9 @@ const StateForm = () => {
       </select>
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text-alt errorMessage'>{error}</span>
+          <span className='label-text text-secondary-alt errorMessage'>
+            {error}
+          </span>
         ) : (
           ''
         )}

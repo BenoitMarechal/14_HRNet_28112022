@@ -16,25 +16,23 @@ const FirstNameForm = () => {
   let error = useSelector((state) => state.errorReducer.firstNameError);
 
   return (
-    // <div className='single-text-input'>
-    //   <label htmlFor={'first-name'}>First Name</label>
-    //   <input type='text' id='first-name' onChange={change} ref={ref} />
-    // </div>
-    <div className='form-control w-full max-w-xs'>
+    <div className='form-control text-secondary w-full max-w-xs text-secondary'>
       <label className='label'>
         <span className='label-text'>First Name</span>
       </label>
       <input
         type='text'
         placeholder='First Name'
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered w-full max-w-xs border border-secondary border-2'
         id='first-name'
         onChange={change}
         ref={ref}
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text-alt errorMessage'>{error}</span>
+          <span className='label-text text-secondary-alt errorMessage'>
+            {error}
+          </span>
         ) : (
           ''
         )}

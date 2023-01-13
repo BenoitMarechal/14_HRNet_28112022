@@ -58,7 +58,10 @@ const FormFiller = () => {
   }
 
   return (
-    <button className='btn btn-secondary' onClick={fillForm}>
+    <button
+      className='btn btn-secondary border-primary border-2'
+      onClick={fillForm}
+    >
       FILL FORM (dev only)
     </button>
   );

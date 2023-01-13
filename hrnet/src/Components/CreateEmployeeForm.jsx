@@ -107,7 +107,7 @@ const CreateEmployeeForm = () => {
   };
 
   return (
-    <div className='parent  '>
+    <div className='parent text-neutral '>
       <form
         action='#'
         id='create-employee'
@@ -136,7 +136,7 @@ const CreateEmployeeForm = () => {
           <button
             onClick={handleSubmit}
             disabled={!globalValidity && firstTry === false}
-            className='btn btn-neutral col-span-2 px-6 my-4 '
+            className=' btn btn-neutral shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
           >
             Save
           </button>

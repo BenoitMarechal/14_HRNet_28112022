@@ -20,14 +20,14 @@ const ZipcodeForm = () => {
     //   <label htmlFor={'last-name'}>last Name</label>
     //   <input type='text' id='last-name' onChange={change} ref={ref} />
     // </div>
-    <div className='form-control w-full max-w-xs'>
+    <div className='form-control text-secondary w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text'>Zip code</span>
+        <span className='label-text text-secondary'>Zip code</span>
       </label>
       <input
         type='number'
         placeholder='Zip code'
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered w-full max-w-xs border border-secondary border-2'
         id='zip-code'
         onChange={change}
         ref={ref}
@@ -36,7 +36,9 @@ const ZipcodeForm = () => {
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text-alt errorMessage'>{error}</span>
+          <span className='label-text text-secondary-alt errorMessage'>
+            {error}
+          </span>
         ) : (
           ''
         )}

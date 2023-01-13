@@ -40,33 +40,47 @@ const Home = () => {
       className='flex flex-col items-center bg-primary h-full w-full'
     >
       <NavBar {...navBarProps}></NavBar>
-      {/* DEV FEATURES */}
-      <div className='dev-features mb-8'>
-        {devMode ? <FormFiller></FormFiller> : ''}
-        {devMode ? (
-          <button className='btn btn-secondary mx-2' onClick={reset}>
-            RESET DATA BASE (dev only)
-          </button>
-        ) : (
-          ''
-        )}
-      </div>
-      <h1>HRnet</h1>
-      <NavLink className='btn btn-neutral w-72' to='/employee-list'>
+      <h1 className='text-neutral'>HRnet</h1>
+      <NavLink
+        className='btn btn-neutral shadow-inner shadow-slate-400 w-72 '
+        to='/employee-list'
+      >
         View Current Employees
       </NavLink>
       <div
-        className='container border border-8 border-current bg-secondary rounded-3xl w-1/3 flex flex-col items-center  p-4 m-4'
+        className='container shadow shadow-2xl   shadow-current border border-2  border-current border-neutral 
+        bg-secondary rounded-3xl w-1/3 flex flex-col items-center  p-4 m-4'
         id='homepage-content'
       >
         <div
-          className='container   flex flex-col items-center'
+          className='container  flex flex-col items-center'
           id='homepage-content'
         >
-          <h2 className=' mx-8  mb-0 w-full rounded-t-xl text-center  border border-4 border-b-0 border-current bg-primary'>
+          <h2
+            className=' 
+              border-4 border-b-0 border-neutral text-neutral font-bold
+
+          mx-8  mb-0 w-full rounded-t-xl text-center  
+         
+          bg-primary'
+          >
             Create Employee
           </h2>
           <CreateEmployeeForm></CreateEmployeeForm>
+          {/* DEV FEATURES */}
+          <div className='dev-features flex w-full mt-2 justify-around'>
+            {devMode ? <FormFiller></FormFiller> : ''}
+            {devMode ? (
+              <button
+                className='btn btn-secondary border border-primary border-2 '
+                onClick={reset}
+              >
+                RESET DATA BASE (dev only)
+              </button>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
       </div>
     </div>

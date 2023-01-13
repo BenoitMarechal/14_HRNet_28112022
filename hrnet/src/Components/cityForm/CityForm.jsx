@@ -16,21 +16,23 @@ const CityForm = () => {
   let error = useSelector((state) => state.errorReducer.cityError);
 
   return (
-    <div className='form-control w-full max-w-xs'>
+    <div className='form-control text-secondary w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text'>City</span>
+        <span className='label-text text-secondary'>City</span>
       </label>
       <input
         type='text'
         placeholder='City'
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered w-full max-w-xs border border-secondary border-2'
         id='city'
         onChange={change}
         ref={ref}
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text-alt errorMessage'>{error}</span>
+          <span className='label-text text-secondary-alt errorMessage'>
+            {error}
+          </span>
         ) : (
           ''
         )}

@@ -25,20 +25,22 @@ const BirthDateForm = () => {
   );
 
   return (
-    <div className='form-control w-full max-w-xs'>
+    <div className='form-control text-secondary  w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text'>Date of birth</span>
+        <span className='label-text text-secondary'>Date of birth</span>
       </label>
       <DatePicker
         id='birth-date'
         selected={birthDate}
         onChange={(date) => setBirthDate(date)}
         dateFormat='dd/MM/yyyy'
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered w-full border border-secondary border-2 max-w-xs'
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='errorMessage label-text-alt'>{error}</span>
+          <span className='errorMessage label-text text-secondary-alt'>
+            {error}
+          </span>
         ) : (
           ''
         )}

@@ -20,21 +20,23 @@ const LastNameForm = () => {
     //   <label htmlFor={'last-name'}>last Name</label>
     //   <input type='text' id='last-name' onChange={change} ref={ref} />
     // </div>
-    <div className='form-control w-full max-w-xs'>
+    <div className='form-control text-secondary w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text'>Last Name</span>
+        <span className='label-text text-secondary'>Last Name</span>
       </label>
       <input
         type='text'
         placeholder='Last Name'
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered  border border-secondary border-2 w-full max-w-xs'
         id='last-name'
         onChange={change}
         ref={ref}
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text-alt errorMessage'>{error}</span>
+          <span className='label-text text-secondary-alt errorMessage'>
+            {error}
+          </span>
         ) : (
           ''
         )}

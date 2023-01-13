@@ -15,9 +15,9 @@ const DepartmentForm = () => {
     dispatch(setValue(form));
   }
   return (
-    <div className='form-control w-full  container flex felx-col items-center'>
+    <div className='form-control text-secondary w-full  container flex felx-col items-center'>
       <label className='label'>
-        <span className='label-text'>Department</span>
+        <span className='label-text text-secondary'>Department</span>
       </label>
       <select
         id='department'
@@ -25,8 +25,8 @@ const DepartmentForm = () => {
         defaultValue={'Department'}
         className={
           visited
-            ? 'select select-bordered w-96 '
-            : 'select select-bordered  w-96 font-thin '
+            ? 'select select-bordered w-96  border border-secondary border-2'
+            : 'select select-bordered  w-96 font-thin border border-secondary border-2 '
         }
       >
         <option value={'Department'} disabled>
@@ -46,7 +46,9 @@ const DepartmentForm = () => {
       </select>
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text-alt errorMessage'>{error}</span>
+          <span className='label-text text-secondary-alt errorMessage'>
+            {error}
+          </span>
         ) : (
           ''
         )}

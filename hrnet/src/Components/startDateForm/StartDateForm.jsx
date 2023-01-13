@@ -24,20 +24,22 @@ const StartDateForm = () => {
   );
 
   return (
-    <div className='form-control w-full max-w-xs'>
+    <div className='form-control text-secondary w-full max-w-xs '>
       <label className='label'>
-        <span className='label-text'>Start date</span>
+        <span className='label-text text-secondary'>Start date</span>
       </label>
       <DatePicker
         id='start-date'
         selected={startDate}
         onChange={(date) => setStartDate(date)}
         dateFormat='dd/MM/yyyy'
-        className='input input-bordered w-full max-w-xs'
+        className='input input-bordered w-full max-w-xs border border-secondary border-2 '
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='errorMessage label-text-alt'>{error}</span>
+          <span className='errorMessage label-text text-secondary-alt'>
+            {error}
+          </span>
         ) : (
           ''
         )}
