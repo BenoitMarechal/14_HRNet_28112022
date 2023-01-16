@@ -4,12 +4,15 @@ import EmployeeTable from '../Components/DataTable/EmployeeTable';
 
 const EmployeeList = () => {
   return (
-    <div className='pageWrapper'>
-      <h1>Current Employees</h1>
-      <div id='employee-table_wrapper' className='dataTables_wrapper no-footer'>
+    <div className='bg-primary  flex pageContainer flex-col items-center  min-h-full w-full'>
+      <h1 className='text-neutral w-full text-center'>Current Employees</h1>
+      <div
+        id='employee-table_wrapper'
+        className='dataTables_wrapper w-full no-footer'
+      >
         <EmployeeTable></EmployeeTable>
       </div>
-      <NavLink className='btn btn-current' to='/'>
+      <NavLink className='btn btn-current mb-5' to='/'>
         Home
       </NavLink>
     </div>

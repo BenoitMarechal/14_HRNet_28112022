@@ -1,10 +1,16 @@
 .tableWrapper {
   display: flex;
   flex-direction: column;
-  padding: 50px;
+  padding: 5px 50px;
 }
 
 .tableHeader-wrapper {
+  margin: 5px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tableHeader-nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

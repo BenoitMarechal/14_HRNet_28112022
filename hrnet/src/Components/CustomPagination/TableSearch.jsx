@@ -31,9 +31,16 @@ const TableSearch = () => {
   }
 
   return (
-    <div className='table-search'>
-      <label htmlFor='table-search'>Search:</label>
-      <input type='search' id='table-search' onChange={search} />
+    <div className='table-search flex items-center'>
+      <label htmlFor='table-search ' className='mr-2'>
+        Search:
+      </label>
+      <input
+        type='search'
+        id='table-search'
+        className='input input-bordered  border border-secondary border-2'
+        onChange={search}
+      />
     </div>
   );
 };

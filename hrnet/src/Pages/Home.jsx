@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <div
       id='home-page'
-      className='flex flex-col items-center bg-primary h-full w-full'
+      className='flex flex-col items-center bg-primary min-h-full w-full border'
     >
       <NavBar {...navBarProps}></NavBar>
       <h1 className='text-neutral'>HRnet</h1>

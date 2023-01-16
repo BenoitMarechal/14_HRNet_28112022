@@ -8,6 +8,7 @@ import {
   setPagination,
   resetPagination,
 } from '../../Store/slices/paginationSlice';
+import './dataTable.scss';
 //import CustomMaterialPagination from '../CustomPagination/CustomPagination';
 
 const EmployeeTable = () => {

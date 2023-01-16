@@ -17,13 +17,14 @@ const PaginationHeaderNav = () => {
     setNumberOfRows(target);
   }
   return (
-    <nav className='tableHeader-wrapper'>
-      <div>View</div>
+    <nav className='tableHeader-nav flex items-center'>
+      <div className='text-neutral bold'>View</div>
       <select
         name='rows-select'
         id='rows-select'
         onChange={change}
         defaultValue='10'
+        className=''
       >
         <option value='1'>1</option>
         <option value='5'>5</option>
@@ -31,7 +32,9 @@ const PaginationHeaderNav = () => {
         <option value='25'>25</option>
         <option value='50'>50</option>
       </select>
-      <div>{pagination.numberOfRows === 1 ? 'entry' : 'entries'}</div>
+      <div className='text-neutral bold'>
+        {pagination.numberOfRows === 1 ? 'entry' : 'entries'}
+      </div>
     </nav>
   );
 };

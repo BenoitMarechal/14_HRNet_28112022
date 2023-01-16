@@ -75,7 +75,7 @@ const PaginationFooterNav = () => {
           prevNext(-1);
         }}
       >
-        PREV
+        &#171; PREV
       </div>
       {/* //////////////////////////////////////////////////// */}
       {pageButtons !== []
@@ -109,7 +109,7 @@ const PaginationFooterNav = () => {
           prevNext(1);
         }}
       >
-        NEXT
+        NEXT &#187;
       </div>
     </div>
   );
