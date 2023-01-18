@@ -23,7 +23,7 @@ const PaginationHeaderNav = () => {
         name='rows-select'
         id='rows-select'
         onChange={change}
-        defaultValue='10'
+        defaultValue={pagination.numberOfRows}
         className=''
       >
         <option value='1'>1</option>

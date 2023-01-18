@@ -1,7 +1,4 @@
 import React from 'react';
-// import { useRef } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { toggleOpen } from '../../Store/slices/modalSlice';
 import './customModal.scss';
 import FocusTrap from 'focus-trap-react';
 
@@ -38,12 +35,8 @@ const CustomModal = (props) => {
     <FocusTrap active={props.open}>
       <div
         className=' modal-background-style'
-        // className={
-        //   props.open === true ? 'modal-bg modal-background-style' : 'hidden'
-        // }
         tabIndex='0'
         onKeyDown={handleKeyDown}
-        // style={props.open ? { display: 'flex' } : { display: 'none' } modalBgStyle  }
         style={modalBgStyle}
       >
         <div className='modal-body modal-body-style' style={modalBodyStyle}>

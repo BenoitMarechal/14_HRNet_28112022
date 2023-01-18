@@ -4,25 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import TableHeader from '../CustomPagination/TableHeader';
 import TableFooter from '../CustomPagination/TableFooter';
 import { setSelected } from '../../Store/slices/dataBaseSlice';
-import {
-  setPagination,
-  resetPagination,
-} from '../../Store/slices/paginationSlice';
+import { setPagination } from '../../Store/slices/paginationSlice';
 import './dataTable.scss';
-//import CustomMaterialPagination from '../CustomPagination/CustomPagination';
 
 const EmployeeTable = () => {
   const dispatch = useDispatch();
-  //reset on Mount
-  useEffect(() => {
-    dispatch(resetPagination());
-    // eslint-disable-next-line
-  }, []);
-
   const columns = [
     {
       name: 'First Name',
-
       selector: (row) => row.firstName,
       sortable: true,
     },
@@ -93,9 +82,6 @@ const EmployeeTable = () => {
 
   //update begin and end
   useEffect(() => {
-    // console.log('activePage');
-    // console.log(pagination.activePage);
-
     let target = {};
     target.begin =
       pagination.activePage * pagination.numberOfRows -

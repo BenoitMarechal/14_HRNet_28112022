@@ -1,9 +1,8 @@
-import { React, useEffect, useState } from 'react';
+import { React, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import { resetDataBase } from '../Store/slices/dataBaseSlice';
 import { resetError } from '../Store/slices/errorSlice';
-import { resetPagination } from '../Store/slices/paginationSlice';
 import { useDispatch } from 'react-redux';
 import { resetForm } from '../Store/slices/formSlice';
 import FormFiller from '../service/FormFiller';
@@ -11,7 +10,6 @@ import NavBar from '../Components/NavBar/NavBar';
 
 const Home = () => {
   const [devMode, setDevMode] = useState(false);
-
   function toggleDevMode() {
     let next = !devMode;
     setDevMode(next);
@@ -21,19 +19,11 @@ const Home = () => {
     onOffParam: devMode,
   };
   const dispatch = useDispatch();
-  function reset() {
+  function devReset() {
     dispatch(resetDataBase());
     dispatch(resetForm());
     dispatch(resetError());
-    dispatch(resetPagination());
   }
-
-  useEffect(() => {
-    dispatch(resetForm());
-    dispatch(resetError());
-    dispatch(resetPagination());
-  });
-
   return (
     <div
       id='home-page'
@@ -73,7 +63,7 @@ const Home = () => {
             {devMode ? (
               <button
                 className='btn btn-secondary border border-primary border-2 '
-                onClick={reset}
+                onClick={devReset}
               >
                 RESET DATA BASE (dev only)
               </button>
