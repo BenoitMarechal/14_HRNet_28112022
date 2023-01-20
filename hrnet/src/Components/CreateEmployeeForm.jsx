@@ -14,7 +14,7 @@ import BirthDateForm from './birthDateForm/BirthDateForm';
 import CustomModal from './CustomModal/CustomModal';
 //import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
-import { setValue, resetForm } from '../Store/slices/formSlice';
+import { setValue } from '../Store/slices/formSlice';
 import StreetForm from './streetForm/StreetForm';
 import CityForm from './CityForm/CityForm';
 import StateForm from './stateForm/StateForm';
@@ -34,7 +34,7 @@ const CreateEmployeeForm = () => {
     dispatch(setValue(target));
   }
   //////////////////////////////////////////////////////////
-  const errorReducer = useSelector((state) => state.errorReducer);
+  // const errorReducer = useSelector((state) => state.errorReducer);
   const globalValidity = useSelector(
     (state) => state.errorReducer.globalValidity
   );
@@ -127,7 +127,6 @@ const CreateEmployeeForm = () => {
         <BirthDateForm></BirthDateForm>
         <StateForm></StateForm>
         <StartDateForm></StartDateForm>
-
         <ZipcodeForm></ZipcodeForm>
         <div className='col-span-2'>
           <DepartmentForm></DepartmentForm>

@@ -17,15 +17,6 @@ function stringCheck(stringToCheck) {
     return false;
   }
 }
-function selectCheck(select) {
-  if (select === 'Select...') {
-    //input has at least three characters,
-
-    return 'Input is empty!';
-  } else {
-    return '';
-  }
-}
 
 function localeToDate(localeDateString) {
   let day = localeDateString.slice(0, 2);
