@@ -27,12 +27,13 @@ const Home = () => {
     dispatch(resetError());
     dispatch(resetPagination());
   }
-
-  useEffect(() => {
-    dispatch(resetForm());
-    dispatch(resetError());
-    dispatch(resetPagination());
-  });
+  //?????
+  // useEffect(() => {
+  //   dispatch(resetForm());
+  //   dispatch(resetError());
+  //   dispatch(resetPagination());
+  // });
+  ///?????
 
   return (
     <div

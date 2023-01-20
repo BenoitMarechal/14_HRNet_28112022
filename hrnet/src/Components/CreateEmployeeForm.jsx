@@ -27,10 +27,10 @@ const CreateEmployeeForm = () => {
   const form = useSelector((state) => state.formReducer);
   const [formKey, setFormKey] = useState(0);
   /////////////////////
-  const firstTry = useSelector((state) => state.formReducer.firstTry);
-  function setFirstTry(arg) {
+  // const firstTry = useSelector((state) => state.formReducer.firstTry);
+  function setFirstTry(value) {
     let target = {};
-    target.firstTry = arg;
+    target.firstTry = value;
     dispatch(setValue(target));
   }
   //////////////////////////////////////////////////////////
@@ -67,10 +67,8 @@ const CreateEmployeeForm = () => {
     e.preventDefault();
     toggleModal();
     //add custom action(s) below
-    //saveForm();
     if (globalValidity === true) {
       recordForm();
-      //emptyForm();
       setFirstTry(true);
     } else {
       setFirstTry(false);
@@ -80,7 +78,7 @@ const CreateEmployeeForm = () => {
   //declare modal closing function
   function closeFunction() {
     toggleModal();
-    checkForm();
+    // checkForm();
     if (globalValidity === true) {
       emptyForm(); //empties the HTMLform
     }
@@ -134,15 +132,14 @@ const CreateEmployeeForm = () => {
         <div className='col-span-2 flex justify-center'>
           <button
             onClick={handleSubmit}
-            disabled={!globalValidity && firstTry === false}
+            disabled={!globalValidity && form.firstTry === false}
             className=' btn btn-neutral shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
           >
             Save
           </button>
         </div>
       </form>
-
-      <CustomModal {...modalProps}></CustomModal>
+      {modalOpen ? <CustomModal {...modalProps}></CustomModal> : ''}
     </div>
   );
 };

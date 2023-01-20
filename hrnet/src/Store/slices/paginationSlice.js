@@ -4,7 +4,6 @@ const initialState = {
   numberOfRows: 10,
   numberOfPages: 1,
   activePage: 1,
-  // filter: '',
   begin: 1,
   end: 10,
 };
