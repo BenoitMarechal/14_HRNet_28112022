@@ -14,7 +14,7 @@ const FormFiller = () => {
     let stateInput = document.getElementById('state');
     let zipCodeInput = document.getElementById('zip-code');
     let departmentInput = document.getElementById('department');
-    let birthDateInput = document.getElementById('birth-date');
+    // let birthDateInput = document.getElementById('birth-date');
     //filling page ////////////////////////////
     firstNameInput.value = 'John';
     lastNameInput.value = 'Doe';

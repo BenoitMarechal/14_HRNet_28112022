@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { setValue } from '../../Store/slices/formSlice';
 import moment from 'moment';
+//import '../../styles/react-datepicker.css';
 
 const BirthDateForm = () => {
   let firstTry = useSelector((state) => state.formReducer.firstTry);

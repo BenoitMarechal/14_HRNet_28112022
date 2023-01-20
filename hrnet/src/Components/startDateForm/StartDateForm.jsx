@@ -1,8 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { setValue } from '../../Store/slices/formSlice';
+import '../../styles/react-datepicker.css';
 
 const StartDateForm = () => {
   let firstTry = useSelector((state) => state.formReducer.firstTry);
