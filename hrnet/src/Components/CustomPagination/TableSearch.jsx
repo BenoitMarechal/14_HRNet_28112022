@@ -13,6 +13,7 @@ const TableSearch = () => {
     console.log(filter.length);
     if (filter.length > 1) {
       allEmployees.map((employee) => {
+        // eslint-disable-next-line
         for (const [key, value] of Object.entries(employee)) {
           if (
             value !== undefined &&
@@ -26,6 +27,7 @@ const TableSearch = () => {
             }
           }
         }
+        return undefined;
       });
       // console.log('matches');
       // console.log(matches);
