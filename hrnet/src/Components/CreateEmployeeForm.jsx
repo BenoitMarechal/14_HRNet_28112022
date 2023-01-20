@@ -12,15 +12,12 @@ import DepartmentForm from './DepartmentForm/DepartmentForm';
 import StartDateForm from './startDateForm/StartDateForm';
 import BirthDateForm from './birthDateForm/BirthDateForm';
 import CustomModal from './CustomModal/CustomModal';
-//import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
-import { setValue, resetForm } from '../Store/slices/formSlice';
+import { setValue } from '../Store/slices/formSlice';
 import StreetForm from './streetForm/StreetForm';
 import CityForm from './CityForm/CityForm';
 import StateForm from './stateForm/StateForm';
 import ZipcodeForm from './zipCodeForm/ZipCodeForm';
-// import { toggleOpen } from '../Store/slices/modalSlice';
-//import { emptyForm } from '../service/emptyForm';
 
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
@@ -34,7 +31,6 @@ const CreateEmployeeForm = () => {
     dispatch(setValue(target));
   }
   //////////////////////////////////////////////////////////
-  const errorReducer = useSelector((state) => state.errorReducer);
   const globalValidity = useSelector(
     (state) => state.errorReducer.globalValidity
   );
@@ -45,13 +41,9 @@ const CreateEmployeeForm = () => {
     dispatch(setError(checkFormValidity()));
     dispatch(checkGlobalValidity());
   }
-
-  //declare open function AND additionnal action(s)
-
   function emptyForm() {
     setFormKey(formKey + 1);
   }
-
   function recordForm() {
     dispatch(setDataBase(form));
   }
@@ -67,7 +59,6 @@ const CreateEmployeeForm = () => {
     e.preventDefault();
     toggleModal();
     //add custom action(s) below
-    //saveForm();
     if (globalValidity === true) {
       recordForm();
       //emptyForm();
@@ -127,7 +118,6 @@ const CreateEmployeeForm = () => {
         <BirthDateForm></BirthDateForm>
         <StateForm></StateForm>
         <StartDateForm></StartDateForm>
-
         <ZipcodeForm></ZipcodeForm>
         <div className='col-span-2'>
           <DepartmentForm></DepartmentForm>
@@ -136,7 +126,7 @@ const CreateEmployeeForm = () => {
           <button
             onClick={handleSubmit}
             disabled={!globalValidity && firstTry === false}
-            className=' btn btn-neutral shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
+            className=' btn btn-neutral shadow-inner shadow-slate-400 w-72 col-span-2 px-6 my-4 '
           >
             Save
           </button>

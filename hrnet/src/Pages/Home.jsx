@@ -56,6 +56,7 @@ const Home = () => {
           >
             Create Employee
           </h2>
+
           <CreateEmployeeForm></CreateEmployeeForm>
           {/* DEV FEATURES */}
           <div className='dev-features flex w-full mt-2 justify-around'>

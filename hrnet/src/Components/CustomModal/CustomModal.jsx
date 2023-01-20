@@ -39,7 +39,10 @@ const CustomModal = (props) => {
         onKeyDown={handleKeyDown}
         style={modalBgStyle}
       >
-        <div className='modal-body modal-body-style' style={modalBodyStyle}>
+        <div
+          className='modal-body bg-secondary rounded-3xl '
+          style={modalBodyStyle}
+        >
           {props.message}
           <button className='modal-btn' onClick={handleClose}>
             Close <span>&#10005;</span>

@@ -1,78 +1,16 @@
 @import './variables';
 
-// body {
-//   // position: absolute;
-//   // top: 0;
-//   // bottom: 0;
-//   // left: 0;
-//   // right: 0;
-
-//   background-color: red;
-//   // display: flex;
-//   // height: 100%;
-//   // width: 100%;
-// }
 label {
   font-weight: bold;
 }
 
 #root {
-  // display: flex;
-  // height: 100%;
-  // width: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
-  //max-height: calc(100% - 10px);
-
-  background-color: blue;
 }
 .pageContainer {
-  //position: relative;
   min-height: 100%;
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  // right: 0;
 }
-
-// .pageWrapper {
-//   //height: 100%;
-//   width: 100%;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   // position: fixed;
-//   // top: 0;
-//   // bottom: 0;
-// }
-
-// .container-large {
-//   display: flex;
-//   justify-content: center;
-//   width: 100%;
-//   border: 1px solid red;
-// }
-
-// .container-small,
-// fieldset {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: space-between;
-//   border: 1px solid blue !important;
-//   justify-content: space-between;
-// }
-
-// fieldset {
-//   border: none;
-// }
-// a,
-// a:visited {
-// color: $color-secondary;
-//text-decoration: none;
-// border: 1px solid $color-tertiary;
-// background-color: $color-tertiary;
-//}

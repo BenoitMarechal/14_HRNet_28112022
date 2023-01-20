@@ -12,7 +12,10 @@ const EmployeeList = () => {
       >
         <EmployeeTable></EmployeeTable>
       </div>
-      <NavLink className='btn btn-current mb-5' to='/'>
+      <NavLink
+        className='btn btn-current mb-5 shadow-inner shadow-slate-400 w-72'
+        to='/'
+      >
         Home
       </NavLink>
     </div>

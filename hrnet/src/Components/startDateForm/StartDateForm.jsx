@@ -3,9 +3,10 @@ import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setValue } from '../../Store/slices/formSlice';
+import '../../styles/Datepicker/react-datepicker.min.css';
 
 const StartDateForm = () => {
-  let firstTry = useSelector((state) => state.formReducer.firstTry);
+  let formReducer = useSelector((state) => state.formReducer);
   let error = useSelector((state) => state.errorReducer.startDateError);
   let form = {};
   const dispatch = useDispatch();
@@ -13,7 +14,10 @@ const StartDateForm = () => {
   // eslint-disable-next-line
   useEffect(
     () => {
-      if (startDate) {
+      if (
+        startDate &&
+        startDate.toLocaleDateString() !== formReducer.startDate
+      ) {
         dispatch(
           setValue({ ...form, startDate: startDate.toLocaleDateString() })
         );
@@ -36,7 +40,7 @@ const StartDateForm = () => {
         className='input input-bordered w-full max-w-xs border border-secondary border-2 '
       />
       <label className='label'>
-        {firstTry === false && error !== '' ? (
+        {formReducer.firstTry === false && error !== '' ? (
           <span className='errorMessage label-text text-secondary-alt'>
             {error}
           </span>

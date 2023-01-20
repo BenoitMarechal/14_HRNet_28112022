@@ -14,7 +14,7 @@ const FormFiller = () => {
     let stateInput = document.getElementById('state');
     let zipCodeInput = document.getElementById('zip-code');
     let departmentInput = document.getElementById('department');
-    let birthDateInput = document.getElementById('birth-date');
+    //let birthDateInput = document.getElementById('birth-date');
     //filling page ////////////////////////////
     firstNameInput.value = 'John';
     lastNameInput.value = 'Doe';
@@ -30,18 +30,18 @@ const FormFiller = () => {
     //////////////////////// filling from reducer /////////////////////////////////
     let today = new Date();
     let youngest = new Date(moment().subtract(18, 'years').calendar());
-    function hackDatePicker(datePickerId, newValue) {
-      let target = document.getElementById(datePickerId);
-      let parent = target.parentElement;
-      parent.innerHTML =
-        '<input type="text" id="' +
-        datePickerId +
-        '" class="input input-bordered w-full max-w-xs" value="' +
-        newValue +
-        '"></input>';
-    }
-    hackDatePicker('birth-date', youngest.toLocaleDateString());
-    hackDatePicker('start-date', today.toLocaleDateString());
+    // function hackDatePicker(datePickerId, newValue) {
+    //   let target = document.getElementById(datePickerId);
+    //   let parent = target.parentElement;
+    //   parent.innerHTML =
+    //     '<input type="text" id="' +
+    //     datePickerId +
+    //     '" class="input input-bordered w-full max-w-xs" value="' +
+    //     newValue +
+    //     '"></input>';
+    // }
+    // hackDatePicker('birth-date', youngest.toLocaleDateString());
+    // hackDatePicker('start-date', today.toLocaleDateString());
 
     let obj = {
       firstName: 'John',

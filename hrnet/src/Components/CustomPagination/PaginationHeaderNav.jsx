@@ -24,7 +24,7 @@ const PaginationHeaderNav = () => {
         id='rows-select'
         onChange={change}
         defaultValue={pagination.numberOfRows}
-        className=''
+        className='rounded border border-secondary'
       >
         <option value='1'>1</option>
         <option value='5'>5</option>

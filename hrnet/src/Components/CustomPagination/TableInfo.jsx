@@ -9,8 +9,8 @@ const TableInfo = () => {
   //console.log(selected.length);
 
   return (
-    <div className='tableInfo'>
-      <div>Showing</div>
+    <div className='tableInfo '>
+      <div className='text-bold'>Showing</div>
       <div>{pagination.begin}</div>
       <div>to</div>
       <div>{Math.min(pagination.end, selected.length)}</div>
