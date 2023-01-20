@@ -6,7 +6,8 @@ import moment from 'moment';
 //import '../../styles/react-datepicker.css';
 
 const BirthDateForm = () => {
-  let firstTry = useSelector((state) => state.formReducer.firstTry);
+  let formReducer = useSelector((state) => state.formReducer);
+  // let firstTry = useSelector((state) => state.formReducer.firstTry);
   let error = useSelector((state) => state.errorReducer.birthDateError);
   let youngest = moment().subtract(18, 'years').calendar();
   let form = {};
@@ -15,7 +16,10 @@ const BirthDateForm = () => {
 
   useEffect(
     () => {
-      if (birthDate) {
+      if (
+        birthDate &&
+        birthDate.toLocaleDateString() !== formReducer.birthDate
+      ) {
         dispatch(
           setValue({ ...form, birthDate: birthDate.toLocaleDateString() })
         );
@@ -38,7 +42,7 @@ const BirthDateForm = () => {
         className='input input-bordered w-full border border-secondary border-2 max-w-xs'
       />
       <label className='label'>
-        {firstTry === false && error !== '' ? (
+        {formReducer.firstTry === false && error !== '' ? (
           <span className='errorMessage label-text text-secondary-alt'>
             {error}
           </span>
