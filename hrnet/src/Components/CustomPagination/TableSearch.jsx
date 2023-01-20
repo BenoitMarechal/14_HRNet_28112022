@@ -10,7 +10,7 @@ const TableSearch = () => {
     e.preventDefault();
     let filter = e.target.value.toLowerCase();
     let matches = [];
-    console.log(filter.length);
+    //console.log(filter.length);
     if (filter.length > 1) {
       allEmployees.map((employee) => {
         // eslint-disable-next-line

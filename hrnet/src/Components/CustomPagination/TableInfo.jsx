@@ -10,18 +10,17 @@ const TableInfo = () => {
 
   return (
     <div className='tableInfo'>
-      <div>Showing</div>
-      <div>{pagination.begin}</div>
-      <div>to</div>
-      <div>{Math.min(pagination.end, selected.length)}</div>
-      <div>of</div>
-      <div>{selected.length}</div>
-      <div>{allEmployees.length === 1 ? 'entry' : 'entries'}</div>
-      {/* FILTER a dev */}
+      <div className=''>Showing&nbsp;</div>
+      <div className='bold'>{pagination.begin}</div>
+      <div>&nbsp;to&nbsp;</div>
+      <div className='bold'>{Math.min(pagination.end, selected.length)}</div>
+      <div>&nbsp;of&nbsp;</div>
+      <div className='bold'>{selected.length}</div>
+      <div>&nbsp;{selected.length === 1 ? 'entry' : 'entries'}</div>
       {allEmployees.length === selected.length ? (
         ''
       ) : (
-        <div>' '(filtered from {allEmployees.length} total entries)</div>
+        <div>&nbsp;(filtered from {allEmployees.length} total entries)</div>
       )}
     </div>
   );
