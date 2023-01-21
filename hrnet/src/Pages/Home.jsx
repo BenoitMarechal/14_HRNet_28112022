@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import { resetDataBase } from '../Store/slices/dataBaseSlice';
@@ -28,11 +28,11 @@ const Home = () => {
     dispatch(resetPagination());
   }
   //?????
-  // useEffect(() => {
-  //   dispatch(resetForm());
-  //   dispatch(resetError());
-  //   dispatch(resetPagination());
-  // });
+  useEffect(() => {
+    dispatch(resetForm());
+    dispatch(resetError());
+    //dispatch(resetPagination());
+  });
   ///?????
 
   return (

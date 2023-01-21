@@ -6,7 +6,7 @@ import TableFooter from '../CustomPagination/TableFooter';
 import { setSelected } from '../../Store/slices/dataBaseSlice';
 import {
   setPagination,
-  resetPagination,
+  // resetPagination,
 } from '../../Store/slices/paginationSlice';
 import './dataTable.scss';
 //import CustomMaterialPagination from '../CustomPagination/CustomPagination';
@@ -14,10 +14,10 @@ import './dataTable.scss';
 const EmployeeTable = () => {
   const dispatch = useDispatch();
   //reset on Mount
-  useEffect(() => {
-    dispatch(resetPagination());
-    // eslint-disable-next-line
-  }, []);
+  // useEffect(() => {
+  //   dispatch(resetPagination());
+  //   // eslint-disable-next-line
+  // }, []);
 
   const columns = [
     {
