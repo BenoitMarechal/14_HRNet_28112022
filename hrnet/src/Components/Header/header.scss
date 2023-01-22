@@ -1,0 +1,24 @@
+@import '../../styles/sass/variables.scss';
+// $logo-margin-L: 15px;
+// $log-size-L: 150px;
+
+header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc($logo-margin-L + $log-size-L);
+}
+
+img {
+  height: $log-size-L;
+  width: $log-size-L;
+  position: absolute;
+  top: $logo-margin-L;
+  left: $logo-margin-L;
+}
+// h1 {
+//   width: 100%;
+// }

@@ -1,33 +1,18 @@
 @import './variables';
 
-// body {
-//   // position: absolute;
-//   // top: 0;
-//   // bottom: 0;
-//   // left: 0;
-//   // right: 0;
-
-//   background-color: red;
-//   // display: flex;
-//   // height: 100%;
-//   // width: 100%;
-// }
 label {
   font-weight: bold;
 }
 
 #root {
-  // display: flex;
-  // height: 100%;
-  // width: 100%;
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
-  //max-height: calc(100% - 10px);
+  // padding-top: calc($logo-margin-L + $log-size-L);
 }
 .pageContainer {
   min-height: 100%;
+  padding-top: calc($logo-margin-L + $log-size-L);
 }
