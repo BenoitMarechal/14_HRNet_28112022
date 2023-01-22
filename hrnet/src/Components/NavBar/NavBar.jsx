@@ -9,7 +9,7 @@ const NavBar = (props) => {
     setHover(false);
   }
   return (
-    <nav
+    <div
       onMouseOver={mouseOver}
       onMouseOut={mouseOut}
       className='w-full'
@@ -39,7 +39,7 @@ const NavBar = (props) => {
       ) : (
         ''
       )}
-    </nav>
+    </div>
   );
 };
 

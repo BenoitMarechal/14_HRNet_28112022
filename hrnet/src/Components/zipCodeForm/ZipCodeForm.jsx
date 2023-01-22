@@ -22,7 +22,7 @@ const ZipcodeForm = () => {
     // </div>
     <div className='form-control text-secondary w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text text-secondary'>Zip code</span>
+        <span className='label-text text-neutral'>Zip code</span>
       </label>
       <input
         type='number'
@@ -36,7 +36,7 @@ const ZipcodeForm = () => {
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text text-secondary-alt errorMessage'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
         ) : (

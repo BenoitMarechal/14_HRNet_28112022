@@ -30,9 +30,9 @@ const BirthDateForm = () => {
   );
 
   return (
-    <div className='form-control text-secondary  w-full max-w-xs'>
+    <div className='form-control   w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text text-secondary'>Date of birth</span>
+        <span className='label-text text-neutral'>Date of birth</span>
       </label>
       <DatePicker
         id='birth-date'
@@ -43,7 +43,7 @@ const BirthDateForm = () => {
       />
       <label className='label'>
         {formReducer.firstTry === false && error !== '' ? (
-          <span className='errorMessage label-text text-secondary-alt'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
         ) : (

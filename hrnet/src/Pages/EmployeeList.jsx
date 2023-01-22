@@ -11,14 +11,16 @@ const EmployeeList = () => {
     <div>
       <Header {...headerProps}></Header>
       <div className='bg-primary pageContainer flex  flex-col items-center min-h-full w-full'>
-        {/* <h1 className='text-neutral w-full text-center'>Current Employees</h1> */}
         <div
           id='employee-table_wrapper'
           className='dataTables_wrapper w-full no-footer'
         >
           <EmployeeTable></EmployeeTable>
         </div>
-        <NavLink className='btn btn-current mb-5' to='/'>
+        <NavLink
+          className=' btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4'
+          to='/'
+        >
           Home
         </NavLink>
       </div>

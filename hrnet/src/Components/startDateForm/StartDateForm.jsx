@@ -30,7 +30,7 @@ const StartDateForm = () => {
   return (
     <div className='form-control text-secondary w-full max-w-xs '>
       <label className='label'>
-        <span className='label-text text-secondary'>Start date</span>
+        <span className='label-text text-neutral'>Start date</span>
       </label>
       <DatePicker
         id='start-date'
@@ -41,7 +41,7 @@ const StartDateForm = () => {
       />
       <label className='label'>
         {formReducer.firstTry === false && error !== '' ? (
-          <span className='errorMessage label-text text-secondary-alt'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
         ) : (

@@ -22,7 +22,7 @@ const Header = (props) => {
         )}
       </div>
 
-      <h1 className='header-title-section text-neutral'>{props.title}</h1>
+      <h1 className='header-title-section text-yellow-300'>{props.title}</h1>
     </header>
   );
 };

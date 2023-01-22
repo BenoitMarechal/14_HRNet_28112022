@@ -133,7 +133,7 @@ const CreateEmployeeForm = () => {
           <button
             onClick={handleSubmit}
             disabled={!globalValidity && form.firstTry === false}
-            className=' btn btn-neutral shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
+            className=' btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
           >
             Save
           </button>

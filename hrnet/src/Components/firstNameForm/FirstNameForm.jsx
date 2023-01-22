@@ -18,7 +18,7 @@ const FirstNameForm = () => {
   return (
     <div className='form-control text-secondary w-full max-w-xs text-secondary'>
       <label className='label'>
-        <span className='label-text'>First Name</span>
+        <span className='label-text text-neutral'>First Name</span>
       </label>
       <input
         type='text'
@@ -30,7 +30,7 @@ const FirstNameForm = () => {
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text text-secondary-alt errorMessage'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
         ) : (

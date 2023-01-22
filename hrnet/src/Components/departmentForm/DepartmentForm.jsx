@@ -17,7 +17,7 @@ const DepartmentForm = () => {
   return (
     <div className='form-control text-secondary w-full  container flex felx-col items-center'>
       <label className='label'>
-        <span className='label-text text-secondary'>Department</span>
+        <span className='label-text text-neutral'>Department</span>
       </label>
       <select
         id='department'
@@ -46,7 +46,7 @@ const DepartmentForm = () => {
       </select>
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text text-secondary-alt errorMessage'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
         ) : (

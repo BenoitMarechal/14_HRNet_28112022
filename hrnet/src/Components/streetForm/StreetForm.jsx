@@ -22,7 +22,7 @@ const StreetForm = () => {
     // </div>
     <div className='form-control text-secondary w-full max-w-xs'>
       <label className='label'>
-        <span className='label-text text-secondary'>Street</span>
+        <span className='label-text text-neutral'>Street</span>
       </label>
       <input
         type='text'
@@ -34,7 +34,7 @@ const StreetForm = () => {
       />
       <label className='label'>
         {firstTry === false && error !== '' ? (
-          <span className='label-text text-secondary-alt errorMessage'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
         ) : (
