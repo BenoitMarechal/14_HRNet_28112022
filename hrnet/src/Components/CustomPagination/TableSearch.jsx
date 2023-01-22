@@ -10,29 +10,36 @@ const TableSearch = () => {
     e.preventDefault();
     let filter = e.target.value.toLowerCase();
     let matches = [];
-    let selection = allEmployees.map((employee) => {
-      for (const [key, value] of Object.entries(employee)) {
-        if (
-          value !== undefined &&
-          value.toString().toLowerCase().includes(filter)
-        ) {
-          console.log('match');
-          console.log(employee);
-          console.log(matches.includes(employee));
-          if (matches.includes(employee) === false) {
-            matches.push(employee);
+    //console.log(filter.length);
+    if (filter.length > 1) {
+      allEmployees.map((employee) => {
+        // eslint-disable-next-line
+        for (const [key, value] of Object.entries(employee)) {
+          if (
+            value !== undefined &&
+            value.toString().toLowerCase().includes(filter)
+          ) {
+            // console.log('match');
+            // console.log(employee);
+            // console.log(matches.includes(employee));
+            if (matches.includes(employee) === false) {
+              matches.push(employee);
+            }
           }
         }
-      }
-    });
-    console.log('matches');
-    console.log(matches);
-    dispatch(setSelected(matches));
+        return undefined;
+      });
+      // console.log('matches');
+      // console.log(matches);
+      dispatch(setSelected(matches));
+    } else {
+      dispatch(setSelected(allEmployees));
+    }
   }
 
   return (
-    <div className='table-search flex items-center'>
-      <label htmlFor='table-search ' className='mr-2'>
+    <div className='table-search text-neutral flex items-center'>
+      <label htmlFor='table-search' className='mr-2'>
         Search:
       </label>
       <input

@@ -21,8 +21,8 @@ const LastNameForm = () => {
     //   <input type='text' id='last-name' onChange={change} ref={ref} />
     // </div>
     <div className='form-control text-secondary w-full max-w-xs'>
-      <label className='label'>
-        <span className='label-text text-secondary'>Last Name</span>
+      <label htmlFor='last-name' className='label'>
+        <span className='label-text text-neutral'>Last Name</span>
       </label>
       <input
         type='text'
@@ -32,15 +32,15 @@ const LastNameForm = () => {
         onChange={change}
         ref={ref}
       />
-      <label className='label'>
-        {firstTry === false && error !== '' ? (
-          <span className='label-text text-secondary-alt errorMessage'>
+      {firstTry === false && error !== '' ? (
+        <div className='label'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

@@ -1,0 +1,33 @@
+@import '../../styles/sass/variables.scss';
+// $logo-margin-L: 15px;
+// $log-size-L: 150px;
+
+header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: calc(2 * $logo-margin-L + $log-size-L);
+  //border: 1px solid yellow;
+}
+
+// .logo {
+//   // height: $log-size-L;
+//   // width: auto;
+//   // width: $log-size-L;
+//   margin-right: $logo-margin-L;
+// }
+
+.header-nav-section {
+  //margin: 0px $logo-margin-L $logo-margin-L 0px;
+  position: absolute;
+  // border: 1px solid red;
+  display: flex;
+  align-items: flex-end;
+  //top: 0;
+  //left: 0;
+  top: $logo-margin-L;
+  left: $logo-margin-L;
+}

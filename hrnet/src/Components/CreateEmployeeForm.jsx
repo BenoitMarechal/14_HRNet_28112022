@@ -14,7 +14,7 @@ import BirthDateForm from './birthDateForm/BirthDateForm';
 import CustomModal from './CustomModal/CustomModal';
 //import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
-import { setValue, resetForm } from '../Store/slices/formSlice';
+import { setValue } from '../Store/slices/formSlice';
 import StreetForm from './streetForm/StreetForm';
 import CityForm from './CityForm/CityForm';
 import StateForm from './stateForm/StateForm';
@@ -27,14 +27,14 @@ const CreateEmployeeForm = () => {
   const form = useSelector((state) => state.formReducer);
   const [formKey, setFormKey] = useState(0);
   /////////////////////
-  const firstTry = useSelector((state) => state.formReducer.firstTry);
-  function setFirstTry(arg) {
+  // const firstTry = useSelector((state) => state.formReducer.firstTry);
+  function setFirstTry(value) {
     let target = {};
-    target.firstTry = arg;
+    target.firstTry = value;
     dispatch(setValue(target));
   }
   //////////////////////////////////////////////////////////
-  const errorReducer = useSelector((state) => state.errorReducer);
+  // const errorReducer = useSelector((state) => state.errorReducer);
   const globalValidity = useSelector(
     (state) => state.errorReducer.globalValidity
   );
@@ -67,10 +67,8 @@ const CreateEmployeeForm = () => {
     e.preventDefault();
     toggleModal();
     //add custom action(s) below
-    //saveForm();
     if (globalValidity === true) {
       recordForm();
-      //emptyForm();
       setFirstTry(true);
     } else {
       setFirstTry(false);
@@ -80,7 +78,7 @@ const CreateEmployeeForm = () => {
   //declare modal closing function
   function closeFunction() {
     toggleModal();
-    checkForm();
+    // checkForm();
     if (globalValidity === true) {
       emptyForm(); //empties the HTMLform
     }
@@ -127,7 +125,6 @@ const CreateEmployeeForm = () => {
         <BirthDateForm></BirthDateForm>
         <StateForm></StateForm>
         <StartDateForm></StartDateForm>
-
         <ZipcodeForm></ZipcodeForm>
         <div className='col-span-2'>
           <DepartmentForm></DepartmentForm>
@@ -135,15 +132,14 @@ const CreateEmployeeForm = () => {
         <div className='col-span-2 flex justify-center'>
           <button
             onClick={handleSubmit}
-            disabled={!globalValidity && firstTry === false}
-            className=' btn btn-neutral shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
+            disabled={!globalValidity && form.firstTry === false}
+            className=' btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
           >
             Save
           </button>
         </div>
       </form>
-
-      <CustomModal {...modalProps}></CustomModal>
+      {modalOpen ? <CustomModal {...modalProps}></CustomModal> : ''}
     </div>
   );
 };

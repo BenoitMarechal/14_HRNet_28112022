@@ -4,11 +4,20 @@ import { useSelector, useDispatch } from 'react-redux';
 import TableHeader from '../CustomPagination/TableHeader';
 import TableFooter from '../CustomPagination/TableFooter';
 import { setSelected } from '../../Store/slices/dataBaseSlice';
-import { setPagination } from '../../Store/slices/paginationSlice';
+import {
+  setPagination,
+  // resetPagination,
+} from '../../Store/slices/paginationSlice';
 import './dataTable.scss';
 
 const EmployeeTable = () => {
   const dispatch = useDispatch();
+  //reset on Mount
+  // useEffect(() => {
+  //   dispatch(resetPagination());
+  //   // eslint-disable-next-line
+  // }, []);
+
   const columns = [
     {
       name: 'First Name',

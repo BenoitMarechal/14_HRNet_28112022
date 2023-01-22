@@ -21,8 +21,8 @@ const ZipcodeForm = () => {
     //   <input type='text' id='last-name' onChange={change} ref={ref} />
     // </div>
     <div className='form-control text-secondary w-full max-w-xs'>
-      <label className='label'>
-        <span className='label-text text-secondary'>Zip code</span>
+      <label htmlFor='zip-code' className='label'>
+        <span className='label-text text-neutral'>Zip code</span>
       </label>
       <input
         type='number'
@@ -34,15 +34,15 @@ const ZipcodeForm = () => {
         min={0}
         max={99999}
       />
-      <label className='label'>
-        {firstTry === false && error !== '' ? (
-          <span className='label-text text-secondary-alt errorMessage'>
+      {firstTry === false && error !== '' ? (
+        <div className='label'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

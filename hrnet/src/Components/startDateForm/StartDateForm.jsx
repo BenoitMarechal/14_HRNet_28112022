@@ -1,11 +1,12 @@
 import { React, useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { setValue } from '../../Store/slices/formSlice';
+import '../../styles/react-datepicker.css';
 
 const StartDateForm = () => {
-  let firstTry = useSelector((state) => state.formReducer.firstTry);
+  let formReducer = useSelector((state) => state.formReducer);
+  //let firstTry = useSelector((state) => state.formReducer.firstTry);
   let error = useSelector((state) => state.errorReducer.startDateError);
   let form = {};
   const dispatch = useDispatch();
@@ -13,7 +14,10 @@ const StartDateForm = () => {
   // eslint-disable-next-line
   useEffect(
     () => {
-      if (startDate) {
+      if (
+        startDate &&
+        startDate.toLocaleDateString() !== formReducer.startDate
+      ) {
         dispatch(
           setValue({ ...form, startDate: startDate.toLocaleDateString() })
         );
@@ -25,8 +29,8 @@ const StartDateForm = () => {
 
   return (
     <div className='form-control text-secondary w-full max-w-xs '>
-      <label className='label'>
-        <span className='label-text text-secondary'>Start date</span>
+      <label htmlFor='start-date' className='label'>
+        <span className='label-text text-neutral'>Start date</span>
       </label>
       <DatePicker
         id='start-date'
@@ -35,15 +39,15 @@ const StartDateForm = () => {
         dateFormat='dd/MM/yyyy'
         className='input input-bordered w-full max-w-xs border border-secondary border-2 '
       />
-      <label className='label'>
-        {firstTry === false && error !== '' ? (
-          <span className='errorMessage label-text text-secondary-alt'>
+      {formReducer.firstTry === false && error !== '' ? (
+        <div className='label'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
     // <div className='single-text-input'>
     //   <label htmlFor='start-date'>Start Date</label>{' '}

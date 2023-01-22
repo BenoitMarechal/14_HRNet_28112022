@@ -16,8 +16,8 @@ const StateForm = () => {
   }
   return (
     <div className='form-control text-secondary w-full max-w-xs'>
-      <label className='label'>
-        <span className='label-text text-secondary'>State</span>
+      <label htmlFor='state' className='label'>
+        <span className='label-text text-neutral'>State</span>
       </label>
       <select
         id='state'
@@ -41,15 +41,15 @@ const StateForm = () => {
           );
         })}
       </select>
-      <label className='label'>
-        {firstTry === false && error !== '' ? (
-          <span className='label-text text-secondary-alt errorMessage'>
+      {firstTry === false && error !== '' ? (
+        <div className='label'>
+          <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };
