@@ -13,6 +13,8 @@ import Header from '../Components/Header/Header.jsx';
 const Home = () => {
   const headerProps = {
     title: 'HRnet',
+    btnTo: './employee-list',
+    btnText: 'See all employees',
   };
   const [devMode, setDevMode] = useState(false);
 
@@ -31,29 +33,24 @@ const Home = () => {
     dispatch(resetError());
     dispatch(resetPagination());
   }
-  //?????
+
   useEffect(() => {
     dispatch(resetForm());
     dispatch(resetError());
     //dispatch(resetPagination());
   });
-  ///?????
-  console.log(document.getElementsByClassName('pageContainer'));
 
   return (
     <div>
       <NavBar {...navBarProps}></NavBar>
       <Header {...headerProps}></Header>
-      <div
-        id='home-page'
-        className='flex pageContainer flex-col items-center bg-primary min-h-full w-full border'
-      >
-        <NavLink
+      <div className='flex pageContainer flex-col items-center bg-primary min-h-full w-full'>
+        {/* <NavLink
           className='btn btn-neutral shadow-inner shadow-slate-400 w-72 '
           to='/employee-list'
         >
           View Current Employees
-        </NavLink>
+        </NavLink> */}
         <div
           className='container shadow shadow-2xl   shadow-current border border-2  border-current border-neutral 
         bg-secondary rounded-3xl w-1/3 flex flex-col items-center  p-4 m-4'

@@ -13,6 +13,7 @@ label {
   // padding-top: calc($logo-margin-L + $log-size-L);
 }
 .pageContainer {
-  min-height: 100%;
-  padding-top: calc($logo-margin-L + $log-size-L);
+  //min-height: 100%;
+  padding-top: calc(3 * $logo-margin-L + $log-size-L);
+  position: absolute;
 }

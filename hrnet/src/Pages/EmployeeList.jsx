@@ -10,7 +10,7 @@ const EmployeeList = () => {
   return (
     <div>
       <Header {...headerProps}></Header>
-      <div className='bg-primary  flex pageContainer flex-col items-center  min-h-full w-full'>
+      <div className='bg-primary pageContainer flex  flex-col items-center min-h-full w-full'>
         {/* <h1 className='text-neutral w-full text-center'>Current Employees</h1> */}
         <div
           id='employee-table_wrapper'

@@ -13,7 +13,7 @@ const NavBar = (props) => {
       onMouseOver={mouseOver}
       onMouseOut={mouseOut}
       className='w-full'
-      style={{ zIndex: 11, position: 'relative' }}
+      style={{ zIndex: 11, position: 'fixed' }}
     >
       <div className='h-4 w-full hover-container w-100'></div>
       {hover ? (

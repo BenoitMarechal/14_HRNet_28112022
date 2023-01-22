@@ -8,17 +8,35 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: calc($logo-margin-L + $log-size-L);
+  align-items: flex-end;
+  height: calc(2 * $logo-margin-L + $log-size-L);
+  //border: 1px solid yellow;
 }
 
-img {
+.logo {
   height: $log-size-L;
   width: $log-size-L;
+  margin-right: $logo-margin-L;
+}
+
+.header-nav-section {
+  //margin: 0px $logo-margin-L $logo-margin-L 0px;
   position: absolute;
+  // border: 1px solid red;
+  display: flex;
+  align-items: flex-end;
+  //top: 0;
+  //left: 0;
   top: $logo-margin-L;
   left: $logo-margin-L;
 }
-// h1 {
-//   width: 100%;
-// }
+
+.header-title-section {
+  // border: 1px solid red;
+  //display: flex;
+  //align-items: flex-end;
+  //height: 100%;
+  //margin: 0 0 0 450px;
+  //width: 100%;
+  //padding: 0;
+}
