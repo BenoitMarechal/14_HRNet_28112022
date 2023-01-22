@@ -68,7 +68,7 @@ const PaginationFooterNav = () => {
   }
 
   return (
-    <div className='table-footer-nav'>
+    <div className='table-footer-nav text-neutral'>
       <div
         className='button bold'
         onClick={() => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import EmployeeTable from '../Components/DataTable/EmployeeTable';
 import Header from '../Components/Header/Header';
 
@@ -17,12 +16,12 @@ const EmployeeList = () => {
         >
           <EmployeeTable></EmployeeTable>
         </div>
-        <NavLink
+        {/* <NavLink
           className=' btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4'
           to='/'
         >
           Home
-        </NavLink>
+        </NavLink> */}
       </div>
     </div>
   );

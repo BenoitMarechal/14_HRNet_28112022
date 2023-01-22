@@ -29,7 +29,7 @@ const StartDateForm = () => {
 
   return (
     <div className='form-control text-secondary w-full max-w-xs '>
-      <label className='label'>
+      <label htmlFor='start-date' className='label'>
         <span className='label-text text-neutral'>Start date</span>
       </label>
       <DatePicker
@@ -39,15 +39,15 @@ const StartDateForm = () => {
         dateFormat='dd/MM/yyyy'
         className='input input-bordered w-full max-w-xs border border-secondary border-2 '
       />
-      <label className='label'>
-        {formReducer.firstTry === false && error !== '' ? (
+      {formReducer.firstTry === false && error !== '' ? (
+        <div className='label'>
           <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
     // <div className='single-text-input'>
     //   <label htmlFor='start-date'>Start Date</label>{' '}

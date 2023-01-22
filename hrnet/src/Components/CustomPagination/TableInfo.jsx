@@ -9,7 +9,7 @@ const TableInfo = () => {
   //console.log(selected.length);
 
   return (
-    <div className='tableInfo'>
+    <div className='tableInfo text-neutral'>
       <div className=''>Showing&nbsp;</div>
       <div className='bold'>{pagination.begin}</div>
       <div>&nbsp;to&nbsp;</div>

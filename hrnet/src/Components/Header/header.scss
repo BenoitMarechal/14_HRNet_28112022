@@ -13,11 +13,12 @@ header {
   //border: 1px solid yellow;
 }
 
-.logo {
-  height: $log-size-L;
-  width: $log-size-L;
-  margin-right: $logo-margin-L;
-}
+// .logo {
+//   // height: $log-size-L;
+//   // width: auto;
+//   // width: $log-size-L;
+//   margin-right: $logo-margin-L;
+// }
 
 .header-nav-section {
   //margin: 0px $logo-margin-L $logo-margin-L 0px;
@@ -29,14 +30,4 @@ header {
   //left: 0;
   top: $logo-margin-L;
   left: $logo-margin-L;
-}
-
-.header-title-section {
-  // border: 1px solid red;
-  //display: flex;
-  //align-items: flex-end;
-  //height: 100%;
-  //margin: 0 0 0 450px;
-  //width: 100%;
-  //padding: 0;
 }

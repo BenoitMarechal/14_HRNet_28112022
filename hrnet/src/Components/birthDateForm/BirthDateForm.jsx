@@ -31,7 +31,7 @@ const BirthDateForm = () => {
 
   return (
     <div className='form-control   w-full max-w-xs'>
-      <label className='label'>
+      <label htmlFor='birth-date' className='label'>
         <span className='label-text text-neutral'>Date of birth</span>
       </label>
       <DatePicker
@@ -41,15 +41,15 @@ const BirthDateForm = () => {
         dateFormat='dd/MM/yyyy'
         className='input input-bordered w-full border border-secondary border-2 max-w-xs'
       />
-      <label className='label'>
-        {formReducer.firstTry === false && error !== '' ? (
+      {formReducer.firstTry === false && error !== '' ? (
+        <div className='label'>
           <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

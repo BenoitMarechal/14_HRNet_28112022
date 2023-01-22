@@ -17,7 +17,7 @@ const CityForm = () => {
 
   return (
     <div className='form-control text-secondary w-full max-w-xs'>
-      <label className='label'>
+      <label htmlFor='city' className='label'>
         <span className='label-text text-neutral'>City</span>
       </label>
       <input
@@ -28,15 +28,15 @@ const CityForm = () => {
         onChange={change}
         ref={ref}
       />
-      <label className='label'>
-        {firstTry === false && error !== '' ? (
+      {firstTry === false && error !== '' ? (
+        <div className='label'>
           <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

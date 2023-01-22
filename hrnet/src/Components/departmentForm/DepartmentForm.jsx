@@ -16,7 +16,7 @@ const DepartmentForm = () => {
   }
   return (
     <div className='form-control text-secondary w-full  container flex felx-col items-center'>
-      <label className='label'>
+      <label htmlFor='department' className='label'>
         <span className='label-text text-neutral'>Department</span>
       </label>
       <select
@@ -44,15 +44,15 @@ const DepartmentForm = () => {
           );
         })}
       </select>
-      <label className='label'>
-        {firstTry === false && error !== '' ? (
+      {firstTry === false && error !== '' ? (
+        <div className='label'>
           <span className='errorMessage label-text font-normal text-neutral'>
             {error}
           </span>
-        ) : (
-          ''
-        )}
-      </label>
+        </div>
+      ) : (
+        ''
+      )}
     </div>
   );
 };

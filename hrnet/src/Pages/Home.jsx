@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
 import CreateEmployeeForm from '../Components/CreateEmployeeForm';
 import { resetDataBase } from '../Store/slices/dataBaseSlice';
 import { resetError } from '../Store/slices/errorSlice';

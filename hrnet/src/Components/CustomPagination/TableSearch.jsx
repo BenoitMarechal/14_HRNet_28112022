@@ -38,8 +38,8 @@ const TableSearch = () => {
   }
 
   return (
-    <div className='table-search flex items-center'>
-      <label htmlFor='table-search ' className='mr-2'>
+    <div className='table-search text-neutral flex items-center'>
+      <label htmlFor='table-search' className='mr-2'>
         Search:
       </label>
       <input
