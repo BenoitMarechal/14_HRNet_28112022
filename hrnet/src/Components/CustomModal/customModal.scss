@@ -1,20 +1,36 @@
-@import '../../styles/sass/variables.scss';
 .modal-body {
-  padding: 10%;
-
-  margin: auto;
+  width: 40%;
+  height: 40%;
+  position: relative;
 }
 
 .modal-body-style {
-  background-color: $color-tertiary;
-  border-radius: 50px;
+  background-color: darken(#4ce09d, 35%);
+  border-radius: 30px;
   color: white;
 }
 
 .modal-btn {
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 4px;
-  border-radius: 8px;
-  position: relative;
-  top: 0;
+  border-radius: 10px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.modal-message {
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.modal-message-headline {
+  border-bottom: 1px solid white;
+  height: 50px;
+  margin-top: 12px;
+}
+.modal-message-text {
+  margin-top: 10%;
 }
