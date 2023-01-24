@@ -85,16 +85,21 @@ const CreateEmployeeForm = () => {
     open: modalOpen,
     closeFunction: closeFunction,
     message: globalValidity ? (
-      <div>
-        <h2>
+      <div className='modal-message'>
+        <h2 className='modal-message-headline'>
           Welcome, {form.firstName} {form.lastName}
         </h2>
-        <p>New employee created successfully</p>
+        <p className='modal-message-text'>New employee created successfully</p>
       </div>
     ) : (
-      <div>
-        <h2>Something is missing, or incorrect...</h2>
-        <p>Please make sure the form is filled in correctly</p>
+      <div className='modal-message'>
+        <h2 className='modal-message-headline'>
+          Something is missing, or incorrect...
+        </h2>
+        <p className='modal-message-text '>
+          {' '}
+          Please make sure the form is filled in correctly
+        </p>
       </div>
     ),
     backGroundColor: 'rgba(84, 197, 222, 0.4)',
