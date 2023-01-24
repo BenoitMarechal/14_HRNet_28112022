@@ -50,12 +50,8 @@ const Home = () => {
         <div
           className='container shadow shadow-2xl   shadow-current border border-2  border-current border-neutral 
         bg-secondary rounded-3xl w-1/3 flex flex-col items-center  p-4 m-4'
-          id='homepage-content'
         >
-          <div
-            className='container  flex flex-col items-center'
-            id='homepage-content'
-          >
+          <div className='container  flex flex-col items-center'>
             <h2
               className=' 
               border-4 border-b-0 border-neutral text-neutral font-bold

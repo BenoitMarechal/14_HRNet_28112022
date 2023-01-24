@@ -46,12 +46,9 @@ const CreateEmployeeForm = () => {
     dispatch(checkGlobalValidity());
   }
 
-  //declare open function AND additionnal action(s)
-
   function emptyForm() {
     setFormKey(formKey + 1);
   }
-
   function recordForm() {
     dispatch(setDataBase(form));
   }
@@ -78,12 +75,11 @@ const CreateEmployeeForm = () => {
   //declare modal closing function
   function closeFunction() {
     toggleModal();
-    // checkForm();
+    // add customs action(s) below
     if (globalValidity === true) {
       emptyForm(); //empties the HTMLform
     }
   }
-
   //declare modal props
   let modalProps = {
     open: modalOpen,

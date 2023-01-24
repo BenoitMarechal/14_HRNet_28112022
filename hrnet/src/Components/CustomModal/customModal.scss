@@ -1,31 +1,23 @@
 @import '../../styles/sass/variables.scss';
-// .modal-bg {
-//   position: fixed;
-//   top: 0;
-//   bottom: 0;
-//   left: 0;
-//   right: 0;
-//   //display: flex;
-//   z-index: 10;
-// }
 .modal-body {
   padding: 10%;
+  // display: flex;
+  // width: 60%;
+  // height: 40%;
+  border: 2px red solid;
+  margin: auto;
 }
-// .hidden {
-//   display: none;
-// }
 
-// .modal-btn {
-//   cursor: pointer;
-// }
 .modal-body-style {
   background-color: $color-tertiary;
   border-radius: 50px;
   color: white;
-  // margin: auto;
-  // opacity: 1;
 }
 
-// .modal-background-style {
-//   background-color: rgba(84, 197, 222, 0.4);
-// }
+.modal-btn {
+  border: 1px solid white;
+  padding: 4px;
+  border-radius: 8px;
+  position: relative;
+  top: 0;
+}

@@ -4,19 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import TableHeader from '../CustomPagination/TableHeader';
 import TableFooter from '../CustomPagination/TableFooter';
 import { setSelected } from '../../Store/slices/dataBaseSlice';
-import {
-  setPagination,
-  // resetPagination,
-} from '../../Store/slices/paginationSlice';
+import { setPagination } from '../../Store/slices/paginationSlice';
 import './dataTable.scss';
 
 const EmployeeTable = () => {
   const dispatch = useDispatch();
-  //reset on Mount
-  // useEffect(() => {
-  //   dispatch(resetPagination());
-  //   // eslint-disable-next-line
-  // }, []);
 
   const columns = [
     {
@@ -80,7 +72,7 @@ const EmployeeTable = () => {
     // eslint-disable-next-line
   }, []);
 
-  //upadate number of pages
+  //update number of pages
   useEffect(() => {
     let target = {};
     target.activePage = 1;
