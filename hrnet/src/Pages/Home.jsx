@@ -33,7 +33,6 @@ const Home = () => {
   useEffect(() => {
     dispatch(resetForm());
     dispatch(resetError());
-    //dispatch(resetPagination());
   });
 
   return (
