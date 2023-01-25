@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  numberOfRows: 10,
+  numberOfRows: 10000000000000,
   numberOfPages: 1,
   activePage: 1,
   begin: 1,
