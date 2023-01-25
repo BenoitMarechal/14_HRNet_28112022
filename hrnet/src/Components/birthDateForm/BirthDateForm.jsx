@@ -3,11 +3,9 @@ import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { setValue } from '../../Store/slices/formSlice';
 import moment from 'moment';
-//import '../../styles/react-datepicker.css';
 
 const BirthDateForm = () => {
   let formReducer = useSelector((state) => state.formReducer);
-  // let firstTry = useSelector((state) => state.formReducer.firstTry);
   let error = useSelector((state) => state.errorReducer.birthDateError);
   let youngest = moment().subtract(18, 'years').calendar();
   let form = {};

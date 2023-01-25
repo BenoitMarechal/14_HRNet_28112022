@@ -42,7 +42,7 @@ function getAge(dateString, refDate) {
 export function checkFormValidity() {
   //---------limit dates
   //World's oldest personn birthdate: 1903, Jan 2nd;
-
+  //dummy result object
   let result = {};
   let firstNameInputValue = document.getElementById('first-name').value;
   let lastNameInputValue = document.getElementById('last-name').value;
@@ -76,14 +76,9 @@ export function checkFormValidity() {
   //birth date
   //World's oldest personn birthdate: 1903, Jan 2nd;
   const oldest = new Date('1903,01,02');
-  //console.log(oldest);
   let age = getAge(birthDateInputValue);
   // employee can't be older than oldest person on earth
-  // console.log(birthDateInputValue);
-  // console.log(oldest);
-  // console.log(birthDateInputValue < oldest);
   if (birthDateInputValue < oldest) {
-    //console.log('hhh');
     result.birthDateError =
       'Birth date seems pretty old... Please check birthdate';
   }
@@ -102,7 +97,7 @@ export function checkFormValidity() {
       result.startDateError =
         'Employee must be have been at least 18 years old when joining the company, please check birthdate and/or start date';
     }
-    //if birth isOK and start age is OK, error is removed
+    //if birth is OK and start age is OK, error is removed
     else {
       result.birthDateError = '';
     }
@@ -144,9 +139,5 @@ export function checkFormValidity() {
   } else {
     result.departmentError = '';
   }
-
-  // result.departmentError = selectCheck(departmentInputValue);
-
-  // console.log(result);
   return result;
 }

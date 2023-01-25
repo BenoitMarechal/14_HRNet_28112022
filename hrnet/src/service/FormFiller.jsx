@@ -14,20 +14,15 @@ const FormFiller = () => {
     let stateInput = document.getElementById('state');
     let zipCodeInput = document.getElementById('zip-code');
     let departmentInput = document.getElementById('department');
-    // let birthDateInput = document.getElementById('birth-date');
-    //filling page ////////////////////////////
+    ////////////////////////// filling page ////////////////////////////
     firstNameInput.value = 'John';
     lastNameInput.value = 'Doe';
     streetInput.value = 'Street';
     cityInput.value = 'City';
     zipCodeInput.value = 12345;
-
-    // stateInput.lastChild.firstChild.firstChild.textContent = 'California';
     stateInput.value = 'California';
     departmentInput.value = 'Marketing';
-
-    // departmentInput.lastChild.firstChild.firstChild.textContent = 'Marketing';
-    //////////////////////// filling from reducer /////////////////////////////////
+    //////////////////////// filling form reducer /////////////////////////////////
     let today = new Date();
     let youngest = new Date(moment().subtract(18, 'years').calendar());
     function hackDatePicker(datePickerId, newValue) {

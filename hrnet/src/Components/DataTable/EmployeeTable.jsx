@@ -89,7 +89,6 @@ const EmployeeTable = () => {
       pagination.numberOfRows +
       1;
     target.end = target.begin + pagination.numberOfRows - 1;
-    //console.log(target);
     dispatch(setPagination(target));
     // eslint-disable-next-line
   }, [pagination.activePage, pagination.numberOfRows]);

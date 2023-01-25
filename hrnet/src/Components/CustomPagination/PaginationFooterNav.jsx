@@ -1,4 +1,3 @@
-//import { buttonBaseClasses } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPagination } from '../../Store/slices/paginationSlice';
@@ -84,7 +83,6 @@ const PaginationFooterNav = () => {
               <div className='dots bold' key={pageButtons.indexOf(number) + 1}>
                 {' '}
                 ...
-                {/* {pageButtons.indexOf(number) + 1} */}
               </div>
             ) : (
               <button

@@ -16,12 +16,6 @@ const EmployeeList = () => {
         >
           <EmployeeTable></EmployeeTable>
         </div>
-        {/* <NavLink
-          className=' btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4'
-          to='/'
-        >
-          Home
-        </NavLink> */}
       </div>
     </div>
   );

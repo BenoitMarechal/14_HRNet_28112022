@@ -40,12 +40,6 @@ const Home = () => {
       <NavBar {...navBarProps}></NavBar>
       <Header {...headerProps}></Header>
       <div className='flex pageContainer flex-col items-center bg-primary min-h-full w-full'>
-        {/* <NavLink
-          className='btn btn-neutral shadow-inner shadow-slate-400 w-72 '
-          to='/employee-list'
-        >
-          View Current Employees
-        </NavLink> */}
         <div
           className='container shadow shadow-2xl   shadow-current border border-2  border-current border-neutral 
         bg-secondary rounded-3xl w-1/3 flex flex-col items-center  p-4 m-4'

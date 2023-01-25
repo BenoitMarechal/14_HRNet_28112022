@@ -10,7 +10,6 @@ export const dataBaseSlice = createSlice({
   initialState,
   reducers: {
     setDataBase: (state, action) => {
-      // console.log(action.payload);
       state.dataBase.push(action.payload);
     },
 

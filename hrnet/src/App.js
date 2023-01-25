@@ -1,4 +1,3 @@
-// All style are imported in index.js
 import Home from './Pages/Home';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

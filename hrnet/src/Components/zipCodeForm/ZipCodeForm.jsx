@@ -16,10 +16,6 @@ const ZipcodeForm = () => {
   let error = useSelector((state) => state.errorReducer.zipCodeError);
 
   return (
-    // <div className='single-text-input'>
-    //   <label htmlFor={'last-name'}>last Name</label>
-    //   <input type='text' id='last-name' onChange={change} ref={ref} />
-    // </div>
     <div className='form-control text-secondary w-full max-w-xs'>
       <label htmlFor='zip-code' className='label'>
         <span className='label-text text-neutral'>Zip code</span>

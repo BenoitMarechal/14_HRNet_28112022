@@ -10,10 +10,8 @@ label {
   bottom: 0;
   left: 0;
   right: 0;
-  // padding-top: calc($logo-margin-L + $log-size-L);
 }
 .pageContainer {
-  //min-height: 100%;
   padding-top: calc(3 * $logo-margin-L + $log-size-L);
   position: absolute;
 }

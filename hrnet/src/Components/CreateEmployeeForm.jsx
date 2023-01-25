@@ -12,29 +12,24 @@ import DepartmentForm from './DepartmentForm/DepartmentForm';
 import StartDateForm from './startDateForm/StartDateForm';
 import BirthDateForm from './birthDateForm/BirthDateForm';
 import CustomModal from './CustomModal/CustomModal';
-//import FirstNameValidation from './firstNameForm/FirstNameValidation';
 import { checkFormValidity } from '../service/formValidation';
 import { setValue } from '../Store/slices/formSlice';
 import StreetForm from './streetForm/StreetForm';
 import CityForm from './CityForm/CityForm';
 import StateForm from './stateForm/StateForm';
 import ZipcodeForm from './zipCodeForm/ZipCodeForm';
-// import { toggleOpen } from '../Store/slices/modalSlice';
-//import { emptyForm } from '../service/emptyForm';
 
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
   const form = useSelector((state) => state.formReducer);
   const [formKey, setFormKey] = useState(0);
   /////////////////////
-  // const firstTry = useSelector((state) => state.formReducer.firstTry);
   function setFirstTry(value) {
     let target = {};
     target.firstTry = value;
     dispatch(setValue(target));
   }
   //////////////////////////////////////////////////////////
-  // const errorReducer = useSelector((state) => state.errorReducer);
   const globalValidity = useSelector(
     (state) => state.errorReducer.globalValidity
   );

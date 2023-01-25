@@ -5,8 +5,6 @@ const TableInfo = () => {
   const selected = useSelector((state) => state.dataBaseReducer.selected);
   const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
   const pagination = useSelector((state) => state.paginationReducer);
-  // console.log(pagination);
-  //console.log(selected.length);
 
   return (
     <div className='tableInfo text-neutral'>

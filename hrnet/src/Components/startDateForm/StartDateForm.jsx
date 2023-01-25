@@ -6,7 +6,6 @@ import '../../styles/react-datepicker.css';
 
 const StartDateForm = () => {
   let formReducer = useSelector((state) => state.formReducer);
-  //let firstTry = useSelector((state) => state.formReducer.firstTry);
   let error = useSelector((state) => state.errorReducer.startDateError);
   let form = {};
   const dispatch = useDispatch();
@@ -23,7 +22,7 @@ const StartDateForm = () => {
         );
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
     [startDate]
   );
 
@@ -49,15 +48,6 @@ const StartDateForm = () => {
         ''
       )}
     </div>
-    // <div className='single-text-input'>
-    //   <label htmlFor='start-date'>Start Date</label>{' '}
-    //   <DatePicker
-    //     id='start-date'
-    //     selected={startDate}
-    //     onChange={(date) => setStartDate(date)}
-    //     dateFormat='dd/MM/yyyy'
-    //   />
-    // </div>
   );
 };
 
