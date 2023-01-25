@@ -14,7 +14,8 @@ const Home = () => {
     btnTo: './employee-list',
     btnText: 'See all employees',
   };
-  const [devMode, setDevMode] = useState(false);
+  // const [devMode, setDevMode] = useState(false);
+  const [devMode, setDevMode] = useState(true);
   function toggleDevMode() {
     let next = !devMode;
     setDevMode(next);

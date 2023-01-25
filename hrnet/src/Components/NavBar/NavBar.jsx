@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const NavBar = (props) => {
-  const [hover, setHover] = useState(false);
+  // const [hover, setHover] = useState(false);
+  const [hover, setHover] = useState(true);
   function mouseOver() {
     setHover(true);
   }
@@ -10,8 +11,8 @@ const NavBar = (props) => {
   }
   return (
     <div
-      onMouseOver={mouseOver}
-      onMouseOut={mouseOut}
+      // onMouseOver={mouseOver}
+      // onMouseOut={mouseOut}
       className='w-full'
       style={{ zIndex: 11, position: 'fixed' }}
     >
