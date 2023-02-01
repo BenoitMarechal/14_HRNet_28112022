@@ -11,31 +11,30 @@ import LastNameForm from './lastNameForm/LastNameForm';
 import DepartmentForm from './DepartmentForm/DepartmentForm';
 import StartDateForm from './startDateForm/StartDateForm';
 import BirthDateForm from './birthDateForm/BirthDateForm';
-import CustomModal from './CustomModal/CustomModal';
 import { checkFormValidity } from '../service/formValidation';
 import { setValue } from '../Store/slices/formSlice';
 import StreetForm from './streetForm/StreetForm';
 import CityForm from './CityForm/CityForm';
 import StateForm from './stateForm/StateForm';
 import ZipcodeForm from './zipCodeForm/ZipCodeForm';
+import { BmModal } from 'bm-react-modal';
 
 const CreateEmployeeForm = () => {
   const dispatch = useDispatch();
   const form = useSelector((state) => state.formReducer);
   const [formKey, setFormKey] = useState(0);
-  /////////////////////
+
   function setFirstTry(value) {
     let target = {};
     target.firstTry = value;
     dispatch(setValue(target));
   }
-  //////////////////////////////////////////////////////////
   const globalValidity = useSelector(
     (state) => state.errorReducer.globalValidity
   );
 
   function checkForm() {
-    //UPDATES EVERY Error and global validity
+    //UPDATES EVERY Error and calculates global validity
     dispatch(resetError());
     dispatch(setError(checkFormValidity()));
     dispatch(checkGlobalValidity());
@@ -47,18 +46,8 @@ const CreateEmployeeForm = () => {
   function recordForm() {
     dispatch(setDataBase(form));
   }
-
-  //declare openning parameter
-  const [modalOpen, setModalOpen] = useState(false);
-  //declare modal toggle function
-  function toggleModal() {
-    setModalOpen(!modalOpen);
-  }
-  //declare modal openning function
-  function handleSubmit(e) {
-    e.preventDefault();
-    toggleModal();
-    //add custom action(s) below
+  //After openning, save employee if form is correct, manage first try
+  function afterOpenFunction() {
     if (globalValidity === true) {
       recordForm();
       setFirstTry(true);
@@ -66,38 +55,27 @@ const CreateEmployeeForm = () => {
       setFirstTry(false);
     }
   }
-
-  //declare modal closing function
-  function closeFunction() {
-    toggleModal();
-    // add customs action(s) below
+  //After closing, clear form if it is correct
+  function afterCloseFunction() {
     if (globalValidity === true) {
       emptyForm(); //empties the HTMLform
     }
   }
   //declare modal props
   let modalProps = {
-    open: modalOpen,
-    closeFunction: closeFunction,
-    message: globalValidity ? (
-      <div className='modal-message'>
-        <h2 className='modal-message-headline'>
-          Welcome, {form.firstName} {form.lastName}
-        </h2>
-        <p className='modal-message-text'>New employee created successfully</p>
-      </div>
-    ) : (
-      <div className='modal-message'>
-        <h2 className='modal-message-headline'>
-          Something is missing, or incorrect...
-        </h2>
-        <p className='modal-message-text '>
-          {' '}
-          Please make sure the form is filled in correctly
-        </p>
-      </div>
-    ),
+    afterOpenFunction: afterOpenFunction,
+    afterCloseFunction: afterCloseFunction,
+    btnText: 'SAVE',
+    headLineText: globalValidity
+      ? 'Welcome, ' + form.firstName + ' ' + form.lastName + '!'
+      : 'Something is missing, or incorrect...',
+    messageText: globalValidity
+      ? 'New employee created successfully'
+      : 'Please make sure the form is filled in correctly',
     backGroundColor: 'rgba(84, 197, 222, 0.4)',
+    bodyBackGround: '#319266',
+    openBtnClass:
+      'btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4',
   };
 
   return (
@@ -126,16 +104,17 @@ const CreateEmployeeForm = () => {
           <DepartmentForm></DepartmentForm>
         </div>
         <div className='col-span-2 flex justify-center'>
-          <button
+          {/* <button
             onClick={handleSubmit}
             disabled={!globalValidity && form.firstTry === false}
             className=' btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
           >
             Save
-          </button>
+          </button> */}
+          <BmModal {...modalProps}></BmModal>
         </div>
       </form>
-      {modalOpen ? <CustomModal {...modalProps}></CustomModal> : ''}
+      {/* {modalOpen ? <CustomModal {...modalProps}></CustomModal> : ''} */}
     </div>
   );
 };

@@ -15,3 +15,11 @@ label {
   padding-top: calc(3 * $logo-margin-L + $log-size-L);
   position: absolute;
 }
+.modal-body {
+  width: 40%;
+}
+
+.modal-message-text {
+  text-align: center;
+  margin-top: 50px;
+}
