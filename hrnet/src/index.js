@@ -5,7 +5,7 @@ import store from './store/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistStore } from 'redux-persist';
-import './input.css'; //renommer en index
+import './index.css';
 import './styles/sass/mainSass.scss';
 
 let persistor = persistStore(store);
