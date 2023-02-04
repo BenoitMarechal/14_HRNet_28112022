@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
-import { states } from '../Assets/states';
+import { states } from '../../assets/states';
 import { useDispatch, useSelector } from 'react-redux';
-import { setValue } from '../../Store/slices/formSlice';
+import { setValue } from '../../store/slices/formSlice';
 
 const StateForm = () => {
   let firstTry = useSelector((state) => state.formReducer.firstTry);

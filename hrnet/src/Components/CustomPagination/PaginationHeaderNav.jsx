@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPagination } from '../../Store/slices/paginationSlice';
+import { setPagination } from '../../store/slices/paginationSlice';
 
 const PaginationHeaderNav = () => {
   const dispatch = useDispatch();

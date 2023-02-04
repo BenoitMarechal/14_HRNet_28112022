@@ -1,6 +1,6 @@
 import { React, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setValue } from '../../Store/slices/formSlice';
+import { setValue } from '../../store/slices/formSlice';
 
 const StreetForm = () => {
   //declare dispatch

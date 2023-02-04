@@ -1,6 +1,6 @@
 import React from 'react';
-import EmployeeTable from '../Components/DataTable/EmployeeTable';
-import Header from '../Components/Header/Header';
+import EmployeeTable from '../layout/EmployeeTable';
+import Header from '../components/Header/Header';
 
 const EmployeeList = () => {
   const headerProps = {

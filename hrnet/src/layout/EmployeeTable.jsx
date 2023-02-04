@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { useSelector, useDispatch } from 'react-redux';
-import TableHeader from '../CustomPagination/TableHeader';
-import TableFooter from '../CustomPagination/TableFooter';
-import { setSelected } from '../../Store/slices/dataBaseSlice';
-import { setPagination } from '../../Store/slices/paginationSlice';
-import './dataTable.scss';
+import TableHeader from '../components/CustomPagination/TableHeader';
+import TableFooter from '../components/CustomPagination/TableFooter';
+import { setSelected } from '../store/slices/dataBaseSlice';
+import { setPagination } from '../store/slices/paginationSlice';
+import './employeeTable.scss';
 
 const EmployeeTable = () => {
   const dispatch = useDispatch();

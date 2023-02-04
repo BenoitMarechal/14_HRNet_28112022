@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setPagination } from '../../Store/slices/paginationSlice';
+import { setPagination } from '../../store/slices/paginationSlice';
 
 const PaginationFooterNav = () => {
   const pagination = useSelector((state) => state.paginationReducer);

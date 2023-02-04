@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../Assets/logo_low.jpg';
+import logo from '../../assets/logo_low.jpg';
 import { NavLink } from 'react-router-dom';
 import './header.scss';
 const Header = (props) => {

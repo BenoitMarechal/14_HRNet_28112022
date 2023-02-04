@@ -1,7 +1,7 @@
-import Home from './Pages/Home';
+import Home from './pages/Home';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import EmployeeList from './Pages/EmployeeList';
+import EmployeeList from './pages/EmployeeList';
 
 function App() {
   return (

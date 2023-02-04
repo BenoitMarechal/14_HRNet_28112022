@@ -1,28 +1,24 @@
 import { React, useState, useEffect } from 'react';
-import CreateEmployeeForm from '../Components/CreateEmployeeForm';
-import { resetDataBase } from '../Store/slices/dataBaseSlice';
-import { resetError } from '../Store/slices/errorSlice';
+import CreateEmployeeForm from '../layout/CreateEmployeeForm';
+import { resetDataBase } from '../store/slices/dataBaseSlice';
+import { resetError } from '../store/slices/errorSlice';
 import { useDispatch } from 'react-redux';
-import { resetForm } from '../Store/slices/formSlice';
-import FormFiller from '../service/FormFiller';
-import NavBar from '../Components/NavBar/NavBar';
-import Header from '../Components/Header/Header.jsx';
+import { resetForm } from '../store/slices/formSlice';
+import FormFiller from '../components/FormFiller/FormFiller';
+import NavBar from '../components/NavBar/NavBar';
+import Header from '../components/Header/Header.jsx';
 
 const Home = () => {
-  const headerProps = {
-    title: 'HRnet',
-    btnTo: './employee-list',
-    btnText: 'See all employees',
-  };
   const [devMode, setDevMode] = useState(false);
   function toggleDevMode() {
     let next = !devMode;
     setDevMode(next);
   }
-  let navBarProps = {
-    function: toggleDevMode,
-    onOffParam: devMode,
-  };
+  useEffect(() => {
+    dispatch(resetForm());
+    dispatch(resetError());
+  });
+
   const dispatch = useDispatch();
   function devReset() {
     dispatch(resetDataBase());
@@ -30,10 +26,15 @@ const Home = () => {
     dispatch(resetError());
   }
 
-  useEffect(() => {
-    dispatch(resetForm());
-    dispatch(resetError());
-  });
+  let navBarProps = {
+    function: toggleDevMode,
+    onOffParam: devMode,
+  };
+  const headerProps = {
+    title: 'HRnet',
+    btnTo: './employee-list',
+    btnText: 'See all employees',
+  };
 
   return (
     <div>

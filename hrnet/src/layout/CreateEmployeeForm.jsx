@@ -1,22 +1,22 @@
 import { React, useState } from 'react';
-import { setDataBase } from '../Store/slices/dataBaseSlice';
+import { setDataBase } from '../store/slices/dataBaseSlice';
 import {
   checkGlobalValidity,
   setError,
   resetError,
-} from '../Store/slices/errorSlice';
+} from '../store/slices/errorSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import FirstNameForm from './firstNameForm/FirstNameForm';
-import LastNameForm from './lastNameForm/LastNameForm';
-import DepartmentForm from './DepartmentForm/DepartmentForm';
-import StartDateForm from './startDateForm/StartDateForm';
-import BirthDateForm from './birthDateForm/BirthDateForm';
-import { checkFormValidity } from '../service/formValidation';
-import { setValue } from '../Store/slices/formSlice';
-import StreetForm from './streetForm/StreetForm';
-import CityForm from './CityForm/CityForm';
-import StateForm from './stateForm/StateForm';
-import ZipcodeForm from './zipCodeForm/ZipCodeForm';
+import FirstNameForm from '../components/FirstNameForm/FirstNameForm';
+import LastNameForm from '../components/LastNameForm/LastNameForm';
+import DepartmentForm from '../components/DepartmentForm/DepartmentForm';
+import StartDateForm from '../components/StartDateForm/StartDateForm';
+import BirthDateForm from '../components/BirthDateForm/BirthDateForm';
+import { checkFormValidity } from '../utils/formValidation';
+import { setValue } from '../store/slices/formSlice';
+import StreetForm from '../components/StreetForm/StreetForm';
+import CityForm from '../components/CityForm/CityForm';
+import StateForm from '../components/StateForm/StateForm';
+import ZipcodeForm from '../components/ZipCodeForm/ZipCodeForm';
 import { BmModal } from 'bm-react-modal';
 
 const CreateEmployeeForm = () => {
@@ -104,17 +104,9 @@ const CreateEmployeeForm = () => {
           <DepartmentForm></DepartmentForm>
         </div>
         <div className='col-span-2 flex justify-center'>
-          {/* <button
-            onClick={handleSubmit}
-            disabled={!globalValidity && form.firstTry === false}
-            className=' btn btn-neutral w-72 shadow-inner shadow-slate-400 col-span-2 px-6 my-4 '
-          >
-            Save
-          </button> */}
           <BmModal {...modalProps}></BmModal>
         </div>
       </form>
-      {/* {modalOpen ? <CustomModal {...modalProps}></CustomModal> : ''} */}
     </div>
   );
 };

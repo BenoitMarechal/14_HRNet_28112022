@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSelected } from '../../Store/slices/dataBaseSlice';
+import { setSelected } from '../../store/slices/dataBaseSlice';
 
 const TableSearch = () => {
   const allEmployees = useSelector((state) => state.dataBaseReducer.dataBase);
