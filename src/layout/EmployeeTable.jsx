@@ -5,7 +5,7 @@ import TableHeader from '../components/CustomPagination/TableHeader';
 import TableFooter from '../components/CustomPagination/TableFooter';
 import { setSelected } from '../store/slices/dataBaseSlice';
 import { setPagination } from '../store/slices/paginationSlice';
-import './EmployeeTable.scss';
+import './employeeTable.scss';
 
 const EmployeeTable = () => {
   const dispatch = useDispatch();
